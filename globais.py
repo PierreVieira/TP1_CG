@@ -1,0 +1,25 @@
+from OpenGL.GLUT import *
+glutInit()
+c = 1
+quadrado = {
+    'id': 0 , #int
+    'x': 0, #float
+    'y': 0, #float
+    'largura': 0, #float
+    'altura': 0, #float
+    'visivel':True, #booleano
+    'velocidade': 0, #float/int
+    'area': 0, #float
+    'n_colisoes': 0
+}
+anzol = quadrado.copy()
+PTS = 0
+#Definindo o meu anzol
+anzol['x'] = 20
+anzol['y'] = 90
+anzol['altura'] = 8
+anzol['largura'] = 8
+anzol['velocidade'] = 6
+anzol['area'] = anzol['altura']**2
+
+
