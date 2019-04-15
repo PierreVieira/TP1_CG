@@ -21,8 +21,8 @@ PTS = 0
 #Definindo o meu anzol
 anzol['x'] = 20
 anzol['y'] = 90
-anzol['altura'] = 8
-anzol['largura'] = 8
+anzol['altura'] = 30
+anzol['largura'] = 30
 anzol['velocidade'] = 6
 anzol['area'] = anzol['altura']**2
 
