@@ -1,9 +1,10 @@
 from globais import *
 from random import randint
+
 def analise_de_proximidade(x_object, y_object, lista_objetos):
     for c in lista_objetos:
         distancia = ((x_object - c['x'])**2 + (y_object - c['y'])**2)**0.5
-        if distancia < 15:
+        if distancia < 25:
             return True
     return False
 
