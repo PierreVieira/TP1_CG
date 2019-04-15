@@ -2,8 +2,11 @@ from globais import *
 from OpenGL.GLUT import *
 
 def tecla(key, x = 0, y = 0):
+    global start
     tec = ord(key)
     if tec == 27: #ESC
+        end = time.time()
+        print(end - start)
         exit()
     elif tec == 114: #r
         print('reiniciando o programa')

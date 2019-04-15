@@ -1,5 +1,7 @@
 from OpenGL.GLUT import *
+import time
 glutInit()
+start = time.time()
 c = 1
 quadrado = {
     'id': 0 , #int
