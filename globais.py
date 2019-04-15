@@ -13,6 +13,7 @@ quadrado = {
     'n_colisoes': 0
 }
 anzol = quadrado.copy()
+backg = {'x':0,'y':0,'altura':200,'larg':200,'cor':1}
 PTS = 0
 #Definindo o meu anzol
 anzol['x'] = 20
