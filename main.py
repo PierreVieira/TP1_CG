@@ -1,6 +1,6 @@
 from basico import main_basico
 from toca_musica import tocarMusica
 while True:
-    #making one alteration
+    #kind begala
     #tocarMusica()
     main_basico()
