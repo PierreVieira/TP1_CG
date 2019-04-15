@@ -15,10 +15,10 @@ def manter_prop(largura, altura):
 def desenha_quadrado(quadrado, cor):
     glBegin(GL_POLYGON)
     glColor3f(cor[0], cor[1], cor[2])
-    glVertex2f(quadrado['x'] - quadrado['largura']/2, quadrado['y'] - quadrado['altura']/2)
-    glVertex2f(quadrado['x'] + quadrado['largura']/2, quadrado['y'] - quadrado['altura']/2)
-    glVertex2f(quadrado['x'] + quadrado['largura']/2, quadrado['y'] + quadrado['altura']/2)
-    glVertex2f(quadrado['x'] - quadrado['largura']/2, quadrado['y'] + quadrado['altura']/2)
+    glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
+    glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
+    glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
+    glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
     glEnd()
 
 def redesenha():
