@@ -1,1 +1,2 @@
-#deus
+backg = {'x','y','cor'}
+
