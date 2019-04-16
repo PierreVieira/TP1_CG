@@ -12,9 +12,11 @@ def gerador_objetos2(lista_peixes, lista_traps):
     all_objects = []
     objeto = quadrado.copy()
     for c in lista_peixes:
-        todos_objetos.append(c)
+        for d in c:
+            todos_objetos.append(d)
     for c in lista_traps:
-        todos_objetos.append(c)
+        for d in c:
+            todos_objetos.append(d)
     for c in todos_objetos:
         x_object = randint(-95, 95)
         y_object = randint(-95, -20)

@@ -27,7 +27,6 @@ def redesenha():
     desenha_quadrado(anzol)
     #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
     for c in todos:
-        for d in c:
-            desenha_quadrado(d)
-            collision(anzol, d)
+        desenha_quadrado(c)
+        collision(anzol, c)
     glutSwapBuffers()
