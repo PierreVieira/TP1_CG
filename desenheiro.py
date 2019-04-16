@@ -27,8 +27,7 @@ def redesenha():
     glClear(GL_COLOR_BUFFER_BIT)
     desenha_quadrado(anzol)
     #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
-    for c in todos1:
-        for d in c:
-            desenha_quadrado(d)
-            collision(anzol, d)
+    for c in all1:
+        desenha_quadrado(c)
+        collision(anzol, c)
     glutSwapBuffers()
