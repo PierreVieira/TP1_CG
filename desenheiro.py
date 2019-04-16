@@ -12,9 +12,9 @@ def manter_prop(largura, altura):
     altura = k*largura
     #glViewport(GLint(0), GLint(0), int(altura/2), int(altura/2))
 
-def desenha_quadrado(quadrado, cor):
+def desenha_quadrado(quadrado):
     glBegin(GL_POLYGON)
-    glColor3f(cor[0], cor[1], cor[2])
+    glColor3f(quadrado['cor'[0]], quadrado['cor'[1]], quadrado['cor'[2]])
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
@@ -24,10 +24,10 @@ def desenha_quadrado(quadrado, cor):
 def redesenha():
     glClearColor(0, 0.5, 1, 1)  #Fundo
     glClear(GL_COLOR_BUFFER_BIT)
-    desenha_quadrado(anzol, (1, 1, 1))
+    desenha_quadrado(anzol)
     #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
     for c in lista_peixes:
         for d in c:
-            desenha_quadrado(d, (1, 1, 0))
+            desenha_quadrado(d)
             collision(anzol, d)
     glutSwapBuffers()
