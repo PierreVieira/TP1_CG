@@ -1,5 +1,5 @@
 from desenheiro import *
-#from atualizar import *
+from atualiza import *
 from teclas import *
 from OpenGL.GL import *
 from OpenGL.GLUT import *
@@ -14,5 +14,5 @@ def main_basico():
     glOrtho(-100, 100, -100, 100, -1, 1)
     glutKeyboardFunc(tecla)
     glutSpecialFunc(movimenta_anzol)
- #   glutTimerFunc(33, atualiza, 33)
+    glutTimerFunc(33, atual, 33)
     glutMainLoop()

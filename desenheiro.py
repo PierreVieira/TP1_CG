@@ -34,4 +34,3 @@ def redesenha():
         desenha_quadrado(c)
         collision(anzol, c)
     glutSwapBuffers()
-    glutPostRedisplay()

@@ -1,6 +1,7 @@
 from objetos_primeira_parte import *
 from random import randint
 
+
 def deslocar():
     tempo = 0
     aux = 0
