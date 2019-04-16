@@ -2,9 +2,11 @@ from basico import *
 from globais import *
 from objetos_segunda_parte import *
 from objetos_primeira_parte import *
+from deslocamento import *
 from colisao import collision
 from OpenGL.GLUT import *
 from OpenGL.GL import *
+from time import sleep
 
 def manter_prop(largura, altura):
     k = 4/3
@@ -28,6 +30,8 @@ def redesenha():
     desenha_quadrado(anzol)
     #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
     for c in all1:
+        deslocar()
         desenha_quadrado(c)
         collision(anzol, c)
     glutSwapBuffers()
+    glutPostRedisplay()
