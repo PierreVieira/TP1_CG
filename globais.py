@@ -12,7 +12,8 @@ quadrado = {
     'visivel':True, #booleano
     'velocidade': 0, #float/int
     'area': 0, #float
-    'n_colisoes': 0
+    'n_colisoes': 0,
+    'cor': (0, 0, 0)
 }
 anzol = quadrado.copy()
 backg_e = {'x':0,'y':0,'altura':200,'larg':200,'cor':1}
