@@ -26,5 +26,6 @@ anzol['altura'] = 8
 anzol['largura'] = 8
 anzol['velocidade'] = 3
 anzol['area'] = anzol['altura']**2
+anzol['cor'] = (1, 1, 1)
 
 

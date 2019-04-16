@@ -9,7 +9,7 @@ def analise_de_proximidade(x_object, y_object, lista_objetos):
     return False
 
 
-def gerador_objetos(altura, largura, velocidade, quantidade):
+def gerador_objetos(altura, largura, velocidade, quantidade, cor):
     lista_objetos = []
     for c in range(quantidade):
         objeto = quadrado.copy()
@@ -25,5 +25,6 @@ def gerador_objetos(altura, largura, velocidade, quantidade):
         objeto['largura'] = largura
         objeto['velocidade'] = velocidade
         objeto['area'] = objeto['altura']*objeto['largura']
+        objeto['cor'] = cor
         lista_objetos.append(objeto.copy())
     return lista_objetos

@@ -14,7 +14,7 @@ def manter_prop(largura, altura):
 
 def desenha_quadrado(quadrado):
     glBegin(GL_POLYGON)
-    glColor3f(quadrado['cor'[0]], quadrado['cor'[1]], quadrado['cor'[2]])
+    glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
