@@ -1,6 +1,7 @@
 from basico import *
 from globais import *
-from peixes_e_traps import *
+from objetos_segunda_parte import *
+from objetos_primeira_parte import *
 from colisao import collision
 from OpenGL.GLUT import *
 from OpenGL.GL import *
@@ -26,7 +27,7 @@ def redesenha():
     glClear(GL_COLOR_BUFFER_BIT)
     desenha_quadrado(anzol)
     #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
-    for c in todos:
+    for c in todos1:
         desenha_quadrado(c)
         collision(anzol, c)
     glutSwapBuffers()
