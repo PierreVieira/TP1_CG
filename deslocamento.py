@@ -12,6 +12,7 @@ def deslocar():
         all1[c]['y'] += t - aux
         aux = t
         if all1[c]['y'] > 110:
+            all1[c]['visivel'] = True
             x_object = randint(-95, 95)
             y_object = randint(-95, -90)
             while gerador_de_coordenadas1.analise_de_proximidade(x_object, y_object, all1):

@@ -30,7 +30,8 @@ def redesenha():
     desenha_quadrado(anzol)
     #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
     for c in all1:
-        desenha_quadrado(c)
-        deslocar()
-        collision(anzol, c)
+        if c['visivel']:
+            desenha_quadrado(c)
+            deslocar()
+            collision(anzol, c)
     glutSwapBuffers()

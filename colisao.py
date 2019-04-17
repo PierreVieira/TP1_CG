@@ -15,5 +15,7 @@ def collision(anzol, quadrado):
         quadV2[0] < anzV2[0] < quadV1[0] and quadV4[1] < anzV2[1] < quadV1[1] or \
         quadV2[0] < anzV1[0] < quadV1[0] and quadV4[1] < anzV1[1] < quadV1[1] or \
         quadV2[0] < anzV4[0] < quadV1[0] and quadV4[1] < anzV4[1] < quadV1[1]:
+            quadrado['visivel'] = False
+            quadrado['y'] = 110
             anzol['n_colisoes'] += 1
             print(f'{anzol["n_colisoes"]}')
