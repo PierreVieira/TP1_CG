@@ -15,10 +15,10 @@ def gerador_objetos1(lista_peixes):
             todos_objetos.append(d)
     for c in todos_objetos:
         x_object = randint(-95, 95)
-        y_object = randint(-95, -20)
+        y_object = randint(-95, 0)
         while analise_de_proximidade(x_object, y_object, todos_objetos):
             x_object = randint(-95, 95)
-            y_object = randint(-95, -65)
+            y_object = randint(-95, -35)
         # Definindo a lista de objetos
         c['x'] = x_object
         c['y'] = y_object

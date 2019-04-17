@@ -2,9 +2,8 @@ from OpenGL.GLUT import *
 import time
 glutInit()
 start = time.time()
-c = 1
 esta_pausado = False
-distancia_permitida = 22 #Distancia permitida entre quadaddos
+distancia_permitida = 24 #Distancia permitida entre quadaddos
 quadrado = {
     'id': 0 , #int
     'x': 0, #float
@@ -26,7 +25,7 @@ anzol['x'] = 20
 anzol['y'] = 90
 anzol['altura'] = 8
 anzol['largura'] = 8
-anzol['velocidade'] = 3
+anzol['velocidade'] = 8
 anzol['area'] = anzol['altura']**2
 anzol['cor'] = (1, 1, 1)
 

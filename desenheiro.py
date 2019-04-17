@@ -10,10 +10,10 @@ from time import sleep
 
 def manter_prop(largura, altura):
     k = 4/3
-    # altura = 4
-    # largura = 3
+    altura = 4
+    largura = 3
     altura = k*largura
-    #glViewport(GLint(0), GLint(0), int(altura/2), int(altura/2))
+    glViewport(GLint(0), GLint(0), int(altura/2), int(altura/2))
 
 def desenha_quadrado(quadrado):
     glBegin(GL_POLYGON)
