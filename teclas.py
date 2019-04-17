@@ -25,10 +25,6 @@ def tecla(key, x = 0, y = 0):
 
 def movimenta_anzol(self, key, x = 0, y = 0):
     if not(globais.esta_pausado):
-        # if self == GLUT_KEY_DOWN and globais.anzol['y'] >= -95: #seta baixo
-        #     globais.anzol['y'] -= globais.anzol['velocidade']
-        # elif self == GLUT_KEY_UP and globais.anzol['y'] <= 95: #seta cima
-        #     globais.anzol['y'] += globais.anzol['velocidade']
         if self == GLUT_KEY_LEFT and globais.anzol['x'] >= -90: #seta esquerda
             globais.anzol['x'] -= globais.anzol['velocidade']
         elif self == GLUT_KEY_RIGHT and globais.anzol['x'] <= 90: #seta direita
