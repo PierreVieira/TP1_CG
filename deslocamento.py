@@ -21,14 +21,17 @@ def deslocamento_0(c):
 
 def deslocamento_1(c):
     t = aux = 0
-    direita = False
+    hit = False
     t += all1[c]['velocidade'] / randint(200, 600)
-    if not(direita):
-        all1[c]['y'] += t - aux
-        all1[c]['x'] += t - aux
-        aux = t
-        if all1[c]['x'] == 95:
-            direita = True
+    all1[c]['y'] += t - aux
+
+    if abs(all1[c]['x']) == 95:
+        hit = not(hit)
+
+    if hit:
+        all1[c]['x'] -= t
+    else:
+        all1[c]['x'] += t
 
     if all1[c]['y'] > 110:
         globais.cont_fora_da_tela += 1
@@ -40,10 +43,7 @@ def deslocamento_1(c):
             x_object = randint(-95, 95)
         all1[c]['x'] = x_object
         all1[c]['y'] = y_object
-    if direita:
-        all1[c]['x'] -=t + aux
-        all1[c]['y'] -= t - aux
-        aux = t
+
 
 def deslocar():
     for c in range(len(all1)):
