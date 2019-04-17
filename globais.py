@@ -3,6 +3,7 @@ import time
 glutInit()
 start = time.time()
 esta_pausado = False
+cont_fora_da_tela = 0
 distancia_permitida = 24 #Distancia permitida entre quadaddos
 quadrado = {
     'id': 0 , #int
