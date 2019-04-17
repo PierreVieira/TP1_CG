@@ -27,6 +27,8 @@ def deslocamento_1(c):
         all1[c]['y'] += t - aux
         all1[c]['x'] += t - aux
         aux = t
+        if all1[c]['x'] == 95:
+            direita = True
 
     if all1[c]['y'] > 110:
         globais.cont_fora_da_tela += 1
@@ -38,11 +40,10 @@ def deslocamento_1(c):
             x_object = randint(-95, 95)
         all1[c]['x'] = x_object
         all1[c]['y'] = y_object
-    if all1[c]['x'] == 95 and direita:
+    if direita:
         all1[c]['x'] -=t + aux
         all1[c]['y'] -= t - aux
         aux = t
-    elif
 
 def deslocar():
     for c in range(len(all1)):

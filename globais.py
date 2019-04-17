@@ -25,6 +25,7 @@ PTS = 0
 anzol['x'] = 20
 anzol['y'] = 90
 anzol['altura'] = 8
+anzol['visivel'] = True
 anzol['largura'] = 8
 anzol['velocidade'] = 8
 anzol['area'] = anzol['altura']**2

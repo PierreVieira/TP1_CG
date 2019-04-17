@@ -13,7 +13,6 @@ def tecla(key, x = 0, y = 0):
     elif tec == 112: #p
         globais.esta_pausado = not(globais.esta_pausado)
         print('Pausando o programa')
-        globais.anzol['y'] += globais.anzol['velocidade']
     elif tec == 97: #esquerda (a)
         globais.anzol['x'] -= globais.anzol['velocidade']
     elif tec == 100: #direita (d)
