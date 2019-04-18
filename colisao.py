@@ -19,3 +19,4 @@ def collision(anzol, quadrado):
             quadrado['y'] = 110
             anzol['n_colisoes'] += 1
             print(f'{anzol["n_colisoes"]}')
+            return True

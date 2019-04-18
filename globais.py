@@ -3,7 +3,8 @@ import time
 glutInit()
 start = time.time()
 esta_pausado = False
-direcao = True
+direcao2 = True
+soma_d2 = 0
 cont_fora_da_tela = 0
 distancia_permitida = 26 #Distancia permitida entre quadaddos
 quadrado = {
@@ -16,6 +17,7 @@ quadrado = {
     'velocidade': 0, #float/int
     'area': 0, #float
     'n_colisoes': 0,
+    'direcao': True,
     'cor': (0, 0, 0)
 }
 anzol = quadrado.copy()

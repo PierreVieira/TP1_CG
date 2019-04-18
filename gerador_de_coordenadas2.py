@@ -7,7 +7,7 @@ def analise_de_proximidade(x_object, y_object, lista_objetos):
             return True
     return False
 
-def gerador_objetos2(lista_peixes, lista_traps):
+def gerador_objetos2(lista_peixes):
     todos_objetos = []
     all_objects = []
     objeto = quadrado.copy()
