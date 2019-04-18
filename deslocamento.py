@@ -21,17 +21,19 @@ def deslocamento_0(c):
 
 def deslocamento_1(c):
     t = aux = 0
-    hit = False
     t += all1[c]['velocidade'] / randint(200, 600)
-    all1[c]['y'] += t - aux
+    all1[c]['y'] += t*3 - aux
 
-    if abs(all1[c]['x']) == 95:
-        hit = not(hit)
+    if int(all1[c]['x']) == 95:
+        globais.direcao = False
 
-    if hit:
-        all1[c]['x'] -= t
-    else:
+    elif int(all1[c]['x']) == -95:
+        globais.direcao = True
+
+    if globais.direcao:
         all1[c]['x'] += t
+    else:
+        all1[c]['x'] -= t
 
     if all1[c]['y'] > 110:
         globais.cont_fora_da_tela += 1
@@ -49,9 +51,9 @@ def deslocar():
     for c in range(len(all1)):
         if all1[c]['id'] == 0:
             deslocamento_0(c)
-        if globais.cont_fora_da_tela == 4:
-            all1[0]['id'] = 1
-            all1[0]['cor'] = (1, 0, 1)
+        if (globais.cont_fora_da_tela+1) % 50 == 0 and globais.cont_fora_da_tela <= 200:
+            all1[0+(globais.cont_fora_da_tela//50)]['id'] = 1
+            all1[0+(globais.cont_fora_da_tela//50)]['cor'] = (1, 0, 1)
         elif all1[c]['id'] == 1:
             deslocamento_1(c)
 
