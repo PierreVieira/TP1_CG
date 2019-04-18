@@ -12,7 +12,7 @@ def tecla(key, x = 0, y = 0):
         exit()
     elif tec == 114: #r
         print('reiniciando o programa')
-    elif tec == 112 or tec == 80: #p
+    elif (tec == 112 or tec == 80) and not(globais.estou_em_transicao): #p
         globais.esta_pausado = not(globais.esta_pausado)
         print('Pausando o programa')
     elif tec == 97: #esquerda (a)

@@ -4,7 +4,9 @@ glutInit()
 start = time.time()
 esta_pausado = False
 direcao2 = True
-soma_d2 = 0
+estou_em_transicao = False
+vidas = 3
+parte = 1
 cont_fora_da_tela = 0
 distancia_permitida = 26 #Distancia permitida entre quadaddos
 quadrado = {

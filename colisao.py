@@ -1,4 +1,6 @@
 #from txt import pts
+import globais
+import menu_pause
 
 def collision(anzol, quadrado):
     anzV3 = anzol['x'] - anzol['largura'] / 2, anzol['y'] - anzol['altura'] / 2
@@ -11,7 +13,7 @@ def collision(anzol, quadrado):
     quadV1 = quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2
     quadV2 = quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2
 
-    if  quadV2[0] < anzV3[0] < quadV1[0] and quadV4[1] < anzV3[1] < quadV1[1] or \
+    if quadV2[0] < anzV3[0] < quadV1[0] and quadV4[1] < anzV3[1] < quadV1[1] or \
         quadV2[0] < anzV2[0] < quadV1[0] and quadV4[1] < anzV2[1] < quadV1[1] or \
         quadV2[0] < anzV1[0] < quadV1[0] and quadV4[1] < anzV1[1] < quadV1[1] or \
         quadV2[0] < anzV4[0] < quadV1[0] and quadV4[1] < anzV4[1] < quadV1[1]:
@@ -19,4 +21,8 @@ def collision(anzol, quadrado):
             quadrado['y'] = 110
             anzol['n_colisoes'] += 1
             print(f'{anzol["n_colisoes"]}')
-            return True
+            if globais.parte == 1:
+                globais.estou_em_transicao = True
+                globais.esta_pausado = True
+
+                globais.parte = 2

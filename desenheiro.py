@@ -24,6 +24,7 @@ def desenha_quadrado(quadrado):
     glEnd()
 
 def redesenha():
+
     glClearColor(0, 0.5, 1, 1)  #Fundo
     glClear(GL_COLOR_BUFFER_BIT)
     if globais.esta_pausado:

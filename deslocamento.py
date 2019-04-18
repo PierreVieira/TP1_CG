@@ -26,7 +26,7 @@ def deslocamento_0(c):
 
 def deslocamento_1(c):
     t = all1[c]['velocidade'] / randint(400, 1200)
-    all1[c]['y'] += t*1.73
+    all1[c]['y'] += t*2
 
     if all1[c]['x'] >= 95:
         all1[c]['direcao'] = False
@@ -42,17 +42,16 @@ def deslocamento_1(c):
 
 def deslocamento_2(c):
     t = all1[c]['velocidade'] / randint(400, 1200)
-    globais.soma_d2 += t
-    all1[c]['y'] = all1[c]['x']**2 + globais.soma_d2
+    all1[c]['y'] += t*5
     if int(time() - globais.start) % 2 == 0:
         globais.direcao2 = True
     else:
         globais.direcao2 = False
 
     if globais.direcao2:
-        all1[c]['x'] += 0.1*pi/10
+        all1[c]['x'] += (t**2)*5
     else:
-        all1[c]['x'] -= 0.1*pi/10
+        all1[c]['x'] -= (t**2)*5
     checkY(c)
 
 def deslocar():
@@ -66,8 +65,7 @@ def deslocar():
         if (globais.cont_fora_da_tela+1) % 5 == 0 and globais.cont_fora_da_tela <= 20:
             all1[0+(globais.cont_fora_da_tela//5)]['id'] = 1
             all1[0+(globais.cont_fora_da_tela//5)]['cor'] = (1, 0, 1)
-        #
-        # elif (globais.cont_fora_da_tela+1) % 5 == 0 and 20 <= globais.cont_fora_da_tela <= 40:
-        #     all1[4 + (globais.cont_fora_da_tela // 5)]['id'] = 2
-        #     all1[4 + (globais.cont_fora_da_tela // 5)]['cor'] = (0, 0, 0)
 
+        elif (globais.cont_fora_da_tela+1) % 5 == 0 and 20 <= globais.cont_fora_da_tela <= 40:
+            all1[4 + (globais.cont_fora_da_tela // 5)]['id'] = 2
+            all1[4 + (globais.cont_fora_da_tela // 5)]['cor'] = (0, 0, 0)

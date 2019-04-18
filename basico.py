@@ -2,7 +2,6 @@ from desenheiro import *
 from atualiza import *
 from teclas import *
 from OpenGL.GL import *
-from OpenGL.GLUT import *
 from globais import *
 
 def main_basico():
