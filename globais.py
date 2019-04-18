@@ -3,7 +3,6 @@ import time
 glutInit()
 start = time.time()
 esta_pausado = False
-direcao2 = True
 estou_em_transicao = False
 vidas = 3
 parte = 1

@@ -11,7 +11,7 @@ def deslocar_camburao(camburao):
     if camburao['y'] < -80:
         camburao['y'] += camburao['velocidade']/2
     else:
-
+        all1.pop(-1)
         globais.esta_pausado = False
 
 def checkY(c):
@@ -52,11 +52,11 @@ def deslocamento_2(c):
     t = all1[c]['velocidade'] / randint(400, 1200)
     all1[c]['y'] += t*5
     if int(time() - globais.start) % 2 == 0:
-        globais.direcao2 = True
+        all1[c]['direcao'] = True
     else:
-        globais.direcao2 = False
+        all1[c]['direcao'] = False
 
-    if globais.direcao2:
+    if all1[c]['direcao']:
         all1[c]['x'] += (t**2)*5
     else:
         all1[c]['x'] -= (t**2)*5
