@@ -2,7 +2,6 @@ from pygame import mixer
 import globais
 from time import time
 def tocarMusica():
-    print('EU ESTOU AQUUIIII')
     if globais.parte == 1:
         nome_arquivo = 'Senbonzakura.mp3'
         tempo_arquivo = 190

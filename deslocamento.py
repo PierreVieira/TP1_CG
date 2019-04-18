@@ -4,7 +4,15 @@ import gerador_de_coordenadas1
 import globais
 from math import cos, sin, pi
 from OpenGL.GL import *
-from time import time
+from time import time,sleep
+import desenheiro
+
+def deslocar_camburao(camburao):
+    if camburao['y'] < -80:
+        camburao['y'] += camburao['velocidade']/2
+    else:
+
+        globais.esta_pausado = False
 
 def checkY(c):
     if all1[c]['y'] >= 110:
@@ -53,15 +61,16 @@ def deslocamento_2(c):
     else:
         all1[c]['x'] -= (t**2)*5
     checkY(c)
-
-def deslocar():
+def deslocar(apenas_caminhao):
     for c in range(len(all1)):
-        if all1[c]['id'] == 0:
+        if all1[c]['id'] == 0 and not(apenas_caminhao):
             deslocamento_0(c)
-        elif all1[c]['id'] == 1:
+        elif all1[c]['id'] == 1 and not(apenas_caminhao):
             deslocamento_1(c)
-        elif all1[c]['id'] == 2:
+        elif all1[c]['id'] == 2 and not(apenas_caminhao):
             deslocamento_2(c)
+        elif all1[c]['id'] == 3:
+            deslocar_camburao(all1[c])
         if (globais.cont_fora_da_tela+1) % 5 == 0 and globais.cont_fora_da_tela <= 20:
             all1[0+(globais.cont_fora_da_tela//5)]['id'] = 1
             all1[0+(globais.cont_fora_da_tela//5)]['cor'] = (1, 0, 1)

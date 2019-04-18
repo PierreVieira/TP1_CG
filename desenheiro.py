@@ -27,7 +27,16 @@ def redesenha():
 
     glClearColor(0, 0.5, 1, 1)  #Fundo
     glClear(GL_COLOR_BUFFER_BIT)
-    if globais.esta_pausado:
+    if all1[-1]['id'] == 3 and globais.esta_pausado:
+        desenha_quadrado(anzol)
+        for c in all1:
+            if c['visivel']:
+                desenha_quadrado(c)
+                if c['id'] == 3:
+                    deslocar(True)
+                collision(anzol, c)
+        glutSwapBuffers()
+    elif globais.esta_pausado:
         desenha_quadrado(anzol)
         for c in all1:
             desenha_quadrado(c)
@@ -39,6 +48,6 @@ def redesenha():
         for c in all1:
             if c['visivel']:
                 desenha_quadrado(c)
-                deslocar()
+                deslocar(False)
                 collision(anzol, c)
         glutSwapBuffers()
