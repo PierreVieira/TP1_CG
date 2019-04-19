@@ -3,6 +3,12 @@ from objetos_segunda_parte import *
 from random import randint, uniform
 import deslocamento1
 
+def checkY2(c,x):
+    if all2[c]['y'] <= -110:
+        all2[c]['visivel'] = True
+        all2[c]['y'] = 120
+        all2[c]['x'] = x
+
 def deslocamento_3(c): #Deslocamento caótico das lolis
     t = (uniform(0.01, 0.1) * randint(1, 10))*objetos_primeira_parte.all1[c]['velocidade']/100
     objetos_primeira_parte.all1[c]['y'] += t
@@ -20,7 +26,6 @@ def deslocamento_3(c): #Deslocamento caótico das lolis
 
 def deslocamento_4(c): #Deslocamento Policiais
     t = all2[c]['velocidade']/randint(1, 26)
-    print(t)
     if all2[c]['y'] >= -40: #Topo
         all2[c]['direcaoY'] = False
     elif all2[c]['y'] <= -95: #Fundo
@@ -33,7 +38,7 @@ def deslocamento_4(c): #Deslocamento Policiais
     if all2[c]['direcaoY'] and all2[c]['direcao']:
         all2[c]['x'] += t/100
         all2[c]['y'] += t/100
-    elif all2[c]['direcaoY'] and not(all2[c]['direcao']) :
+    elif all2[c]['direcaoY'] and not(all2[c]['direcao']):
         all2[c]['x'] -= t/100
         all2[c]['y'] += t/100
     elif not(all2[c]['direcaoY']) and all2[c]['direcao']:
@@ -43,11 +48,24 @@ def deslocamento_4(c): #Deslocamento Policiais
         all2[c]['x'] -= t/100
         all2[c]['y'] -= t/100
 
+def deslocamento_5(c,x): #Barricadas
+    t = all2[c]['velocidade']*globais.cont_fora_da_tela/10000
+    all2[c]['y'] -= t
+    checkY2(c,x)
+
+def deslocamento_6(c,x):
+    t = all2[c]['velocidade'] * globais.cont_fora_da_tela / 10000
+    all2[c]['y'] -= t
+    checkY2(c,x)
+
 def move():
     for c in range(len(objetos_primeira_parte.all1)):
         deslocamento_3(c)
         for c in range(len(all2)):
             if all2[c]['id'] == 0:
                 deslocamento_4(c)
-            elif all2[c]['id'] == 5:
-                deslocamento_5(c)
+            elif all2[c]['id'] == 4:
+                x = randint(-140, -60)
+                deslocamento_5(c,x)
+            else:
+                deslocamento_6(c,x+200)

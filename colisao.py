@@ -1,6 +1,7 @@
 #from txt import pts
 import globais
 from desenheiro import deslocar_camburao
+import objetos_segunda_parte
 from objetos_primeira_parte import *
 def collision(anzol, quadrado):
     anzV3 = anzol['x'] - anzol['largura'] / 2, anzol['y'] - anzol['altura'] / 2
@@ -32,4 +33,4 @@ def collision(anzol, quadrado):
                 camburao['id'] = 3
                 all1.append(camburao)
             elif globais.parte == 2:
-                print()
+                print(end='')
