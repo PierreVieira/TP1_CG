@@ -7,7 +7,6 @@ estou_em_transicao = False
 vidas = 3
 parte = 1
 cont_fora_da_tela = 0
-distancia_permitida = 26 #Distancia permitida entre quadaddos
 quadrado = {
     'id': 0 , #int
     'x': 0, #float
@@ -19,6 +18,7 @@ quadrado = {
     'area': 0, #float
     'n_colisoes': 0,
     'direcao': True,
+    'direcaoY': True,
     'cor': (0, 0, 0)
 }
 anzol = quadrado.copy()

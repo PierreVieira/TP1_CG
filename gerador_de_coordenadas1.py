@@ -1,6 +1,6 @@
 from random import randint
 from globais import *
-def analise_de_proximidade(x_object, y_object, lista_objetos):
+def analise_de_proximidade(x_object, y_object, lista_objetos, distancia_permitida):
     for c in lista_objetos:
         distancia = ((x_object - c['x'])**2 + (y_object - c['y'])**2)**0.5
         if distancia < distancia_permitida:
@@ -16,7 +16,7 @@ def gerador_objetos1(lista_peixes):
     for c in todos_objetos:
         x_object = randint(-95, 95)
         y_object = randint(-95, 0)
-        while analise_de_proximidade(x_object, y_object, todos_objetos):
+        while analise_de_proximidade(x_object, y_object, todos_objetos, 26):
             x_object = randint(-95, 95)
             y_object = randint(-95, -35)
         # Definindo a lista de objetos

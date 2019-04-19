@@ -4,7 +4,7 @@ import gerador_de_coordenadas1
 import globais
 from math import cos, sin, pi
 from OpenGL.GL import *
-from time import time,sleep
+from time import time, sleep
 import desenheiro
 
 def deslocar_camburao(camburao):
@@ -12,6 +12,9 @@ def deslocar_camburao(camburao):
         camburao['y'] += camburao['velocidade']/2
     else:
         all1.pop(-1)
+        sleep(1)
+        globais.parte = 2
+        globais.estou_em_transicao = False
         globais.esta_pausado = False
 
 def checkY(c):
@@ -20,7 +23,7 @@ def checkY(c):
         all1[c]['visivel'] = True
         x_object = randint(-95, 95)
         y_object = randint(-95, -90)
-        while gerador_de_coordenadas1.analise_de_proximidade(x_object, y_object, all1):
+        while gerador_de_coordenadas1.analise_de_proximidade(x_object, y_object, all1, 26):
             y_object = randint(-110, -101)
             x_object = randint(-95, 95)
         all1[c]['x'] = x_object
@@ -61,6 +64,7 @@ def deslocamento_2(c):
     else:
         all1[c]['x'] -= (t**2)*5
     checkY(c)
+
 def deslocar(apenas_caminhao):
     for c in range(len(all1)):
         if all1[c]['id'] == 0 and not(apenas_caminhao):
@@ -71,10 +75,10 @@ def deslocar(apenas_caminhao):
             deslocamento_2(c)
         elif all1[c]['id'] == 3:
             deslocar_camburao(all1[c])
-        if (globais.cont_fora_da_tela+1) % 5 == 0 and globais.cont_fora_da_tela <= 20:
-            all1[0+(globais.cont_fora_da_tela//5)]['id'] = 1
-            all1[0+(globais.cont_fora_da_tela//5)]['cor'] = (1, 0, 1)
+        if (globais.cont_fora_da_tela+1) % 20 == 0 and globais.cont_fora_da_tela <= 80:
+            all1[0+(globais.cont_fora_da_tela//20)]['id'] = 1
+            all1[0+(globais.cont_fora_da_tela//20)]['cor'] = (1, 0, 1)
 
-        elif (globais.cont_fora_da_tela+1) % 5 == 0 and 20 <= globais.cont_fora_da_tela <= 40:
-            all1[4 + (globais.cont_fora_da_tela // 5)]['id'] = 2
-            all1[4 + (globais.cont_fora_da_tela // 5)]['cor'] = (0, 0, 0)
+        elif (globais.cont_fora_da_tela+1) % 20 == 0 and 80 <= globais.cont_fora_da_tela <= 160:
+            all1[4 + (globais.cont_fora_da_tela // 20)]['id'] = 2
+            all1[4 + (globais.cont_fora_da_tela // 20)]['cor'] = (0, 0, 0)

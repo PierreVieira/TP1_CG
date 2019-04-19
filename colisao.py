@@ -31,7 +31,5 @@ def collision(anzol, quadrado):
                 camburao['velocidade'] = 1
                 camburao['id'] = 3
                 all1.append(camburao)
-                globais.parte = 2
-                globais.estou_em_transicao = False
-            # elif globais.parte == 2:
-            #     print()
+            elif globais.parte == 2:
+                print()

@@ -1,7 +1,8 @@
 from basico import *
 from globais import *
-from objetos_primeira_parte import *
-from deslocamento import *
+from objetos_segunda_parte import *
+from deslocamento1 import *
+from deslocamento2 import *
 from colisao import collision
 from OpenGL.GLUT import *
 from OpenGL.GL import *
@@ -27,27 +28,44 @@ def redesenha():
 
     glClearColor(0, 0.5, 1, 1)  #Fundo
     glClear(GL_COLOR_BUFFER_BIT)
-    if all1[-1]['id'] == 3 and globais.esta_pausado:
+    if globais.parte == 1:
+        if all1[-1]['id'] == 3 and globais.esta_pausado:
+            desenha_quadrado(anzol)
+            for c in all1:
+                if c['visivel']:
+                    desenha_quadrado(c)
+                    if c['id'] == 3:
+                        deslocar(True)
+                    collision(anzol, c)
+            glutSwapBuffers()
+        elif globais.esta_pausado:
+            desenha_quadrado(anzol)
+            for c in all1:
+                if c['visivel']:
+                    desenha_quadrado(c)
+                    menu_pause.menu_p()
+            glutSwapBuffers()
+        else:
+            desenha_quadrado(anzol)
+            #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
+            for c in all1:
+                if c['visivel']:
+                    desenha_quadrado(c)
+                    deslocar(False)
+                    collision(anzol, c)
+            glutSwapBuffers()
+
+    elif globais.parte == 2:
         desenha_quadrado(anzol)
         for c in all1:
             if c['visivel']:
                 desenha_quadrado(c)
-                if c['id'] == 3:
-                    deslocar(True)
+                move()
                 collision(anzol, c)
-        glutSwapBuffers()
-    elif globais.esta_pausado:
-        desenha_quadrado(anzol)
-        for c in all1:
-            desenha_quadrado(c)
-            menu_pause.menu_p()
-        glutSwapBuffers()
-    else:
-        desenha_quadrado(anzol)
-        #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
-        for c in all1:
+        for c in all2:
             if c['visivel']:
                 desenha_quadrado(c)
-                deslocar(False)
+                move()
                 collision(anzol, c)
         glutSwapBuffers()
+
