@@ -84,7 +84,7 @@ def atirar(c):
     if shots[c]['y'] >= -110:
         shots[c]['y'] += abs(shots[c]['y']/10000)
         shots[c]['x'] += abs(shots[c]['x']/10000)
-    if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 20):
+    if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 15):
         shots[c]['visivel'] = False
         t_col = time() - globais.start
         if t_col - globais.aux_t_col >= 1:

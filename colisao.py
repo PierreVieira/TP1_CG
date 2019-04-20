@@ -27,7 +27,6 @@ def collision(objeto, quadrado):
             objeto['n_colisoes'] += 1
             print(f'{objeto["n_colisoes"]}')
             if globais.parte == 1 and objeto['id'] == 'anzol':
-                globais.aux_musica = True
                 globais.estou_em_transicao = True
                 globais.esta_pausado = True
                 camburao = globais.quadrado.copy()

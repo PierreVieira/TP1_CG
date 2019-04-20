@@ -23,7 +23,7 @@ def checkY(c):
         all1[c]['visivel'] = True
         x_object = randint(-95, 95)
         y_object = randint(-95, -90)
-        while gerador_de_coordenadas1.analise_de_proximidade(x_object, y_object, all1, 26 ):
+        while gerador_de_coordenadas1.analise_de_proximidade(x_object, y_object, all1, 26):
             y_object = randint(-110, -101)
             x_object = randint(-95, 95)
         all1[c]['x'] = x_object
