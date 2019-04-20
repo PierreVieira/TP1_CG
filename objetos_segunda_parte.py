@@ -25,5 +25,5 @@ todos2[0].append(barricada_e)
 todos2[0].append(barricada_d)
 all2 = gerador_objetos2(todos2)
 
-lista_tiros.append((gerador_objetos(6, 2, 5, 2, (0, 0, 0))))
+lista_tiros.append((gerador_objetos(6, 2, 5, qtde_policiais, (0, 0, 0))))
 shots = coord_tiro(lista_tiros)

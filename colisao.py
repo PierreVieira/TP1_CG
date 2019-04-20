@@ -1,7 +1,8 @@
 #from txt import pts
-from gerador_de_coordenadas2 import *
 from objetos_segunda_parte import *
 from objetos_primeira_parte import *
+from time import time
+import globais
 def collision(objeto, quadrado):
     objV3 = objeto['x'] - objeto['largura'] / 2, objeto['y'] - objeto['altura'] / 2
     objV4 = objeto['x'] + objeto['largura'] / 2, objeto['y'] - objeto['altura'] / 2
@@ -26,6 +27,7 @@ def collision(objeto, quadrado):
             objeto['n_colisoes'] += 1
             print(f'{objeto["n_colisoes"]}')
             if globais.parte == 1 and objeto['id'] == 'anzol':
+                globais.aux_musica = True
                 globais.estou_em_transicao = True
                 globais.esta_pausado = True
                 camburao = globais.quadrado.copy()
@@ -36,12 +38,17 @@ def collision(objeto, quadrado):
                 camburao['velocidade'] = 1
                 camburao['id'] = 3
                 all1.append(camburao)
-            elif globais.parte == 2:
+            elif globais.parte == 2 and objeto['id'] == 'anzol':
+                if quadrado['id'] == 0:
+                    quadrado['x'] = 3000
+                    quadrado['y'] = 3000
                 if quadrado['id'] == 6:
-                    quadrado['visivel'] = False
-                    pos = randint(0, 4)
-                    quadrado['x'] = all2[pos]['x']
-                    quadrado['y'] = all2[pos]['y'] + 1
-                    quadrado['visivel'] = True
-                print(end='')
+                    t_col = time() - globais.start
+                    if t_col - globais.aux_t_col >= 1:
+                        quadrado['visivel'] = False
+                        pos = randint(0, 4)
+                        quadrado['x'] = all2[pos]['x']
+                        quadrado['y'] = all2[pos]['y'] + 1
+                        quadrado['visivel'] = True
+                    globais.aux_t_col = t_col
             return True

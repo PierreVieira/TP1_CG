@@ -1,11 +1,13 @@
 from OpenGL.GLUT import *
 import time
+aux_musica = True
 glutInit()
+aux_t_col = 0
 start = time.time()
 esta_pausado = False
 estou_em_transicao = False
 vidas = 3
-parte = 0
+parte = 'menu'
 cont_fora_da_tela = 0
 quadrado = {
     'id': 0 , #int
@@ -37,7 +39,8 @@ seguidor_mouse['altura'] = 4
 #Definindo um quadrado para as telas
 tela_inicial = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 0)}
 tela_creditos = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 1)}
-
+tela_instrucoes = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (1, 0, 1)}
+tela_ranking = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 1, 0)}
 
 #Definição de fundos
 backg_e = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 0)}
@@ -95,8 +98,8 @@ botao_sair['id'] = 'btnSair'
 botao_sair['x'] = 70
 botao_sair['y'] = -90
 
-#Definição de um botão que vai mostrar as instruções
+#Definição de um botão de instruções
 botao_instrucoes = botao_iniciar_jogo.copy()
-botao_instrucoes['id'] = 'btnSair'
+botao_instrucoes['id'] = 'btnInstrucoes'
 botao_instrucoes['x'] = 0
-botao_instrucoes['y'] = 50
+botao_instrucoes['y'] = 60

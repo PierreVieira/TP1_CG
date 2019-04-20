@@ -11,7 +11,7 @@ def analise_de_proximidade(x_object, y_object, lista_objetos, distancia_permitid
 def coord_tiro(lista_tiros):
     for c in lista_tiros:
         for d in range(len(c)):
-            pos = randint(0, 4)
+            pos = randint(0, 5)
             c[d]['x'] = objetos_segunda_parte.all2[pos]['x']
             c[d]['y'] = objetos_segunda_parte.all2[pos]['y'] + 1
     return c

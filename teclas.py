@@ -13,8 +13,9 @@ def tecla(key, x = 0, y = 0):
     elif tec == 114: #r
         print('reiniciando o programa')
     elif (tec == 112 or tec == 80) and not(globais.estou_em_transicao): #p
-        globais.esta_pausado = not(globais.esta_pausado)
-        print('Pausando o programa')
+        if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
+            globais.esta_pausado = not(globais.esta_pausado)
+            print('Pausando o programa')
     elif tec == 97: #esquerda (a)
         globais.anzol['x'] -= globais.anzol['velocidade']
     elif tec == 100: #direita (d)

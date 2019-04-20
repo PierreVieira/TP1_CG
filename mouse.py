@@ -1,10 +1,7 @@
-import globais
-from OpenGL.GLUT import *
-from time import time
 from colisao import *
 from menu_pause import *
 from globais import *
-import menu_pause
+from pygame import mixer
 def conversao(x, y):
     if x < 300:
         x = -(100 -x/3)
@@ -24,11 +21,20 @@ def movimentoMouse(x, y):
 def clicks_do_mouse(button, state, x, y):
     x, y = conversao(x, y)
     print(x, y)
-    if collision(seguidor_mouse, botao_iniciar_jogo):
-        globais.parte = 1
-    elif collision(seguidor_mouse, botao_creditos):
-        globais.parte = -1
-    elif collision(seguidor_mouse, botao_sair):
-        exit()
-    else:
-        globais.parte = 0
+    if button == GLUT_LEFT_BUTTON:
+        if globais.parte == 'menu':
+            if collision(seguidor_mouse, botao_iniciar_jogo):
+                globais.parte = 1
+                globais.aux_musica = True
+            elif collision(seguidor_mouse, botao_creditos):
+                globais.parte = 'creditos'
+                globais.aux_musica = True
+            elif collision(seguidor_mouse, botao_sair):
+                exit()
+            elif collision(seguidor_mouse, botao_instrucoes):
+                globais.parte = 'instrucoes'
+            elif collision(seguidor_mouse, botao_ranking):
+                globais.parte = 'ranking'
+    elif button == GLUT_RIGHT_BUTTON and not(globais.parte == 1 or globais.parte == 2 or globais.parte == 3):
+        globais.aux_musica = True
+        globais.parte = 'menu'

@@ -1,16 +1,22 @@
 from pygame import mixer
 import globais
-from time import time
+
+def padraozinhoPlayzim(nome_arq):
+    mixer.music.load(nome_arq)
+    mixer.music.play()
+    globais.aux_musica = False
+
 def tocarMusica():
-    if globais.parte == 0 or globais.parte == 1:
-        nome_arquivo = 'Senbonzakura.mp3'
-        tempo_arquivo = 190
-    else:
-        nome_arquivo = 'Naruto.mp3'
-        tempo_arquivo = 300
-
-    if (time() - globais.start <= 1) or (int(time() - globais.start) % tempo_arquivo) == 0:
-        mixer.init()
-        mixer.music.load(nome_arquivo)
+    mixer.init()
+    if globais.parte == 1 and globais.aux_musica:
+        padraozinhoPlayzim('Senbonzakura.mp3')
+    elif globais.parte == 2 and globais.aux_musica:
+        mixer.music.load('Senbonzakura.mp3')
         mixer.music.play()
-
+        globais.aux_musica = False
+    elif globais.parte == 'creditos' and globais.aux_musica:
+        padraozinhoPlayzim('dbs_YokaYoka Dance.mp3')
+    elif globais.parte == 'menu' and globais.aux_musica:
+        mixer.music.load('Naruto.mp3')
+        mixer.music.play()
+        globais.aux_musica = False

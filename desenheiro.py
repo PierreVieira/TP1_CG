@@ -52,10 +52,7 @@ def redesenha():
 
     glClearColor(0, 0.5, 1, 1)  #Fundo
     glClear(GL_COLOR_BUFFER_BIT)
-    if globais.parte == -1:
-        desenha_quadrado(globais.tela_creditos)
-        glutSwapBuffers()
-    elif globais.parte == 0:
+    if globais.parte == 'menu':
         desenha_quadrado(globais.tela_inicial)
         desenha_quadrado(globais.botao_iniciar_jogo)
         desenha_quadrado(globais.botao_creditos)
@@ -64,6 +61,15 @@ def redesenha():
         desenha_quadrado(globais.botao_sair)
         desenha_quadrado(globais.botao_instrucoes)
         desenha_quadrado(globais.seguidor_mouse)
+        glutSwapBuffers()
+    elif globais.parte == 'instrucoes':
+        desenha_quadrado(globais.tela_instrucoes)
+        glutSwapBuffers()
+    elif globais.parte == 'ranking':
+        desenha_quadrado(globais.tela_ranking)
+        glutSwapBuffers()
+    elif globais.parte == 'creditos':
+        desenha_quadrado(globais.tela_creditos)
         glutSwapBuffers()
     elif globais.parte == 1:
         if all1[-1]['id'] == 3 and globais.esta_pausado:

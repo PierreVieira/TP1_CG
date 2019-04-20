@@ -2,8 +2,7 @@ import objetos_primeira_parte
 from objetos_segunda_parte import *
 from random import randint, uniform
 import deslocamento1
-import desenheiro
-from OpenGL.GL import *
+from time import time
 
 def checkY2(c,x):
     if all2[c]['y'] <= -110:
@@ -58,6 +57,13 @@ def deslocamento_5(c,x): #Barricadas
     all2[c]['y'] -= t
     checkY2(c,x)
 
+def deslocamento_6(c,x):
+    if globais.cont_fora_da_tela < 300:
+        t = all2[c]['velocidade'] * globais.cont_fora_da_tela / 10000
+    else:
+        t = 0.0313
+    all2[c]['y'] -= t
+    checkY2(c,x)
 
 def atirar(c):
     t = shots[c]['velocidade']/500
@@ -69,20 +75,27 @@ def atirar(c):
         shots[c]['x'] -= t + globais.anzol['x'] / 12000
     if shots[c]['y'] >= 105:
         pos = randint(0, 4)
-        if all2[pos]['x'] > 0:
-            shots[c]['x'] = all2[pos]['x'] - 20
-        else:
-            shots[c]['x'] = all2[pos]['x'] + 20
-        shots[c]['y'] = all2[pos]['y'] - 8
+        if all2[pos]['x'] < 100:
+            if all2[pos]['x'] > 0:
+                shots[c]['x'] = all2[pos]['x'] - 20
+            else:
+                shots[c]['x'] = all2[pos]['x'] + 20
+            shots[c]['y'] = all2[pos]['y'] - 8
     if shots[c]['y'] >= -110:
-        shots[c]['y'] += abs(shots[c]['y']/7000)
-        shots[c]['x'] += abs(shots[c]['x']/7000)
-    if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 15):
+        shots[c]['y'] += abs(shots[c]['y']/10000)
+        shots[c]['x'] += abs(shots[c]['x']/10000)
+    if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 20):
         shots[c]['visivel'] = False
-        pos = randint(0, 4)
-        shots[c]['x'] = all2[pos]['x']
-        shots[c]['y'] = all2[pos]['y'] + 1
-        shots[c]['visivel'] = True
+        t_col = time() - globais.start
+        if t_col - globais.aux_t_col >= 1:
+            print('AAIAI')
+            pos = randint(0, 4)
+            shots[c]['x'] = all2[pos]['x']
+            shots[c]['y'] = all2[pos]['y'] + 1
+            shots[c]['visivel'] = True
+        else:
+            shots[c]['visivel'] = True
+        globais.aux_t_col = t_col
 
 def move():
     for c in range(len(objetos_primeira_parte.all1)):
@@ -94,7 +107,7 @@ def move():
                 x = randint(-140, -60)
                 deslocamento_5(c,x)
             else:
-                deslocamento_5(c,x+200)
+                deslocamento_6(c, x+200)
         for c in range(len(shots)):
             shots[c]['id'] = 6
             atirar(c)
