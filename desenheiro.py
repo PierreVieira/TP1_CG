@@ -77,7 +77,12 @@ def redesenha():
             desenha_quadrado(anzol)
             for c in shots:
                 if c['visivel']:
-                    padrao_2(c)
+                    glPushMatrix()
+                    glRotatef(c['x']/3, 0, 0, 1)
+                    desenha_quadrado(c)
+                    move()
+                    collision(anzol, c)
+                    glPopMatrix()
             for c in all1:
                 if c['visivel']:
                     padrao_2(c)

@@ -51,25 +51,45 @@ def deslocamento_4(c): #Deslocamento Policiais
         all2[c]['y'] -= t/100
 
 def deslocamento_5(c,x): #Barricadas
-    t = all2[c]['velocidade']*globais.cont_fora_da_tela/10000
+    if globais.cont_fora_da_tela < 300:
+        t = all2[c]['velocidade']*globais.cont_fora_da_tela/10000
+    else:
+        t = 0.0313
     all2[c]['y'] -= t
     checkY2(c,x)
 
 def deslocamento_6(c,x):
-    t = all2[c]['velocidade'] * globais.cont_fora_da_tela / 10000
+    if globais.cont_fora_da_tela < 300:
+        t = all2[c]['velocidade'] * globais.cont_fora_da_tela / 10000
+    else:
+        t = 0.0313
     all2[c]['y'] -= t
     checkY2(c,x)
 
 def atirar(c):
-    shots[c]['x'] += globais.anzol['x']/6000
-    shots[c]['y'] += globais.anzol['y']/6000
+    t = shots[c]['velocidade']/500
+    if shots[c]['x'] >= 0 and shots[c]['y'] < -110:
+        shots[c]['y'] += t + globais.anzol['y'] / 12000
+        shots[c]['x'] += t + globais.anzol['x'] / 12000
+    else:
+        shots[c]['y'] += t + globais.anzol['y'] / 12000
+        shots[c]['x'] -= t + globais.anzol['x'] / 12000
     if shots[c]['y'] >= 105:
-        shots[c]['visibilidade'] = True
-        shots[c]['x'] = 0
-        shots[c]['y'] = 0
-    elif -30 <= shots[c]['y'] <= 104:
-        shots[c]['x'] += shots[c]['x']/6000
-        shots[c]['y'] += shots[c]['y']/6000
+        pos = randint(0, 4)
+        if all2[pos]['x'] > 0:
+            shots[c]['x'] = all2[pos]['x'] - 20
+        else:
+            shots[c]['x'] = all2[pos]['x'] + 20
+        shots[c]['y'] = all2[pos]['y'] - 8
+    if shots[c]['y'] >= -110:
+        shots[c]['y'] += abs(shots[c]['y']/7000)
+        shots[c]['x'] += abs(shots[c]['x']/7000)
+    if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 15):
+        shots[c]['visivel'] = False
+        pos = randint(0, 4)
+        shots[c]['x'] = all2[pos]['x']
+        shots[c]['y'] = all2[pos]['y'] + 1
+        shots[c]['visivel'] = True
 
 def move():
     for c in range(len(objetos_primeira_parte.all1)):
@@ -82,5 +102,6 @@ def move():
                 deslocamento_5(c,x)
             else:
                 deslocamento_6(c,x+200)
-        for c in range(len(lista_tiros)):
+        for c in range(len(shots)):
+            shots[c]['id'] = 6
             atirar(c)

@@ -13,7 +13,7 @@ def coord_tiro(lista_tiros):
         for d in range(len(c)):
             pos = randint(0, 4)
             c[d]['x'] = objetos_segunda_parte.all2[pos]['x']
-            c[d]['y'] = objetos_segunda_parte.all2[pos]['y'] + 10
+            c[d]['y'] = objetos_segunda_parte.all2[pos]['y'] + 1
     return c
 
 def gerador_objetos2(lista_traps):
