@@ -58,13 +58,6 @@ def deslocamento_5(c,x): #Barricadas
     all2[c]['y'] -= t
     checkY2(c,x)
 
-def deslocamento_6(c,x):
-    if globais.cont_fora_da_tela < 300:
-        t = all2[c]['velocidade'] * globais.cont_fora_da_tela / 10000
-    else:
-        t = 0.0313
-    all2[c]['y'] -= t
-    checkY2(c,x)
 
 def atirar(c):
     t = shots[c]['velocidade']/500
@@ -98,10 +91,10 @@ def move():
             if all2[c]['id'] == 0:
                 deslocamento_4(c)
             elif all2[c]['id'] == 4:
-                x = randint(-160, -40)
+                x = randint(-140, -60)
                 deslocamento_5(c,x)
             else:
-                deslocamento_6(c,x+200)
+                deslocamento_5(c,x+200)
         for c in range(len(shots)):
             shots[c]['id'] = 6
             atirar(c)

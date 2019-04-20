@@ -2,10 +2,10 @@ from pygame import mixer
 import globais
 from time import time
 def tocarMusica():
-    if globais.parte == 1:
-        nome_arquivo = 'Naruto.mp3'
+    if globais.parte == 0 or globais.parte == 1:
+        nome_arquivo = 'Senbonzakura.mp3'
         tempo_arquivo = 190
-    elif globais.parte == 2:
+    else:
         nome_arquivo = 'Naruto.mp3'
         tempo_arquivo = 300
 

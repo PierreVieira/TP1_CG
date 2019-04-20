@@ -3,7 +3,7 @@ from atualiza import *
 from teclas import *
 from OpenGL.GL import *
 from globais import *
-
+from mouse import *
 def main_basico():
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB)
     glutInitWindowSize(600, 600)
@@ -14,5 +14,7 @@ def main_basico():
     glOrtho(-100, 100, -100, 100, -1, 1)
     glutKeyboardFunc(tecla)
     glutSpecialFunc(movimenta_anzol)
+    glutPassiveMotionFunc(movimentoMouse)
+    glutMouseFunc(clicks_do_mouse)
     glutTimerFunc(33, atual, 33)
     glutMainLoop()
