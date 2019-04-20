@@ -8,6 +8,11 @@ from OpenGL.GLUT import *
 from OpenGL.GL import *
 import menu_pause
 
+def padrao_2(c):
+    desenha_quadrado(c)
+    move()
+    collision(anzol, c)
+
 def manter_prop(largura, altura):
     k = 4/3
     altura = 4
@@ -56,16 +61,27 @@ def redesenha():
             glutSwapBuffers()
 
     elif globais.parte == 2:
-        desenha_quadrado(anzol)
-        for c in all1:
-            if c['visivel']:
-                desenha_quadrado(c)
-                move()
-                collision(anzol, c)
-        for c in all2:
-            if c['visivel']:
-                desenha_quadrado(c)
-                move()
-                collision(anzol, c)
-        glutSwapBuffers()
-
+        globais.anzol['velocidade'] = 12
+        if globais.esta_pausado:
+            desenha_quadrado(anzol)
+            for c in all1:
+                if c['visivel']:
+                    desenha_quadrado(c)
+            for c in all2:
+                if c['visivel']:
+                    desenha_quadrado(c)
+                    collision(anzol, c)
+            menu_pause.menu_p()
+            glutSwapBuffers()
+        else:
+            desenha_quadrado(anzol)
+            for c in shots:
+                if c['visivel']:
+                    padrao_2(c)
+            for c in all1:
+                if c['visivel']:
+                    padrao_2(c)
+            for c in all2:
+                if c['visivel']:
+                    padrao_2(c)
+            glutSwapBuffers()

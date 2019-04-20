@@ -2,6 +2,8 @@ import objetos_primeira_parte
 from objetos_segunda_parte import *
 from random import randint, uniform
 import deslocamento1
+import desenheiro
+from OpenGL.GL import *
 
 def checkY2(c,x):
     if all2[c]['y'] <= -110:
@@ -58,6 +60,17 @@ def deslocamento_6(c,x):
     all2[c]['y'] -= t
     checkY2(c,x)
 
+def atirar(c):
+    shots[c]['x'] += globais.anzol['x']/6000
+    shots[c]['y'] += globais.anzol['y']/6000
+    if shots[c]['y'] >= 105:
+        shots[c]['visibilidade'] = True
+        shots[c]['x'] = 0
+        shots[c]['y'] = 0
+    elif -30 <= shots[c]['y'] <= 104:
+        shots[c]['x'] += shots[c]['x']/6000
+        shots[c]['y'] += shots[c]['y']/6000
+
 def move():
     for c in range(len(objetos_primeira_parte.all1)):
         deslocamento_3(c)
@@ -65,7 +78,9 @@ def move():
             if all2[c]['id'] == 0:
                 deslocamento_4(c)
             elif all2[c]['id'] == 4:
-                x = randint(-140, -60)
+                x = randint(-160, -40)
                 deslocamento_5(c,x)
             else:
                 deslocamento_6(c,x+200)
+        for c in range(len(lista_tiros)):
+            atirar(c)

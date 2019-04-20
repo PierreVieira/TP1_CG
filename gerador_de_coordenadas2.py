@@ -1,5 +1,5 @@
 from random import randint
-from objetos_segunda_parte import *
+import objetos_segunda_parte
 
 def analise_de_proximidade(x_object, y_object, lista_objetos, distancia_permitida):
     for c in lista_objetos:
@@ -7,6 +7,14 @@ def analise_de_proximidade(x_object, y_object, lista_objetos, distancia_permitid
         if distancia < distancia_permitida:
             return True
     return False
+
+def coord_tiro(lista_tiros):
+    for c in lista_tiros:
+        for d in range(len(c)):
+            pos = randint(0, 4)
+            c[d]['x'] = objetos_segunda_parte.all2[pos]['x']
+            c[d]['y'] = objetos_segunda_parte.all2[pos]['y'] + 10
+    return c
 
 def gerador_objetos2(lista_traps):
     for c in lista_traps:
@@ -25,5 +33,4 @@ def gerador_objetos2(lista_traps):
                     y = randint(-95, -47)
                 c[d]['x'] = x
                 c[d]['y'] = y
-
     return c
