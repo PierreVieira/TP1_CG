@@ -16,6 +16,7 @@ def deslocar_camburao(camburao):
         globais.parte = 2
         globais.estou_em_transicao = False
         globais.esta_pausado = False
+    globais.esta_querendo_confirmar = False
 
 def checkY(c):
     if all1[c]['y'] >= 110:

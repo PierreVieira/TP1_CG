@@ -3,11 +3,13 @@ from OpenGL.GLUT import *
 import pygame
 def init_tex(t_id):
     if t_id == 'anzol':
-        nome_textura = 'Sprites/Edge.png'
+        nome_textura = 'Os trem/Edge.png'
     elif t_id == 0:
-        nome_textura = 'Sprites/loli_1.png'
+        nome_textura = 'Os trem/loli_1.png'
+    elif t_id == 'backg':
+        nome_textura = 'Os trem/Tokyo.png'
     else:
-        nome_textura = 'Sprites/loli_1.png'
+        nome_textura = 'Os trem/loli_1.png'
 
     glClearColor(1, 1, 1, 1)
     glMatrixMode(GL_MODELVIEW)

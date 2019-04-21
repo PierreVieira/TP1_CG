@@ -3,6 +3,7 @@ import time
 aux_musica = True
 glutInit()
 aux_t_col = 0
+ultima_tecla = 0
 start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
@@ -44,8 +45,8 @@ tela_instrucoes = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (1, 0, 
 tela_ranking = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 1, 0)}
 
 #Definição de fundos
-backg_e = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 0)}
-backg_d = {'x': 0, 'y': 0, 'altura': 1000, 'largura': 200, 'cor': (0, 0, 0)}
+backg_e = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 0), 'id': 8}
+backg_d = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 1, 1), 'id': 9}
 
 
 #Variável global para pontuação

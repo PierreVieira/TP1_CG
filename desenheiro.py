@@ -7,7 +7,7 @@ from OpenGL.GLUT import *
 from OpenGL.GL import *
 import menu_pause
 import texturas
-
+import menu_confi
 def pause_ambas():
     if globais.parte == 1:
         desenha_quadrado(anzol)
@@ -51,27 +51,35 @@ def manter_prop(largura, altura):
 def desenha_quadrado(quadrado):
     glBegin(GL_POLYGON)
     glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
-    glTexCoord(0, 0)
+    #glTexCoord(0, 0)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
-    glTexCoord(1, 0)
+    #glTexCoord(1, 0)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
-    glTexCoord(1, 1)
+    #glTexCoord(1, 1)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
-    glTexCoord(0, 1)
+    #glTexCoord(0, 1)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
     glEnd()
 
 def redesenha():
-    glClearColor(0, 0.5, 1, 1)  #Fundo
     glClear(GL_COLOR_BUFFER_BIT)
+    glClearColor(0, 0.5, 1, 1)  #Fundo
     if globais.parte == 'menu':
+        #texturas.init_tex('tela_inicial')
         desenha_quadrado(globais.tela_inicial)
+        #texturas.init_tex('botao_iniciar_jogo')
         desenha_quadrado(globais.botao_iniciar_jogo)
+        #texturas.init_tex('botao_creditos')
         desenha_quadrado(globais.botao_creditos)
+        #texturas.init_tex('botao_fases')
         desenha_quadrado(globais.botao_fases)
+        #texturas.init_tex('botao_ranking')
         desenha_quadrado(globais.botao_ranking)
+        #texturas.init_tex('botao_sair')
         desenha_quadrado(globais.botao_sair)
+        #texturas.init_tex('botao_instrucoes')
         desenha_quadrado(globais.botao_instrucoes)
+        #texturas.init_tex('seguidor_mouse')
         desenha_quadrado(globais.seguidor_mouse)
         glutSwapBuffers()
     elif globais.parte == 'instrucoes':
@@ -96,6 +104,8 @@ def redesenha():
                     if c['id'] == 3:
                         deslocar(True)
                     collision(anzol, c)
+            if globais.esta_querendo_confirmar:
+                desenha_quadrado(menu_confi.mc)
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         elif globais.esta_pausado:
@@ -104,15 +114,19 @@ def redesenha():
                 if c['visivel']:
                     desenha_quadrado(c)
                     menu_pause.menu_p()
+            if globais.esta_querendo_confirmar:
+                desenha_quadrado(menu_confi.mc)
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         else:
-            texturas.init_tex('anzol')
+            #texturas.init_tex('backg')
+            desenha_quadrado(backg_d)
+            #texturas.init_tex('anzol')
             desenha_quadrado(anzol)
             #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
             for c in all1:
                 if c['visivel']:
-                    texturas.init_tex(0)
+                    #       texturas.init_tex(0)
                     desenha_quadrado(c)
                     deslocar(False)
                     collision(anzol, c)
@@ -140,6 +154,9 @@ def redesenha():
             for c in lives:
                 desenha_quadrado(c)
             menu_pause.menu_p()
+            if globais.esta_querendo_confirmar:
+                desenha_quadrado(menu_confi.mc)
+            desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         else:
             desenha_quadrado(anzol)
@@ -159,10 +176,5 @@ def redesenha():
                     padrao_2(c)
             for c in lives:
                 desenha_quadrado(c)
+            desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
-
-    # if globais.esta_querendo_confirmar:
-    #     pause_ambas()
-    #     print('s')
-    #     desenheiro.desenha_quadrado(menu_confi.mc)
-    #     globais.esta_querendo_confirmar = False
