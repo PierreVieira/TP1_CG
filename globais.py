@@ -11,7 +11,8 @@ vidas = 3
 parte = 'menu'
 cont_fora_da_tela = 0
 quadrado = {
-    'id': 0 , #int
+    'id_text': 0,
+    'id': 0, #int
     'x': 0, #float
     'y': 0, #float
     'largura': 0, #float

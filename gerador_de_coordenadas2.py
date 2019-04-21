@@ -16,6 +16,15 @@ def coord_tiro(lista_tiros):
             c[d]['y'] = objetos_segunda_parte.all2[pos]['y'] + 1
     return c
 
+def coord_lives(lista_lives):
+    for c in lista_lives:
+        s = 100
+        for d in range(len(c)):
+            s -= 6
+            c[d]['x'] = s
+            c[d]['y'] = 95
+    return c
+
 def gerador_objetos2(lista_traps):
     for c in lista_traps:
         for d in range(len(c)):

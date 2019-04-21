@@ -1,29 +1,39 @@
-from OpenGL import GL
-import menu_confi
 from basico import *
 from globais import *
-from objetos_segunda_parte import *
 from deslocamento1 import *
 from deslocamento2 import *
 from colisao import collision
 from OpenGL.GLUT import *
 from OpenGL.GL import *
-#from sdl2 import *
 import menu_pause
-# def LoadTexture(self, filename):
-#     """Loads a texture for the cube"""
-#     surface = SDL_LoadBMP(filename)
-#     #Checks if the loading succeeded
-#     if surface:
-#         #Translate the LP_SDL_Surface-pointer got from SDL_LoadBMP() to a real SDL_Surface
-#         texture_surface = surface.contents
-#         texture_format = GL.GL_RGBA
-#         GL_TEXTURE_ID = GL.glGenTextures(1)
-#         GL.glBindTexture(GL.GL_TEXTURE_2D, GL_TEXTURE_ID)
-#         GL.glPixelStorei(GL.GL_UNPACK_ALIGNMENT, 1)
-#         GL.glTexImage2D(GL.GL_TEXTURE_2D, 0, 3, texture_surface.w, texture_surface.h, 0, texture_format, GL.GL_UNSIGNED_BYTE, texture_surface)
-#         return GL_TEXTURE_ID
-#     return None
+
+def pause_ambas():
+    if globais.parte == 1:
+        desenha_quadrado(anzol)
+        for c in all1:
+            if c['visivel']:
+                desenha_quadrado(c)
+        desenha_quadrado(globais.seguidor_mouse)
+        menu_pause.menu_p()
+        glutSwapBuffers()
+    elif globais.parte == 2:
+        desenha_quadrado(anzol)
+        for c in shots:
+            if c['visivel']:
+                glPushMatrix()
+                glRotatef(c['x'] / 3, 0, 0, 1)
+                desenha_quadrado(c)
+                collision(anzol, c)
+                glPopMatrix()
+        for c in all1:
+            if c['visivel']:
+                desenha_quadrado(c)
+        for c in all2:
+            if c['visivel']:
+                desenha_quadrado(c)
+                collision(anzol, c)
+        menu_pause.menu_p()
+        glutSwapBuffers()
 
 def padrao_2(c):
     desenha_quadrado(c)
@@ -49,7 +59,6 @@ def desenha_quadrado(quadrado):
     glEnd()
 
 def redesenha():
-
     glClearColor(0, 0.5, 1, 1)  #Fundo
     glClear(GL_COLOR_BUFFER_BIT)
     if globais.parte == 'menu':
@@ -74,6 +83,7 @@ def redesenha():
         desenha_quadrado(globais.tela_creditos)
         desenha_quadrado(globais.seguidor_mouse)
         glutSwapBuffers()
+
     elif globais.parte == 1:
         if all1[-1]['id'] == 3 and globais.esta_pausado:
             desenha_quadrado(anzol)
@@ -108,6 +118,13 @@ def redesenha():
         globais.anzol['velocidade'] = 12
         if globais.esta_pausado:
             desenha_quadrado(anzol)
+            for c in shots:
+                if c['visivel']:
+                    glPushMatrix()
+                    glRotatef(c['x']/3, 0, 0, 1)
+                    desenha_quadrado(c)
+                    collision(anzol, c)
+                    glPopMatrix()
             for c in all1:
                 if c['visivel']:
                     desenha_quadrado(c)
@@ -115,6 +132,8 @@ def redesenha():
                 if c['visivel']:
                     desenha_quadrado(c)
                     collision(anzol, c)
+            for c in lives:
+                desenha_quadrado(c)
             menu_pause.menu_p()
             glutSwapBuffers()
         else:
@@ -133,4 +152,12 @@ def redesenha():
             for c in all2:
                 if c['visivel']:
                     padrao_2(c)
+            for c in lives:
+                desenha_quadrado(c)
             glutSwapBuffers()
+
+    # if globais.esta_querendo_confirmar:
+    #     pause_ambas()
+    #     print('s')
+    #     desenheiro.desenha_quadrado(menu_confi.mc)
+    #     globais.esta_querendo_confirmar = False

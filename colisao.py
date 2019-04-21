@@ -39,9 +39,14 @@ def collision(objeto, quadrado):
                 all1.append(camburao)
             elif globais.parte == 2 and objeto['id'] == 'anzol':
                 if quadrado['id'] == 0:
+                    globais.PTS += 10
+                elif quadrado['id'] == 4:
+                    qtde_vidas[0].pop(-1)
+                    qtde_vidas[0].pop(-1)
                     quadrado['x'] = 3000
                     quadrado['y'] = 3000
-                if quadrado['id'] == 6:
+                elif quadrado['id'] == 7:
+                    qtde_vidas[0].pop(-1)
                     t_col = time() - globais.start
                     if t_col - globais.aux_t_col >= 1:
                         quadrado['visivel'] = False
@@ -50,4 +55,10 @@ def collision(objeto, quadrado):
                         quadrado['y'] = all2[pos]['y'] + 1
                         quadrado['visivel'] = True
                     globais.aux_t_col = t_col
+                else:
+                    qtde_vidas[0].pop(-1)
+                    qtde_vidas[0].pop(-1)
             return True
+
+# def check_lives():
+#     if globais.vidas == 0:

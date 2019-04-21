@@ -64,11 +64,10 @@ def clicks_do_mouse(button, state, x, y):
                 mixer.music.set_volume(0)
             elif collision(seguidor_mouse, audio_switchD):
                 mixer.music.set_volume(100)
-            elif collision(seguidor_mouse, quitar_game):
-                globais.esta_querendo_confirmar = True
-                if collision(seguidor_mouse, menu_confi.mc):
-                    exit()
-
+            #elif collision(seguidor_mouse, quitar_game):
+                # globais.esta_querendo_confirmar = True
+                # if collision(seguidor_mouse, menu_confi.mc):
+                #     exit()
     elif button == GLUT_RIGHT_BUTTON and not(globais.parte == 1 or globais.parte == 2 or globais.parte == 3):
         globais.aux_musica = True
         globais.parte = 'menu'

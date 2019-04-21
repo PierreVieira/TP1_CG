@@ -59,7 +59,7 @@ def deslocamento_5(c,x): #Barricadas
 
 def atirar(c):
     t = shots[c]['velocidade']/500
-    if shots[c]['x'] >= 0 and shots[c]['y'] < -110:
+    if shots[c]['x'] >= 0 and shots[c]['y'] < -200:
         shots[c]['y'] += t + globais.anzol['y'] / 12000
         shots[c]['x'] += t + globais.anzol['x'] / 12000
     else:
@@ -73,7 +73,7 @@ def atirar(c):
             else:
                 shots[c]['x'] = all2[pos]['x'] + 20
             shots[c]['y'] = all2[pos]['y'] - 8
-    if shots[c]['y'] >= -110:
+    if shots[c]['y'] >= -200:
         shots[c]['y'] += abs(shots[c]['y']/10000)
         shots[c]['x'] += abs(shots[c]['x']/10000)
     if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 15):
@@ -93,13 +93,12 @@ def move():
     for c in range(len(objetos_primeira_parte.all1)):
         deslocamento_3(c)
         for c in range(len(all2)):
-            if all2[c]['id'] == 0:
+            if all2[c]['id'] == 4:
                 deslocamento_4(c)
-            elif all2[c]['id'] == 4:
+            elif all2[c]['id'] == 5:
                 x = randint(-150, -50)
                 deslocamento_5(c, x)
             else:
                 deslocamento_5(c, x+200)
         for c in range(len(shots)):
-            shots[c]['id'] = 6
             atirar(c)
