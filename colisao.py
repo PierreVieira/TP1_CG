@@ -46,6 +46,7 @@ def collision(objeto, quadrado):
                     quadrado['x'] = 3000
                     quadrado['y'] = 3000
                 elif quadrado['id'] == 7:
+                    print('Colisao')
                     qtde_vidas[0].pop(-1)
                     t_col = time() - globais.start
                     if t_col - globais.aux_t_col >= 1:

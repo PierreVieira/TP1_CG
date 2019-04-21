@@ -76,11 +76,13 @@ def atirar(c):
     if shots[c]['y'] >= -200:
         shots[c]['y'] += abs(shots[c]['y']/10000)
         shots[c]['x'] += abs(shots[c]['x']/10000)
-    if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 15):
+    if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 10):
         shots[c]['visivel'] = False
+        print('Distancia')
         t_col = time() - globais.start
         if t_col - globais.aux_t_col >= 1:
             print('AAIAI')
+            qtde_vidas[0].pop(-1)
             pos = randint(0, 4)
             shots[c]['x'] = all2[pos]['x']
             shots[c]['y'] = all2[pos]['y'] + 1
