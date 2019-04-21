@@ -6,6 +6,7 @@ from colisao import collision
 from OpenGL.GLUT import *
 from OpenGL.GL import *
 import menu_pause
+import texturas
 
 def pause_ambas():
     if globais.parte == 1:
@@ -48,13 +49,15 @@ def manter_prop(largura, altura):
     glViewport(GLint(0), GLint(0), int(altura/2), int(altura/2))
 
 def desenha_quadrado(quadrado):
-    #glEnable(GL_TEXTURE_2D)
-    #glBindTexture(GL_TEXTURE_2D, idTextura)
     glBegin(GL_POLYGON)
     glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
+    glTexCoord(0, 0)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
+    glTexCoord(1, 0)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
+    glTexCoord(1, 1)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
+    glTexCoord(0, 1)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
     glEnd()
 
@@ -104,10 +107,12 @@ def redesenha():
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         else:
+            texturas.init_tex('anzol')
             desenha_quadrado(anzol)
             #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
             for c in all1:
                 if c['visivel']:
+                    texturas.init_tex(0)
                     desenha_quadrado(c)
                     deslocar(False)
                     collision(anzol, c)

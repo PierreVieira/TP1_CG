@@ -29,5 +29,5 @@ all2 = gerador_objetos2(todos2)
 lista_tiros.append((gerador_objetos(7, 6, 2, 5, qtde_policiais, (0, 0, 0))))
 shots = coord_tiro(lista_tiros)
 
-qtde_vidas.append((gerador_objetos(8, 5, 5, 0, 10, (1, 1, 1))))
+qtde_vidas.append((gerador_objetos(8, 5, 5, 0, 35, (1, 1, 1))))
 lives = coord_lives(qtde_vidas)

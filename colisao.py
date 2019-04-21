@@ -56,7 +56,7 @@ def collision(objeto, quadrado):
                         quadrado['y'] = all2[pos]['y'] + 1
                         quadrado['visivel'] = True
                     globais.aux_t_col = t_col
-                else:
+                elif quadrado['id'] == 5 or quadrado['id'] == 6:
                     qtde_vidas[0].pop(-1)
                     qtde_vidas[0].pop(-1)
             return True
