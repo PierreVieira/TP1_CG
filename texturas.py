@@ -1,22 +1,9 @@
 from OpenGL.GL import *
 from OpenGL.GLUT import *
-import pygame
-def init_tex(t_id):
-    if t_id == 'anzol':
-        nome_textura = 'Os trem/Edge.png'
-    elif t_id == 0:
-        nome_textura = 'Os trem/Loli1_parte1.png'
-    elif t_id == 0.5:
-        nome_textura = 'Os trem/Loli2_parte1.png'
-    elif t_id == 'backg':
-        nome_textura = 'Os trem/Tokyo.png'
-    else:
-        nome_textura = 'Os trem/loli_1.png'
-    #glClearColor(1, 1, 1, 1)
+def init_tex(imgload, img):
+    glClearColor(1, 1, 1, 1)
     glMatrixMode(GL_MODELVIEW)
     texture_ids = glGenTextures(1)
-    imgload = pygame.image.load(nome_textura)
-    img = pygame.image.tostring(imgload, 'RGBA', 1)
     largura = imgload.get_width()
     altura = imgload.get_height()
     glBindTexture(GL_TEXTURE_2D, texture_ids)

@@ -1,7 +1,24 @@
+from OpenGL.GL import *
 from OpenGL.GLUT import *
 import time
+import pygame
+
+def text_e(imgload):
+    img = pygame.image.tostring(imgload, 'RGBA', 1)
+    return img
+
 aux_musica = True
 glutInit()
+imgload = []
+img = []
+imgload.append(pygame.image.load('Os trem/Loli1_parte1.png'))
+img.append(text_e(imgload[0]))
+imgload.append(pygame.image.load('Os trem/Loli2_parte1.png'))
+img.append(text_e(imgload[1]))
+imgload.append(pygame.image.load('Os trem/Tokyo-compressed.jpg'))
+img.append(text_e(imgload[2]))
+
+
 aux_tempo_alternacao1 = 0
 aux_t_col = 0
 alterna_loli = True
@@ -47,8 +64,7 @@ tela_instrucoes = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (1, 0, 
 tela_ranking = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 1, 0)}
 
 #Definição de fundos
-backg_e = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 0), 'id': 8}
-backg_d = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 1, 1), 'id': 9}
+backg = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 0), 'id': 8}
 
 
 #Variável global para pontuação

@@ -64,7 +64,7 @@ def desenha_quadrado(quadrado):
 
 def redesenha():
     glClear(GL_COLOR_BUFFER_BIT)
-    glClearColor(0, 0.5, 1, 1)  #Fundo
+    #glClearColor(0, 0.5, 1, 1)  #Fundo
     if globais.parte == 'menu':
         #texturas.init_tex('tela_inicial')
         desenha_quadrado(globais.tela_inicial)
@@ -97,6 +97,10 @@ def redesenha():
         glutSwapBuffers()
 
     elif globais.parte == 1:
+        texturas.init_tex(globais.imgload[2], globais.img[2])
+        desenha_quadrado(backg)
+        desenha_quadrado(anzol)
+        globais.aux_parte_ant = 1
         if all1[-1]['id'] == 3 and globais.esta_pausado:
             desenha_quadrado(anzol)
             for c in all1:
@@ -120,20 +124,16 @@ def redesenha():
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         else:
-            #texturas.init_tex('backg')
-            desenha_quadrado(backg_d)
-            #texturas.init_tex('anzol')
-            desenha_quadrado(anzol)
             #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
-            texturas.init_tex(0)
+            texturas.init_tex(globais.imgload[0], globais.img[0])
             t = time() - globais.start
             tempo = int(t - globais.start)
             if tempo % 1 == 0 and tempo != globais.aux_tempo_alternacao1:
                 globais.alterna_loli = not(globais.alterna_loli)
             if globais.alterna_loli:
-                texturas.init_tex(0.5)
+                texturas.init_tex(globais.imgload[0], globais.img[0])
             else:
-                texturas.init_tex(0)
+                texturas.init_tex(globais.imgload[1], globais.img[1])
             globais.aux_tempo_alternacao1 = tempo
             for c in all1:
                 if c['visivel']:
