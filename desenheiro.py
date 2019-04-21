@@ -1,5 +1,5 @@
 from OpenGL import GL
-
+import menu_confi
 from basico import *
 from globais import *
 from objetos_segunda_parte import *
@@ -64,12 +64,15 @@ def redesenha():
         glutSwapBuffers()
     elif globais.parte == 'instrucoes':
         desenha_quadrado(globais.tela_instrucoes)
+        desenha_quadrado(globais.seguidor_mouse)
         glutSwapBuffers()
     elif globais.parte == 'ranking':
         desenha_quadrado(globais.tela_ranking)
+        desenha_quadrado(globais.seguidor_mouse)
         glutSwapBuffers()
     elif globais.parte == 'creditos':
         desenha_quadrado(globais.tela_creditos)
+        desenha_quadrado(globais.seguidor_mouse)
         glutSwapBuffers()
     elif globais.parte == 1:
         if all1[-1]['id'] == 3 and globais.esta_pausado:
@@ -80,6 +83,7 @@ def redesenha():
                     if c['id'] == 3:
                         deslocar(True)
                     collision(anzol, c)
+            desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         elif globais.esta_pausado:
             desenha_quadrado(anzol)
@@ -87,6 +91,7 @@ def redesenha():
                 if c['visivel']:
                     desenha_quadrado(c)
                     menu_pause.menu_p()
+            desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         else:
             desenha_quadrado(anzol)
@@ -96,6 +101,7 @@ def redesenha():
                     desenha_quadrado(c)
                     deslocar(False)
                     collision(anzol, c)
+            desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
 
     elif globais.parte == 2:

@@ -5,6 +5,7 @@ glutInit()
 aux_t_col = 0
 start = time.time()
 esta_pausado = False
+esta_querendo_confirmar = False
 estou_em_transicao = False
 vidas = 3
 parte = 'menu'
@@ -32,8 +33,8 @@ interavel['cor'] = (1, 0, 0)
 #Definindo um objeto para seguir o mouse
 seguidor_mouse = quadrado.copy()
 seguidor_mouse['cor'] = (0, 0, 1)
-seguidor_mouse['largura'] = 4
-seguidor_mouse['altura'] = 4
+seguidor_mouse['largura'] = 2
+seguidor_mouse['altura'] = 2
 
 
 #Definindo um quadrado para as telas

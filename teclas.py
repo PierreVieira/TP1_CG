@@ -2,6 +2,7 @@ import globais
 from OpenGL.GLUT import *
 from time import time
 from menu_pause import *
+from mouse import voltando_ao_inicio
 import menu_pause
 
 def tecla(key, x = 0, y = 0):
@@ -11,6 +12,8 @@ def tecla(key, x = 0, y = 0):
         print(end - globais.start)
         exit()
     elif tec == 114: #r
+        voltando_ao_inicio()
+        globais.esta_pausado = False
         print('reiniciando o programa')
     elif (tec == 112 or tec == 80) and not(globais.estou_em_transicao): #p
         if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
