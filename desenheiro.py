@@ -50,14 +50,15 @@ def manter_prop(largura, altura):
 
 def desenha_quadrado(quadrado):
     glBegin(GL_POLYGON)
-    glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
-    #glTexCoord(0, 0)
+    #glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
+    glColor3f(1, 1, 1)
+    glTexCoord(0, 0)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
-    #glTexCoord(1, 0)
+    glTexCoord(1, 0)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
-    #glTexCoord(1, 1)
+    glTexCoord(1, 1)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
-    #glTexCoord(0, 1)
+    glTexCoord(0, 1)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
     glEnd()
 
@@ -124,9 +125,18 @@ def redesenha():
             #texturas.init_tex('anzol')
             desenha_quadrado(anzol)
             #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
+            texturas.init_tex(0)
+            t = time() - globais.start
+            tempo = int(t - globais.start)
+            if tempo % 1 == 0 and tempo != globais.aux_tempo_alternacao1:
+                globais.alterna_loli = not(globais.alterna_loli)
+            if globais.alterna_loli:
+                texturas.init_tex(0.5)
+            else:
+                texturas.init_tex(0)
+            globais.aux_tempo_alternacao1 = tempo
             for c in all1:
                 if c['visivel']:
-                    #       texturas.init_tex(0)
                     desenha_quadrado(c)
                     deslocar(False)
                     collision(anzol, c)

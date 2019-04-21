@@ -5,13 +5,14 @@ def init_tex(t_id):
     if t_id == 'anzol':
         nome_textura = 'Os trem/Edge.png'
     elif t_id == 0:
-        nome_textura = 'Os trem/loli_1.png'
+        nome_textura = 'Os trem/Loli1_parte1.png'
+    elif t_id == 0.5:
+        nome_textura = 'Os trem/Loli2_parte1.png'
     elif t_id == 'backg':
         nome_textura = 'Os trem/Tokyo.png'
     else:
         nome_textura = 'Os trem/loli_1.png'
-
-    glClearColor(1, 1, 1, 1)
+    #glClearColor(1, 1, 1, 1)
     glMatrixMode(GL_MODELVIEW)
     texture_ids = glGenTextures(1)
     imgload = pygame.image.load(nome_textura)
@@ -26,4 +27,6 @@ def init_tex(t_id):
     glTexParameter(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
 
     glTexImage2D(GL_TEXTURE_2D, 0, 4, largura, altura, 0, GL_RGBA, GL_UNSIGNED_BYTE, img)
+    glEnable(GL_BLEND)
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
     glEnable(GL_TEXTURE_2D)

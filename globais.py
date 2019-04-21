@@ -2,7 +2,9 @@ from OpenGL.GLUT import *
 import time
 aux_musica = True
 glutInit()
+aux_tempo_alternacao1 = 0
 aux_t_col = 0
+alterna_loli = True
 ultima_tecla = 0
 start = time.time()
 esta_pausado = False

@@ -8,11 +8,11 @@ import menu_pause
 def tecla(key, x = 0, y = 0):
     tec = ord(key)
     if tec == 27: #ESC
-        if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
-            globais.esta_querendo_confirmar = True
-            globais.esta_pausado = True
-            globais.ultima_tecla = 27
-        else:
+        # if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
+        #     globais.esta_querendo_confirmar = True
+        #     globais.esta_pausado = True
+        #     globais.ultima_tecla = 27
+        # else:
             exit()
     elif tec == 114 or tec == 82: #r
         if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
