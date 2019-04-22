@@ -8,11 +8,11 @@ import menu_pause
 def tecla(key, x = 0, y = 0):
     tec = ord(key)
     if tec == 27: #ESC
-        if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
-            globais.esta_querendo_confirmar = True
-            globais.esta_pausado = True
-            globais.ultima_tecla = 27
-        else:
+        # if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
+        #     globais.esta_querendo_confirmar = True
+        #     globais.esta_pausado = True
+        #     globais.ultima_tecla = 27
+        # else:
             exit()
     elif tec == 114 or tec == 82: #r
         if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
@@ -55,3 +55,14 @@ def movimenta_anzol(self, key, x = 0, y = 0):
             globais.anzol['x'] -= globais.anzol['velocidade']
         elif self == GLUT_KEY_RIGHT and globais.anzol['x'] <= 90: #seta direita
             globais.anzol['x'] += globais.anzol['velocidade']
+
+def movimenta_vergil(self, key, x = 0, y = 0):
+    if not(globais.esta_pausado):
+        if self == GLUT_KEY_UP and globais.vergil['y'] <= 90:
+            globais.vergil['y'] += globais.vergil['velocidade']
+        elif self == GLUT_KEY_DOWN and globais.vergil['y'] >= -90:
+            globais.vergil['y'] -= globais.vergil['velocidade']
+        elif self == GLUT_KEY_LEFT and globais.vergil['x'] >= -90: #seta esquerda
+            globais.vergil['x'] -= globais.vergil['velocidade']
+        elif self == GLUT_KEY_RIGHT and globais.vergil['x'] <= 90: #seta direita
+            globais.vergil['x'] += globais.vergil['velocidade']

@@ -26,10 +26,9 @@ def collision(objeto, quadrado):
         objV2[0] < quadV2[0] < objV1[0] and objV4[1] < quadV2[1] < objV1[1] or \
         objV2[0] < quadV1[0] < objV1[0] and objV4[1] < quadV1[1] < objV1[1] or \
         objV2[0] < quadV4[0] < objV1[0] and objV4[1] < quadV4[1] < objV1[1]:
-            quadrado['visivel'] = False
             objeto['n_colisoes'] += 1
-            print(f'{objeto["n_colisoes"]}')
             if globais.parte == 1 and objeto['id'] == 'anzol':
+                quadrado['visivel'] = False
                 globais.estou_em_transicao = True
                 globais.esta_pausado = True
                 camburao = globais.quadrado.copy()
@@ -41,6 +40,7 @@ def collision(objeto, quadrado):
                 camburao['id'] = 3
                 all1.append(camburao)
             elif globais.parte == 2 and objeto['id'] == 'anzol':
+                quadrado['visivel'] = False
                 if quadrado['id'] == 'loli_vida':
                     vida['x'] = objetos_segunda_parte.lives[-1]['x'] - 6
                     objetos_segunda_parte.lives.append(vida.copy())
@@ -48,7 +48,9 @@ def collision(objeto, quadrado):
                     globais.pts += 10
                 elif quadrado['id'] == 4:
                     if len(qtde_vidas[0]) <= 2:
-                        exit()
+                        globais.parte = 3
+                        globais.anzol['altura'] = 13
+                        return True
                     qtde_vidas[0].pop(-1)
                     qtde_vidas[0].pop(-1)
                     quadrado['x'] = 3000
@@ -56,7 +58,9 @@ def collision(objeto, quadrado):
                 elif quadrado['id'] == 7:
                     print('Colisao')
                     if len(qtde_vidas[0]) <= 1:
-                        exit()
+                        globais.parte = 3
+                        globais.anzol['altura'] = 13
+                        return True
                     qtde_vidas[0].pop(-1)
                     t_col = time() - globais.start
                     if t_col - globais.aux_t_col >= 1:
@@ -68,10 +72,14 @@ def collision(objeto, quadrado):
                     globais.aux_t_col = t_col
                 elif quadrado['id'] == 5 or quadrado['id'] == 6:
                     if len(qtde_vidas[0]) <= 2:
-                        exit()
+                        globais.parte = 3
+                        globais.anzol['altura'] = 13
+                        return True
                     qtde_vidas[0].pop(-1)
                     qtde_vidas[0].pop(-1)
+            elif globais.parte == 3:
+                print(quadrado['n_colisoes'])
+                quadrado['n_colisoes'] += 1
+                if quadrado['n_colisoes'] > 10:
+                    quadrado['visivel'] = False
             return True
-
-# def check_lives():
-#     if globais.vidas == 0:

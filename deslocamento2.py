@@ -94,7 +94,6 @@ def atirar(c):
         globais.aux_t_col = t_col
 
 def move():
-
     for c in range(len(objetos_primeira_parte.all1)):
         if randint(1, 5000) == 1:
             objetos_primeira_parte.all1[c]['id'] = 'loli_vida'
