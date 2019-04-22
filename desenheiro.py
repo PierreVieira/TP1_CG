@@ -9,20 +9,11 @@ import menu_pause
 import texturas
 import menu_confi
 
-def alterna_lolis(tempo,c):
-    if tempo % 1 == 0 and tempo != globais.aux_tempo_alternacao1:
-        globais.alterna_loli = not (globais.alterna_loli)
-    if c['id'] == 0:
-        if globais.alterna_loli:
-            texturas.init_tex(globais.imgload[0], globais.img[0])
-        else:
-            texturas.init_tex(globais.imgload[1], globais.img[1])
-    elif c['id'] == 1:
-        if globais.alterna_loli:
-            texturas.init_tex(globais.imgload[17], globais.img[17])
-        else:
-            texturas.init_tex(globais.imgload[2], globais.img[2])
-
+def alterna_lolis(arq1,arq2):
+    if globais.alterna_loli:
+        texturas.init_tex(globais.imgload[arq1], globais.img[arq1])
+    else:
+        texturas.init_tex(globais.imgload[arq2], globais.img[arq2])
 
 def pause_ambas():
     if globais.parte == 1:
@@ -118,6 +109,12 @@ def redesenha():
         if all1[-1]['id'] == 3 and globais.esta_pausado:
             for c in all1:
                 if c['visivel']:
+                    if c['id'] == 0:
+                        alterna_lolis(0, 1)
+                    elif c['id'] == 1:
+                        alterna_lolis(2, 3)
+                    elif c['id'] == 2:
+                        alterna_lolis(4, 5)
                     desenha_quadrado(c)
                     if c['id'] == 3:
                         deslocar(True)
@@ -129,6 +126,12 @@ def redesenha():
         elif globais.esta_pausado:
             for c in all1:
                 if c['visivel']:
+                    if c['id'] == 0:
+                        alterna_lolis(0, 1)
+                    elif c['id'] == 1:
+                        alterna_lolis(2, 3)
+                    elif c['id'] == 2:
+                        alterna_lolis(4, 5)
                     desenha_quadrado(c)
                     menu_pause.menu_p()
             if globais.esta_querendo_confirmar:
@@ -139,10 +142,17 @@ def redesenha():
             #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
             t = time() - globais.start
             tempo = int(t - globais.start)
+            if tempo % 1 == 0 and tempo != globais.aux_tempo_alternacao1:
+                globais.alterna_loli = not (globais.alterna_loli)
             globais.aux_tempo_alternacao1 = tempo
             for c in all1:
                 if c['visivel']:
-                    alterna_lolis(tempo, c)
+                    if c['id'] == 0:
+                        alterna_lolis(0, 1)
+                    elif c['id'] == 1:
+                        alterna_lolis(2, 3)
+                    elif c['id'] == 2:
+                        alterna_lolis(4, 5)
                     desenha_quadrado(c)
                     deslocar(False)
                     collision(anzol, c)
