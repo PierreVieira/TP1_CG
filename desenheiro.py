@@ -72,7 +72,7 @@ def desenha_quadrado(quadrado):
 
 def redesenha():
     glClear(GL_COLOR_BUFFER_BIT)
-    glClearColor(0, 0.5, 1, 1)  #Fundo
+    #glClearColor(0, 0.5, 1, 1)  #Fundo
     if globais.parte == 'menu':
         texturas.init_tex(globais.imgload[3], globais.img[3])
         desenha_quadrado(globais.tela_inicial)
@@ -107,6 +107,10 @@ def redesenha():
         desenha_quadrado(backg)
         texturas.init_tex(globais.imgload[16], globais.img[16])
         desenha_quadrado(anzol)
+        texturas.init_tex(globais.imgload[18], globais.img[18])
+        for c in PTS:
+            txt.Pts(c['id'])
+            desenha_quadrado(c)
         if all1[-1]['id'] == 3 and globais.esta_pausado:
             for c in all1:
                 if c['visivel']:
@@ -141,9 +145,6 @@ def redesenha():
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         else:
-            for c in PTS:
-                txt.Pts(c['id'])
-                desenha_quadrado(c)
             t = time() - globais.start
             tempo = int(t - globais.start)
             if tempo % 1 == 0 and tempo != globais.aux_tempo_alternacao1:
@@ -169,6 +170,10 @@ def redesenha():
         desenha_quadrado(backg)
         texturas.init_tex(globais.imgload[16], globais.img[16])
         desenha_quadrado(anzol)
+        texturas.init_tex(globais.imgload[18], globais.img[18])
+        for c in PTS:
+            txt.Pts(c['id'])
+            desenha_quadrado(c)
         if globais.esta_pausado:
             for c in shots:
                 if c['visivel']:

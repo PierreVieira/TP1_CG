@@ -47,8 +47,29 @@ img.append(text_e(imgload[16]))
 imgload.append(pygame.image.load('Os trem/Danashi1-1.png'))
 img.append(text_e(imgload[17]))
 
+imgload.append(pygame.image.load('Os trem/zero.png'))
+img.append(text_e(imgload[18]))
+imgload.append(pygame.image.load('Os trem/um.png'))
+img.append(text_e(imgload[19]))
+imgload.append(pygame.image.load('Os trem/dois.png'))
+img.append(text_e(imgload[20]))
+imgload.append(pygame.image.load('Os trem/tres.png'))
+img.append(text_e(imgload[21]))
+imgload.append(pygame.image.load('Os trem/quatro.png'))
+img.append(text_e(imgload[22]))
+imgload.append(pygame.image.load('Os trem/cinco.png'))
+img.append(text_e(imgload[23]))
+imgload.append(pygame.image.load('Os trem/seis.png'))
+img.append(text_e(imgload[24]))
+imgload.append(pygame.image.load('Os trem/sete.png'))
+img.append(text_e(imgload[25]))
+imgload.append(pygame.image.load('Os trem/oito.png'))
+img.append(text_e(imgload[26]))
+imgload.append(pygame.image.load('Os trem/nove.png'))
+img.append(text_e(imgload[27]))
+
 glutInit()
-pts = 0
+pts = 324
 multiplicador_pts1 = 1
 multiplicador_pts2 = 1
 qtde_lolis_capturadas = 0

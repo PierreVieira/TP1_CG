@@ -18,7 +18,7 @@ def coord_tiro(lista_tiros):
 
 def coord_pts(lista_pts):
     for c in lista_pts:
-        s = 100
+        s = -100
         for d in range(len(c)):
             s += 6
             c[d]['x'] = s
