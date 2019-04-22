@@ -1,8 +1,11 @@
 #from txt import pts
 from objetos_segunda_parte import *
 from objetos_primeira_parte import *
+from random import randint
 from time import time
 import globais
+
+
 def collision(objeto, quadrado):
     objV3 = objeto['x'] - objeto['largura'] / 2, objeto['y'] - objeto['altura'] / 2
     objV4 = objeto['x'] + objeto['largura'] / 2, objeto['y'] - objeto['altura'] / 2
@@ -38,15 +41,22 @@ def collision(objeto, quadrado):
                 camburao['id'] = 3
                 all1.append(camburao)
             elif globais.parte == 2 and objeto['id'] == 'anzol':
-                if quadrado['id'] == 0:
-                    globais.PTS += 10
+                if quadrado['id'] == 'loli_vida':
+                    vida['x'] = objetos_segunda_parte.lives[-1]['x'] - 6
+                    objetos_segunda_parte.lives.append(vida.copy())
+                elif quadrado['id'] == 0:
+                    globais.pts += 10
                 elif quadrado['id'] == 4:
+                    if len(qtde_vidas[0]) <= 2:
+                        exit()
                     qtde_vidas[0].pop(-1)
                     qtde_vidas[0].pop(-1)
                     quadrado['x'] = 3000
                     quadrado['y'] = 3000
                 elif quadrado['id'] == 7:
                     print('Colisao')
+                    if len(qtde_vidas[0]) <= 1:
+                        exit()
                     qtde_vidas[0].pop(-1)
                     t_col = time() - globais.start
                     if t_col - globais.aux_t_col >= 1:
@@ -57,6 +67,8 @@ def collision(objeto, quadrado):
                         quadrado['visivel'] = True
                     globais.aux_t_col = t_col
                 elif quadrado['id'] == 5 or quadrado['id'] == 6:
+                    if len(qtde_vidas[0]) <= 2:
+                        exit()
                     qtde_vidas[0].pop(-1)
                     qtde_vidas[0].pop(-1)
             return True

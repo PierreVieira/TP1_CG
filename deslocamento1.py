@@ -2,10 +2,7 @@ from objetos_primeira_parte import *
 from random import randint
 import gerador_de_coordenadas1
 import globais
-from math import cos, sin, pi
-from OpenGL.GL import *
 from time import time, sleep
-import desenheiro
 
 def deslocar_camburao(camburao):
     if camburao['y'] < -80:
@@ -17,6 +14,7 @@ def deslocar_camburao(camburao):
         globais.estou_em_transicao = False
         globais.esta_pausado = False
     globais.esta_querendo_confirmar = False
+    print(globais.pts)
 
 def checkY(c):
     if all1[c]['y'] >= 110:
@@ -29,6 +27,9 @@ def checkY(c):
             x_object = randint(-95, 95)
         all1[c]['x'] = x_object
         all1[c]['y'] = y_object
+        if globais.parte == 2:
+            all1[c]['id'] = 0
+            all1[c]['cor'] = (1, 1, 0)
 
 def deslocamento_0(c):
     t = 0
@@ -67,6 +68,7 @@ def deslocamento_2(c):
     checkY(c)
 
 def deslocar(apenas_caminhao):
+    globais.pts = globais.multiplicador_pts1*globais.cont_fora_da_tela
     for c in range(len(all1)):
         if all1[c]['id'] == 0 and not(apenas_caminhao):
             deslocamento_0(c)
@@ -77,9 +79,11 @@ def deslocar(apenas_caminhao):
         elif all1[c]['id'] == 3:
             deslocar_camburao(all1[c])
         if (globais.cont_fora_da_tela+1) % 20 == 0 and globais.cont_fora_da_tela <= 80:
+            globais.multiplicador_pts1 += 0.001
             all1[0+(globais.cont_fora_da_tela//20)]['id'] = 1
             all1[0+(globais.cont_fora_da_tela//20)]['cor'] = (1, 0, 1)
 
         elif (globais.cont_fora_da_tela+1) % 20 == 0 and 80 <= globais.cont_fora_da_tela <= 160:
+            globais.multiplicador_pts1 += 0.0035
             all1[4 + (globais.cont_fora_da_tela // 20)]['id'] = 2
             all1[4 + (globais.cont_fora_da_tela // 20)]['cor'] = (0, 0, 0)

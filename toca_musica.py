@@ -1,5 +1,6 @@
 from pygame import mixer
 import globais
+from time import time
 
 def padraozinhoPlayzim(nome_arq):
     mixer.music.load(nome_arq)
@@ -16,3 +17,4 @@ def tocarMusica():
         padraozinhoPlayzim('Os trem/dbs_YokaYoka Dance.mp3')
     elif globais.parte == 'menu' and globais.aux_musica:
        padraozinhoPlayzim('Os trem/Dark Souls III Soundtrack OST - Main Menu Theme.mp3')
+

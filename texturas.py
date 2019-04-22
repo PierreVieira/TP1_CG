@@ -3,10 +3,9 @@ from OpenGL.GLUT import *
 def init_tex(imgload, img):
     glClearColor(1, 1, 1, 1)
     glMatrixMode(GL_MODELVIEW)
-    texture_ids = glGenTextures(1)
     largura = imgload.get_width()
     altura = imgload.get_height()
-    glBindTexture(GL_TEXTURE_2D, texture_ids)
+    glBindTexture(GL_TEXTURE_2D, 1)
 
     glTexParameter(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
     glTexParameter(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)

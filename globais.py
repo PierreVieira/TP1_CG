@@ -1,5 +1,5 @@
-from OpenGL.GL import *
 from OpenGL.GLUT import *
+from OpenGL.GL import *
 import time
 import pygame
 
@@ -8,7 +8,6 @@ def text_e(imgload):
     return img
 
 aux_musica = True
-glutInit()
 imgload = []
 img = []
 imgload.append(pygame.image.load('Os trem/Loli1_parte1.png'))
@@ -17,8 +16,42 @@ imgload.append(pygame.image.load('Os trem/Loli2_parte1.png'))
 img.append(text_e(imgload[1]))
 imgload.append(pygame.image.load('Os trem/Tokyo-compressed.jpg'))
 img.append(text_e(imgload[2]))
+imgload.append(pygame.image.load('Os trem/menu_loli.jpg'))
+img.append(text_e(imgload[3]))
+imgload.append(pygame.image.load('Os trem/play_button.png'))
+img.append(text_e(imgload[4]))
+imgload.append(pygame.image.load('Os trem/Ranking_button.png'))
+img.append(text_e(imgload[5]))
+imgload.append(pygame.image.load('Os trem/Kita_png.png'))
+img.append(text_e(imgload[6]))
+imgload.append(pygame.image.load('Os trem/Instruções.png'))
+img.append(text_e(imgload[7]))
+imgload.append(pygame.image.load('Os trem/Créditos_button.png'))
+img.append(text_e(imgload[8]))
+imgload.append(pygame.image.load('Os trem/pause_fundo.png'))
+img.append(text_e(imgload[9]))
+imgload.append(pygame.image.load('Os trem/menu_principal.png'))
+img.append(text_e(imgload[10]))
+imgload.append(pygame.image.load('Os trem/sound_feito.png'))
+img.append(text_e(imgload[11]))
+imgload.append(pygame.image.load('Os trem/mute_feito.png'))
+img.append(text_e(imgload[12]))
+imgload.append(pygame.image.load('Os trem/quitar.png'))
+img.append(text_e(imgload[13]))
+imgload.append(pygame.image.load('Os trem/LoliEncostou.png'))
+img.append(text_e(imgload[14]))
+imgload.append(pygame.image.load('Os trem/desesperada.png'))
+img.append(text_e(imgload[15]))
+imgload.append(pygame.image.load('Os trem/Yare.jpg'))
+img.append(text_e(imgload[16]))
+imgload.append(pygame.image.load('Os trem/Danashi1-1.png'))
+img.append(text_e(imgload[17]))
 
-
+glutInit()
+pts = 0
+multiplicador_pts1 = 1
+multiplicador_pts2 = 1
+qtde_lolis_capturadas = 0
 aux_tempo_alternacao1 = 0
 aux_t_col = 0
 alterna_loli = True
@@ -66,10 +99,6 @@ tela_ranking = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 1, 0)}
 #Definição de fundos
 backg = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 0), 'id': 8}
 
-
-#Variável global para pontuação
-PTS = 0
-
 #Definindo o meu anzol
 anzol = quadrado.copy()
 anzol['x'] = 20
@@ -98,13 +127,7 @@ botao_iniciar_jogo['cor'] = (0, 1, 1)
 botao_creditos = botao_iniciar_jogo.copy()
 botao_creditos['id'] = 'btnCreditos'
 botao_creditos['x'] = -70
-botao_creditos['y'] = -90
-
-#Definição de um botão que vai para a tela de fases
-botao_fases = botao_iniciar_jogo.copy()
-botao_fases['id'] = 'btnFases'
-botao_fases['x'] = -70
-botao_fases['y'] = 0
+botao_creditos['y'] = 0
 
 #Definição de um botão que vai acessa o ranking
 botao_ranking = botao_iniciar_jogo.copy()
@@ -115,8 +138,8 @@ botao_ranking['y'] = 0
 #Definição de um botão que vai sair do jogo
 botao_sair = botao_iniciar_jogo.copy()
 botao_sair['id'] = 'btnSair'
-botao_sair['x'] = 70
-botao_sair['y'] = -90
+botao_sair['x'] = 0
+botao_sair['y'] = -60
 
 #Definição de um botão de instruções
 botao_instrucoes = botao_iniciar_jogo.copy()
