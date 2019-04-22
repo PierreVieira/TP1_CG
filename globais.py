@@ -67,6 +67,8 @@ imgload.append(pygame.image.load('Os trem/oito.png'))
 img.append(text_e(imgload[26]))
 imgload.append(pygame.image.load('Os trem/nove.png'))
 img.append(text_e(imgload[27]))
+imgload.append(pygame.image.load('Os trem/telaInicial.png'))
+img.append(text_e(imgload[28]))
 
 glutInit()
 pts = 0
@@ -85,7 +87,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 'menu'
+parte = 'tela_inicial'
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,
@@ -171,3 +173,9 @@ botao_instrucoes = botao_iniciar_jogo.copy()
 botao_instrucoes['id'] = 'btnInstrucoes'
 botao_instrucoes['x'] = 0
 botao_instrucoes['y'] = 60
+
+tela_i = quadrado.copy()
+tela_i['altura'] = 200
+tela_i['largura'] = 200
+tela_i['cor'] = list(tela_i['cor'])
+tela_i['cor'] = [0, 0, 0]

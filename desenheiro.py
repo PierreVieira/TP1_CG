@@ -2,6 +2,8 @@ from basico import *
 from globais import *
 from deslocamento1 import *
 from deslocamento2 import *
+from deslocamento3 import *
+from objetos_terceira_parte import*
 from colisao import collision
 from OpenGL.GLUT import *
 from OpenGL.GL import *
@@ -58,7 +60,7 @@ def manter_prop(largura, altura):
 
 def desenha_quadrado(quadrado):
     glBegin(GL_POLYGON)
-    if quadrado['id'] != 30 or globais.parte != 2:
+    if (quadrado['id'] != 30 or globais.parte != 2) and globais.parte != 'tela_inicial':
         glColor3f(1, 1, 1)
     else:
         glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
@@ -75,7 +77,18 @@ def desenha_quadrado(quadrado):
 def redesenha():
     glClear(GL_COLOR_BUFFER_BIT)
     #glClearColor(0, 0.5, 1, 1)  #Fundo
-    if globais.parte == 'menu':
+    t = time() - globais.start
+    if globais.parte == 'tela_inicial':
+        texturas.init_tex(globais.imgload[28], globais.img[28])
+        if globais.tela_i['cor'][0] < 1 and globais.tela_i['cor'][1] < 1 and globais.tela_i['cor'][2] < 1:
+            globais.tela_i['cor'][0] = t/5
+            globais.tela_i['cor'][1] = t/5
+            globais.tela_i['cor'][2] = t/5
+        if t > 3.5:
+            globais.parte = 'menu'
+        desenha_quadrado(globais.tela_i)
+        glutSwapBuffers()
+    elif globais.parte == 'menu':
         texturas.init_tex(globais.imgload[3], globais.img[3])
         desenha_quadrado(globais.tela_inicial)
         texturas.init_tex(globais.imgload[4], globais.img[4])
@@ -117,11 +130,11 @@ def redesenha():
             for c in all1:
                 if c['visivel']:
                     if c['id'] == 0:
-                        alterna_lolis(0, 1)
+                        texturas.init_tex(globais.imgload[14], globais.img[14])
                     elif c['id'] == 1:
-                        alterna_lolis(2, 3)
+                        texturas.init_tex(globais.imgload[14], globais.img[14])
                     elif c['id'] == 2:
-                        alterna_lolis(4, 5)
+                        texturas.init_tex(globais.imgload[14], globais.img[14])
                     elif c['id'] == 3:
                         texturas.init_tex(globais.imgload[0], globais.img[0])
                         deslocar(True)
@@ -190,7 +203,7 @@ def redesenha():
             for c in all1:
                 if c['visivel']:
                     if c['id'] == 0:
-                        texturas.init_tex(globais.imgload[0], globais.img[0])
+                        texturas.init_tex(globais.imgload[15], globais.img[15])
                     elif c['id'] == 1:
                         texturas.init_tex(globais.imgload[2], globais.img[2])
                     elif c['id'] == 2:
@@ -228,7 +241,7 @@ def redesenha():
             for c in all1:
                 if c['visivel']:
                     if c['id'] == 0:
-                        texturas.init_tex(globais.imgload[0], globais.img[0])
+                        texturas.init_tex(globais.imgload[15], globais.img[15])
                     elif c['id'] == 1:
                         texturas.init_tex(globais.imgload[2], globais.img[2])
                     elif c['id'] == 2:
@@ -247,4 +260,17 @@ def redesenha():
                 texturas.init_tex(globais.imgload[2], globais.img[2])
                 desenha_quadrado(c)
             desenha_quadrado(globais.seguidor_mouse)
+            glutSwapBuffers()
+
+    else:
+        desenha_quadrado(backg)
+        desenha_quadrado(anzol)
+        for c in ninjas:
+            if c['visivel']:
+                mov_ninjas()
+                desenha_quadrado(c)
+                collision(seguidor_mouse, c)
+            else:
+                verificar_tempo(c)
+                desenha_quadrado(seguidor_mouse)
             glutSwapBuffers()
