@@ -6,6 +6,7 @@ from random import randint
 qtde_policiais = 5
 todos2 = []
 lista_tiros = []
+lista_pts = []
 qtde_vidas = []
 vida = globais.quadrado.copy()
 vida['y'] = 95
@@ -13,6 +14,19 @@ vida['id'] = 8
 vida['altura'] = 5
 vida['largura'] = 5
 vida['cor'] = (0, 0, 0)
+lpts = globais.quadrado.copy()
+lpts['y'] = 95
+lpts['id'] = 10
+lpts['altura'] = 5
+lpts['largura'] = 5
+lpts['cor'] = (0, 0, 0)
+lpts1 = lpts.copy()
+lpts1['id'] = 11
+lpts2 = lpts.copy()
+lpts2['id'] = 12
+lpts3 = lpts.copy()
+lpts3['id'] = 13
+
 tiro = globais.quadrado.copy()
 barricada_e = globais.quadrado.copy()
 barricada_e['altura'] = 8
@@ -35,5 +49,10 @@ all2 = gerador_objetos2(todos2)
 lista_tiros.append((gerador_objetos(7, 6, 2, 5, qtde_policiais, (0, 0, 0))))
 shots = coord_tiro(lista_tiros)
 
-qtde_vidas.append((gerador_objetos(8, 5, 5, 0, 35, (1, 1, 1))))
+qtde_vidas.append((gerador_objetos(8, 5, 5, 0, 20, (1, 1, 1))))
 lives = coord_lives(qtde_vidas)
+
+lista_pts.append((gerador_objetos(10, 5, 5, 0, 1, (1, 1, 1))))
+lista_pts[0].extend((lpts1, lpts2, lpts3))
+PTS = coord_pts(lista_pts)
+

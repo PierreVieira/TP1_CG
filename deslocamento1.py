@@ -28,7 +28,7 @@ def checkY(c):
         all1[c]['x'] = x_object
         all1[c]['y'] = y_object
         if globais.parte == 2:
-            all1[c]['id'] = 0
+            all1[c]['id'] = randint(0, 3)
             all1[c]['cor'] = (1, 1, 0)
 
 def deslocamento_0(c):

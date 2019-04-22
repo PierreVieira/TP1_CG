@@ -8,6 +8,7 @@ from OpenGL.GL import *
 import menu_pause
 import texturas
 import menu_confi
+import txt
 
 def alterna_lolis(arq1,arq2):
     if globais.alterna_loli:
@@ -115,9 +116,10 @@ def redesenha():
                         alterna_lolis(2, 3)
                     elif c['id'] == 2:
                         alterna_lolis(4, 5)
-                    desenha_quadrado(c)
-                    if c['id'] == 3:
+                    elif c['id'] == 3:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
                         deslocar(True)
+                    desenha_quadrado(c)
                     collision(anzol, c)
             if globais.esta_querendo_confirmar:
                 desenha_quadrado(menu_confi.mc)
@@ -139,12 +141,16 @@ def redesenha():
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
         else:
-            #pts(GLUT_BITMAP_TIMES_ROMAN_24,PTS.str().zfill(5),50,45,0)
+            for c in PTS:
+                txt.Pts(c['id'])
+                desenha_quadrado(c)
             t = time() - globais.start
             tempo = int(t - globais.start)
             if tempo % 1 == 0 and tempo != globais.aux_tempo_alternacao1:
                 globais.alterna_loli = not (globais.alterna_loli)
             globais.aux_tempo_alternacao1 = tempo
+            for c in PTS:
+                desenha_quadrado(c)
             for c in all1:
                 if c['visivel']:
                     if c['id'] == 0:
@@ -161,23 +167,40 @@ def redesenha():
 
     elif globais.parte == 2:
         globais.anzol['velocidade'] = 12
+        texturas.init_tex(globais.imgload[2], globais.img[2])
+        desenha_quadrado(backg)
+        texturas.init_tex(globais.imgload[16], globais.img[16])
+        desenha_quadrado(anzol)
         if globais.esta_pausado:
-            desenha_quadrado(anzol)
             for c in shots:
                 if c['visivel']:
                     glPushMatrix()
                     glRotatef(c['x']/3, 0, 0, 1)
+                    texturas.init_tex(globais.imgload[6], globais.img[6])
                     desenha_quadrado(c)
                     collision(anzol, c)
                     glPopMatrix()
             for c in all1:
                 if c['visivel']:
+                    if c['id'] == 0:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
+                    elif c['id'] == 1:
+                        texturas.init_tex(globais.imgload[2], globais.img[2])
+                    elif c['id'] == 2:
+                        texturas.init_tex(globais.imgload[3], globais.img[3])
                     desenha_quadrado(c)
             for c in all2:
                 if c['visivel']:
+                    if c['id'] == 0:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
+                    elif c['id'] == 1:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
+                    elif c['id'] == 2:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
                     desenha_quadrado(c)
                     collision(anzol, c)
             for c in lives:
+                texturas.init_tex(globais.imgload[0], globais.img[0])
                 desenha_quadrado(c)
             menu_pause.menu_p()
             if globais.esta_querendo_confirmar:
@@ -190,17 +213,31 @@ def redesenha():
                 if c['visivel']:
                     glPushMatrix()
                     glRotatef(c['x']/3, 0, 0, 1)
+                    texturas.init_tex(globais.imgload[6], globais.img[6])
                     desenha_quadrado(c)
                     move()
                     collision(anzol, c)
                     glPopMatrix()
             for c in all1:
                 if c['visivel']:
+                    if c['id'] == 0:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
+                    elif c['id'] == 1:
+                        texturas.init_tex(globais.imgload[2], globais.img[2])
+                    elif c['id'] == 2:
+                        texturas.init_tex(globais.imgload[3], globais.img[3])
                     padrao_2(c)
             for c in all2:
                 if c['visivel']:
+                    if c['id'] == 0:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
+                    elif c['id'] == 1:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
+                    elif c['id'] == 2:
+                        texturas.init_tex(globais.imgload[0], globais.img[0])
                     padrao_2(c)
             for c in lives:
+                texturas.init_tex(globais.imgload[2], globais.img[2])
                 desenha_quadrado(c)
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()

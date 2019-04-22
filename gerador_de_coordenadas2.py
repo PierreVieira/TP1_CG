@@ -16,6 +16,15 @@ def coord_tiro(lista_tiros):
             c[d]['y'] = objetos_segunda_parte.all2[pos]['y'] + 1
     return c
 
+def coord_pts(lista_pts):
+    for c in lista_pts:
+        s = 100
+        for d in range(len(c)):
+            s += 6
+            c[d]['x'] = s
+            c[d]['y'] = 95
+    return c
+
 def coord_lives(lista_lives):
     for c in lista_lives:
         s = 100
