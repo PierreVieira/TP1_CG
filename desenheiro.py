@@ -149,8 +149,6 @@ def redesenha():
             if tempo % 1 == 0 and tempo != globais.aux_tempo_alternacao1:
                 globais.alterna_loli = not (globais.alterna_loli)
             globais.aux_tempo_alternacao1 = tempo
-            for c in PTS:
-                desenha_quadrado(c)
             for c in all1:
                 if c['visivel']:
                     if c['id'] == 0:
