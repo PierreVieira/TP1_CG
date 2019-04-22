@@ -4,6 +4,43 @@ from random import randint, uniform
 import deslocamento1
 from time import time
 
+def cor_back():
+    t = 0.05
+    if globais.vermelho:
+        globais.backg['cor'][0] -= t
+        globais.backg['cor'][1] += t
+        globais.backg['cor'][2] -= t
+        if globais.backg['cor'][0] <= 0.2 and globais.backg['cor'][2] <= 0.2:
+            globais.verde = True
+            globais.vermelho = False
+            globais.backg['cor'][0] = 1
+            globais.backg['cor'][1] = 1
+    elif globais.verde:
+        globais.backg['cor'][0] -= t
+        globais.backg['cor'][2] += t
+        globais.backg['cor'][1] -= t
+        if globais.backg['cor'][0] <= 0.2 and globais.backg['cor'][1] <= 0.2:
+            globais.azul = True
+            globais.verde = False
+            globais.backg['cor'][0] = 1
+            globais.backg['cor'][2] = 1
+    elif globais.azul:
+        globais.backg['cor'][1] += t
+        globais.backg['cor'][0] -= t
+        globais.backg['cor'][2] -= t
+        if globais.backg['cor'][0] <= 0.2 and globais.backg['cor'][2] <= 0.2:
+            globais.vermelho = True
+            globais.azul = False
+            globais.backg['cor'][1] = 1
+            globais.backg['cor'][2] = 1
+    else:
+        globais.backg['cor'][1] -= t
+        globais.backg['cor'][2] -= t
+        if globais.backg['cor'][1] <= 0.2:
+            globais.vermelho = True
+            globais.backg['cor'][0] = 1
+            globais.backg['cor'][2] = 1
+
 def checkY2(c,x):
     if all2[c]['y'] <= -110:
         all2[c]['visivel'] = True

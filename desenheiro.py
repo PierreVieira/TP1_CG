@@ -2,8 +2,6 @@ from basico import *
 from globais import *
 from deslocamento1 import *
 from deslocamento2 import *
-from deslocamento3 import *
-from objetos_terceira_parte import *
 from colisao import collision
 from OpenGL.GLUT import *
 from OpenGL.GL import *
@@ -60,8 +58,10 @@ def manter_prop(largura, altura):
 
 def desenha_quadrado(quadrado):
     glBegin(GL_POLYGON)
-    #glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
-    glColor3f(1, 1, 1)
+    if quadrado['id'] != 30 or globais.parte != 2:
+        glColor3f(1, 1, 1)
+    else:
+        glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
     glTexCoord(0, 0)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
     glTexCoord(1, 0)
@@ -169,6 +169,8 @@ def redesenha():
     elif globais.parte == 2:
         globais.anzol['velocidade'] = 12
         texturas.init_tex(globais.imgload[2], globais.img[2])
+        if globais.pts > 600:
+            cor_back()
         desenha_quadrado(backg)
         texturas.init_tex(globais.imgload[16], globais.img[16])
         desenha_quadrado(anzol)
@@ -246,16 +248,3 @@ def redesenha():
                 desenha_quadrado(c)
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
-    #Parte 3
-    elif globais.parte == 3:
-        desenha_quadrado(backg)
-        desenha_quadrado(anzol)
-        for c in ninjas:
-            if c['visivel']:
-                mov_ninjas()
-                desenha_quadrado(c)
-                collision(seguidor_mouse, c)
-            else:
-                verificar_tempo(c)
-        desenha_quadrado(seguidor_mouse)
-        glutSwapBuffers()

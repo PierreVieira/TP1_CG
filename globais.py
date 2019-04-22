@@ -69,7 +69,11 @@ imgload.append(pygame.image.load('Os trem/nove.png'))
 img.append(text_e(imgload[27]))
 
 glutInit()
-pts = 324
+pts = 0
+vermelho = False
+azul = False
+verde = False
+
 multiplicador_pts1 = 1
 multiplicador_pts2 = 1
 qtde_lolis_capturadas = 0
@@ -107,18 +111,18 @@ interavel['cor'] = (1, 0, 0)
 #Definindo um objeto para seguir o mouse
 seguidor_mouse = quadrado.copy()
 seguidor_mouse['cor'] = (0, 0, 1)
-seguidor_mouse['largura'] = 4
-seguidor_mouse['altura'] = 4
+seguidor_mouse['largura'] = 2
+seguidor_mouse['altura'] = 2
 
 
 #Definindo um quadrado para as telas
-tela_inicial = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 0)}
-tela_creditos = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 0, 1)}
-tela_instrucoes = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (1, 0, 1)}
-tela_ranking = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (0, 1, 0)}
+tela_inicial = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'id': 56, 'cor': (0, 0, 0)}
+tela_creditos = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200,  'id': 56, 'cor': (0, 0, 1)}
+tela_instrucoes = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200,  'id': 56, 'cor': (1, 0, 1)}
+tela_ranking = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200,  'id': 56, 'cor': (0, 1, 0)}
 
 #Definição de fundos
-backg = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': (1, 0, 1), 'id': 8}
+backg = {'x': 0, 'y': 0, 'altura': 200, 'largura': 200, 'cor': [1, 1, 1], 'id': 30}
 
 #Definindo o meu anzol
 anzol = quadrado.copy()
@@ -128,8 +132,10 @@ anzol['altura'] = 8
 anzol['visivel'] = True
 anzol['largura'] = 8
 anzol['velocidade'] = 8
+anzol['area'] = anzol['altura']**2
 anzol['cor'] = (1, 1, 1)
 anzol['id'] = 'anzol'
+
 
 #Definição de botões
 
