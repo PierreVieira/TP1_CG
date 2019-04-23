@@ -44,7 +44,7 @@ imgload.append(pygame.image.load('Os trem/desesperada.png'))
 img.append(text_e(imgload[15]))
 imgload.append(pygame.image.load('Os trem/Yare.jpg'))
 img.append(text_e(imgload[16]))
-imgload.append(pygame.image.load('Os trem/Danashi1-1.png'))
+imgload.append(pygame.image.load('Danashi1-1.png'))
 img.append(text_e(imgload[17]))
 
 imgload.append(pygame.image.load('Os trem/zero.png'))
@@ -140,7 +140,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 'tela_inicial'
+parte = 3
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,

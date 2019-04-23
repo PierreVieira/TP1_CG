@@ -55,6 +55,9 @@ def movimentoMouse(x, y):
         elif collision(seguidor_mouse, botao_ranking):
             botao_borda['x'] = botao_ranking['x']
             botao_borda['y'] = botao_ranking['y']
+        else:
+            botao_borda['x'] = 3000
+            botao_borda['y'] = 3000
 
 def clicks_do_mouse(button, state, x, y):
     if button == GLUT_LEFT_BUTTON:

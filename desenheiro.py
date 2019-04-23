@@ -299,9 +299,9 @@ def redesenha():
         desenha_quadrado(anzol)
         for c in ninjas:
             if c['visivel']:
-                #if c['id'] == 120:
-
-                if collision(anzol, c):
+                if c['id'] == 120:
+                    texturas.init_tex(globais.imgload[51], globais.img[51])
+                elif collision(anzol, c):
                     texturas.init_tex(globais.imgload[45], globais.img[45])
                 else:
                     ninja_rand()

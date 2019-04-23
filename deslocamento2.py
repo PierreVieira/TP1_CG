@@ -3,8 +3,6 @@ from objetos_segunda_parte import *
 from random import randint, uniform
 import deslocamento1
 from time import time, sleep
-from OpenGL.GLUT import *
-import desenheiro
 import texturas
 
 def trans2():

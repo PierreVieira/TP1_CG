@@ -71,7 +71,8 @@ def collision(objeto, quadrado):
             print(quadrado['n_colisoes'])
             quadrado['n_colisoes'] += 1
             globais.n_colisoes_3 += 1
-            if quadrado['n_colisoes'] > 10:
+            if quadrado['n_colisoes'] > 40:
                 quadrado['visivel'] = False
+                quadrado['n_colisoes'] = 0
             return True
         return True

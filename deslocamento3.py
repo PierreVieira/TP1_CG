@@ -83,4 +83,4 @@ def mov_ninjas():
 
         if (globais.n_colisoes_3+1) % 20 == 0 and globais.n_colisoes_3 <= 40:
             ninjas[0+(globais.n_colisoes_3//20)]['id'] = 120
-            ninjas[0+(globais.n_colisoes_3//20)]['n_colisoes'] = -30
+            ninjas[0+(globais.n_colisoes_3//20)]['n_colisoes'] = -70
