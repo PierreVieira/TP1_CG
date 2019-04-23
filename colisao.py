@@ -1,6 +1,5 @@
-from objetos_segunda_parte import *
 from objetos_primeira_parte import *
-import toca_musica
+from deslocamento2 import *
 import globais
 
 
@@ -47,7 +46,9 @@ def collision(objeto, quadrado):
                 globais.pts += 10
 
             if globais.pts >= 50:
-                globais.parte = 3
+                globais.estou_em_transicao = True
+                globais.esta_pausado = True
+                sleep(1)
                 return True
 
             elif quadrado['id'] == 4:
