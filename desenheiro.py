@@ -282,7 +282,9 @@ def redesenha():
             glutSwapBuffers()
 
     elif globais.parte == 3:
+        texturas.init_tex(globais.imgload[37], globais.img[37])
         desenha_quadrado(backg)
+        texturas.init_tex(globais.imgload[16], globais.img[16])
         desenha_quadrado(anzol)
         for c in ninjas:
             if c['visivel']:

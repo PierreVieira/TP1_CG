@@ -107,11 +107,14 @@ imgload.append(pygame.image.load('Os trem/ninjas5.png'))
 img.append(text_e(imgload[46]))
 imgload.append(pygame.image.load('Os trem/cats.jpg'))
 img.append(text_e(imgload[47]))
-
-
+imgload.append(pygame.image.load('Os trem/Captura de tela de 2019-04-23 08-47-28.png'))
+img.append(text_e(imgload[48]))
+imgload.append(pygame.image.load('Os trem/slash.png'))
+img.append(text_e(imgload[49]))
 
 glutInit()
 pts = 0
+AUX = 0
 vermelho = False
 azul = False
 verde = False
@@ -132,7 +135,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 'tela_inicial'
+parte = 3
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,

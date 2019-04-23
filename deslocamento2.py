@@ -89,16 +89,16 @@ def deslocamento_4(c): #Deslocamento Policiais
 
 def deslocamento_5(c,x): #Barricadas
     if globais.cont_fora_da_tela < 300:
-        t = all2[c]['velocidade']*globais.cont_fora_da_tela/7000
+        t = all2[c]['velocidade']*globais.cont_fora_da_tela/4500
     else:
-        t = 0.06
+        t = 0.045
     all2[c]['y'] -= t
     checkY2(c,x)
 
 def atirar(c):
-    t = shots[c]['velocidade'] / 300
+    t = shots[c]['velocidade'] / 200
     if shots[c]['y'] <= -70:
-        shots[c]['y'] += t ** 2 + 0.01
+        shots[c]['y'] += t ** 2 + 0.05
         if globais.anzol['x'] >= shots[c]['x'] and globais.anzol['x'] >= 0:
             shots[c]['x'] += globais.anzol['x'] / 3000
         elif globais.anzol['x'] < shots[c]['x'] and globais.anzol['x'] >= 0:
