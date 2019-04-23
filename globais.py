@@ -135,7 +135,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 3
+parte = 2
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,

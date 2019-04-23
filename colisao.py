@@ -45,6 +45,11 @@ def collision(objeto, quadrado):
                 objetos_segunda_parte.lives.append(vida.copy())
             elif 0 <= quadrado['id'] <= 2:
                 globais.pts += 10
+
+            if globais.pts >= 50:
+                globais.parte = 3
+                return True
+
             elif quadrado['id'] == 4:
                 if len(qtde_vidas[0]) <= 2:
                     globais.parte = 3

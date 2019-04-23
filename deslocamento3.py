@@ -24,6 +24,7 @@ def ninja_ataca():
         texturas.init_tex(globais.imgload[4], globais.img[4])
         desenheiro.desenha_quadrado(ataque)
     else:
+        globais.TNINJAS = t
         globais.AUX = 0
 
 
@@ -82,3 +83,4 @@ def mov_ninjas():
 
         if (globais.n_colisoes_3+1) % 20 == 0 and globais.n_colisoes_3 <= 40:
             ninjas[0+(globais.n_colisoes_3//20)]['id'] = 120
+            ninjas[0+(globais.n_colisoes_3//20)]['n_colisoes'] = -30

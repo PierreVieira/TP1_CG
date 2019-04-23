@@ -288,15 +288,10 @@ def redesenha():
         desenha_quadrado(anzol)
         for c in ninjas:
             if c['visivel']:
-                # if c['id'] == 120:
-                #     glPushMatrix()
-                #     glRotatef
+                #if c['id'] == 120:
+
                 if collision(anzol, c):
-                    r = randint(0, 2)
-                    if r == 1:
-                        texturas.init_tex(globais.imgload[45], globais.img[45])
-                    else:
-                        texturas.init_tex(globais.imgload[46], globais.img[46])
+                    texturas.init_tex(globais.imgload[45], globais.img[45])
                 else:
                     ninja_rand()
                 if c['x'] >= 0:
