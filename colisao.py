@@ -1,6 +1,6 @@
 from objetos_segunda_parte import *
 from objetos_primeira_parte import *
-import texturas
+import toca_musica
 import globais
 
 

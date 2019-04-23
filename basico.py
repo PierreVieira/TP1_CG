@@ -1,8 +1,6 @@
 from desenheiro import *
 from atualiza import *
 from teclas import *
-from OpenGL.GL import *
-from globais import *
 from mouse import *
 def main_basico():
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB)

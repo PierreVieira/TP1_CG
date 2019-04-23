@@ -33,7 +33,7 @@ barricada_e['altura'] = 8
 barricada_e['cor'] = (0, 1, 0)
 barricada_e['id'] = 5
 barricada_e['largura'] = 100
-barricada_e['velocidade'] = 1
+barricada_e['velocidade'] = 0.5
 barricada_e['y'] = 120
 barricada_e['x'] = -100
 d = 200 - barricada_e['largura']
@@ -46,10 +46,10 @@ todos2[0].append(barricada_e)
 todos2[0].append(barricada_d)
 all2 = gerador_objetos2(todos2)
 
-lista_tiros.append((gerador_objetos(7, 6, 2, 6, qtde_policiais, (0, 0, 0))))
+lista_tiros.append((gerador_objetos(7, 6, 2, 4, qtde_policiais, (0, 0, 0))))
 shots = coord_tiro(lista_tiros)
 
-qtde_vidas.append((gerador_objetos(8, 5, 5, 0, 5, (1, 1, 1))))
+qtde_vidas.append((gerador_objetos(8, 5, 5, 0, 20, (1, 1, 1))))
 lives = coord_lives(qtde_vidas)
 
 lista_pts.append((gerador_objetos(10, 5, 5, 0, 1, (1, 1, 1))))
