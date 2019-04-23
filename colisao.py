@@ -43,7 +43,8 @@ def collision(objeto, quadrado):
                 globais.pts += 50
                 if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                     hank(globais.nomeJogador, globais.pts)
-                    exit()
+                    globais.parte = 'game_over'
+                    return True
                 vida['x'] = objetos_segunda_parte.lives[-1]['x'] - 6
                 objetos_segunda_parte.lives.append(vida.copy())
             elif 0 <= quadrado['id'] <= 2:
@@ -59,22 +60,26 @@ def collision(objeto, quadrado):
                 if len(qtde_vidas[0]) <= 2:
                     if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                         hank(globais.nomeJogador, globais.pts)
-                        exit()
+                        globais.parte = 'game_over'
+                        return True
                 qtde_vidas[0].pop(-1)
                 if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                     hank(globais.nomeJogador, globais.pts)
-                    exit()
+                    globais.parte = 'game_over'
+                    return True
                 qtde_vidas[0].pop(-1)
                 if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                     hank(globais.nomeJogador, globais.pts)
-                    exit()
+                    globais.parte = 'game_over'
+                    return True
                 quadrado['x'] = 3000
                 quadrado['y'] = 3000
             elif quadrado['id'] == 5 or quadrado['id'] == 6:
                 if len(qtde_vidas[0]) <= 2:
                     if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                         hank(globais.nomeJogador, globais.pts)
-                        exit()
+                        globais.parte = 'game_over'
+                        return True
                 qtde_vidas[0].pop(-1)
                 qtde_vidas[0].pop(-1)
         elif globais.parte == 3:

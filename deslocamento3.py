@@ -32,7 +32,8 @@ def ninja_ataca():
         if colisao.collision(globais.anzol, ataque):
             if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                 hank(globais.nomeJogador, globais.pts)
-                exit()
+                globais.parte = 'game_over'
+                return True
             objetos_segunda_parte.qtde_vidas[0].pop(-1)
     else:
         globais.AUX = 0
@@ -60,7 +61,8 @@ def mov_ninjas():
                 globais.HP = 0
                 if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                     hank(globais.nomeJogador, globais.pts)
-                    exit()
+                    globais.parte = 'game_over'
+                    return True
                 objetos_segunda_parte.qtde_vidas[0].pop(-1)
         if ninjas[c]['id'] == 120:
             if randint(0, 1000) == 1 or globais.AUX:
@@ -74,7 +76,8 @@ def mov_ninjas():
                     globais.HP = 0
                     if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                         hank(globais.nomeJogador, globais.pts)
-                        exit()
+                        globais.parte = 'game_over'
+                        return True
                     objetos_segunda_parte.qtde_vidas[0].pop(-1)
             t = ninjas[c]['velocidade'] / randint(400, 1200)
             ninjas[c]['y'] += t * 5

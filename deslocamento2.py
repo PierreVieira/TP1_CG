@@ -138,7 +138,8 @@ def atirar(c):
             print('AAIAI')
             if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                 hank(globais.nomeJogador, globais.pts)
-                exit()
+                globais.parte = 'game_over'
+                return True
             qtde_vidas[0].pop(-1)
             pos = randint(0, 4)
             shots[c]['x'] = all2[pos]['x']

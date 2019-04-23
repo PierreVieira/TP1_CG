@@ -129,6 +129,7 @@ y = 0
 s = 0
 HP = 0
 nomeJogador = ''
+game_over = False
 multiplicador_pts1 = 1
 multiplicador_pts2 = 1
 qtde_lolis_capturadas = 0
@@ -246,3 +247,9 @@ tela_i['altura'] = 200
 tela_i['largura'] = 200
 tela_i['cor'] = list(tela_i['cor'])
 tela_i['cor'] = [0, 0, 0]
+
+#Definição do botão de game over
+game_over = quadrado.copy()
+game_over['altura'] = 200
+game_over['largura'] = 200
+game_over['cor'] = (1, 0, 0)

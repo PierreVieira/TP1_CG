@@ -346,3 +346,6 @@ def redesenha():
                         desenha_quadrado(menu_confi.mc)
                     desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
+    elif globais.parte == 'game_over':
+        desenha_quadrado(globais.game_over)
+        glutSwapBuffers()

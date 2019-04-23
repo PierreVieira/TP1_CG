@@ -7,14 +7,14 @@ import menu_pause
 
 def tecla(key, x = 0, y = 0):
     tec = ord(key)
-    if tec == 27: #ESC
+    if tec == 27 and globais.parte != 'game_over': #ESC
         if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
             globais.esta_querendo_confirmar = True
             globais.esta_pausado = True
             globais.ultima_tecla = 27
         else:
             exit()
-    elif tec == 114 or tec == 82: #r
+    elif (tec == 114 or tec == 82) and globais.parte != 'game_over': #r
         if globais.parte == 1 or globais.parte == 2 or globais.parte == 3:
             globais.ultima_tecla = 114
             globais.esta_querendo_confirmar = True
@@ -30,6 +30,10 @@ def tecla(key, x = 0, y = 0):
         globais.anzol['x'] -= globais.anzol['velocidade']
     elif (tec == 100 or tec == 68) and not(globais.esta_pausado): #direita (d)
         globais.anzol['x'] += globais.anzol['velocidade']
+    elif (tec == 115 or tec == 83) and globais.parte == 'game_over':
+        exit()
+    elif (tec == 118 or tec == 86) and globais.parte == 'game_over':
+        globais.parte = 'menu'
     if globais.esta_querendo_confirmar:
         if globais.ultima_tecla == 27:
             if tec == 121 or tec == 89:  # s
