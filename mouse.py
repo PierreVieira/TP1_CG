@@ -56,7 +56,6 @@ def clicks_do_mouse(button, state, x, y):
             elif collision(seguidor_mouse, botao_instrucoes):
                 globais.parte = 'instrucoes'
             elif collision(seguidor_mouse, botao_ranking):
-                #f = open('Os trem/HS.txt', 'r')
                 globais.parte = 'ranking'
         if globais.esta_pausado:
             if collision(seguidor_mouse, voltar_menu_principal):
