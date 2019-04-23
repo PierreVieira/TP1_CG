@@ -120,6 +120,7 @@ azul = False
 verde = False
 x = 0
 y = 0
+nome_jogador = ''
 multiplicador_pts1 = 1
 multiplicador_pts2 = 1
 qtde_lolis_capturadas = 0

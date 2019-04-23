@@ -1,6 +1,6 @@
 from colisao import *
 from menu_pause import *
-import menu_confi
+from arquivos import *
 from globais import *
 import objetos_primeira_parte
 from pygame import mixer
@@ -41,8 +41,6 @@ def movimentoMouse(x, y):
     seguidor_mouse['y'] = y
 
 def clicks_do_mouse(button, state, x, y):
-    x, y = conversao(x, y)
-    print(x, y)
     if button == GLUT_LEFT_BUTTON:
         if globais.parte == 'menu':
             if collision(seguidor_mouse, botao_iniciar_jogo):
@@ -57,6 +55,8 @@ def clicks_do_mouse(button, state, x, y):
                 globais.parte = 'instrucoes'
             elif collision(seguidor_mouse, botao_ranking):
                 globais.parte = 'ranking'
+                exibir_resultado()
+
         if globais.esta_pausado:
             if collision(seguidor_mouse, voltar_menu_principal):
                 globais.esta_querendo_confirmar = False
