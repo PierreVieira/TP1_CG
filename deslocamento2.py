@@ -2,8 +2,22 @@ import objetos_primeira_parte
 from objetos_segunda_parte import *
 from random import randint, uniform
 import deslocamento1
-from time import time
+from time import time, sleep
+from OpenGL.GLUT import *
+import desenheiro
 import texturas
+
+def trans2():
+    if all2[0]['y'] <= globais.anzol['y'] - 30:
+        for c in all2:
+            if c['id'] == 4:
+                c['y'] += 1
+    else:
+        texturas.init_tex(globais.imgload[0], globais.img[0])
+        sleep(1)
+        globais.esta_pausado = False
+        globais.estou_em_transicao = False
+        globais.parte = 3
 
 def cor_back():
     t = 0.05
