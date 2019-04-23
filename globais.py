@@ -157,7 +157,9 @@ quadrado = {
     'n_colisoes': 0,
     'direcao': True,
     'direcaoY': True,
-    'cor': (0, 0, 0)
+    'cor': (0, 0, 0),
+    'tempo_resp': 5,
+    'tempo_morte': 0
 }
 #Definição de um botão interativo
 interavel = quadrado.copy()

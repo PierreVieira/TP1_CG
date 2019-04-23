@@ -37,10 +37,11 @@ def ninja_ataca():
 
 
 def verificar_tempo(quadrado):
-    tempo = globais.start - time()
-    if int(tempo)%2 == 0:
+    quadrado['tempo_morte'] = time() - globais.start
+    print(int(quadrado['tempo_morte']))
+    if int(quadrado['tempo_morte'])%quadrado['tempo_resp'] == 0:
         quadrado['visivel'] = True
-
+        quadrado['tempo_morte'] = 0
 
 def mov_ninjas_lolis(c):
     t = ninjas[c]['velocidade'] / 500
@@ -119,6 +120,8 @@ def mov_ninjas():
         if (globais.n_colisoes_3+1) % 20 == 0 and globais.n_colisoes_3 <= 40:
             ninjas[0+(globais.n_colisoes_3//20)]['id'] = 120
             ninjas[0+(globais.n_colisoes_3//20)]['n_colisoes'] = -70
+            ninjas[0 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 10
         elif (globais.n_colisoes_3+1) % 20 == 0 and 40 <= globais.n_colisoes_3 <= 80:
             ninjas[2 + (globais.n_colisoes_3 // 20)]['id'] = 130
             ninjas[2 + (globais.n_colisoes_3 // 20)]['n_colisoes'] = -70
+            ninjas[2 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 6
