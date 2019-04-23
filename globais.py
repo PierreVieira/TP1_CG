@@ -225,6 +225,13 @@ botao_instrucoes['id'] = 'btnInstrucoes'
 botao_instrucoes['x'] = 0
 botao_instrucoes['y'] = 60
 
+#Definição de um botão para a borda
+botao_borda = botao_iniciar_jogo.copy()
+botao_borda['id'] = 'btnInstrucoes'
+botao_borda['x'] = 0
+botao_borda['y'] = 0
+
+
 tela_i = quadrado.copy()
 tela_i['altura'] = 200
 tela_i['largura'] = 200
