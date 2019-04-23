@@ -3,6 +3,7 @@ from objetos_segunda_parte import *
 from random import randint, uniform
 import deslocamento1
 from time import time
+import texturas
 
 def cor_back():
     t = 0.05
@@ -132,7 +133,7 @@ def atirar(c):
 
 def move():
     for c in range(len(objetos_primeira_parte.all1)):
-        if randint(1, 5000) == 1:
+        if randint(1, 10000) == 1:
             objetos_primeira_parte.all1[c]['id'] = 'loli_vida'
             objetos_primeira_parte.all1[c]['cor'] = (0.4, 0.4, 0.4)
         deslocamento_3(c)

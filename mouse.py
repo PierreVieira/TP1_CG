@@ -9,10 +9,10 @@ def conversao(x, y):
         x = -(100 -x/3)
     else:
         x = x/3 - 100
-    if y < 300:
-        y = 100 - y/3
+    if y < 350:
+        y = 100 - y/3.5
     else:
-        y = -(y/3 - 100)
+        y = -(y/3.5 - 100)
     return (x, y)
 def reorganizar(lista):
     for c in range(len(lista)):

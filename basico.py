@@ -6,7 +6,7 @@ from globais import *
 from mouse import *
 def main_basico():
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB)
-    glutInitWindowSize(600, 600)
+    glutInitWindowSize(600, 700)
     glutInitWindowPosition(500, 100)
     glutCreateWindow(b'Pescaria')
     glutDisplayFunc(redesenha)
