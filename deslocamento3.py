@@ -1,4 +1,5 @@
 from objetos_terceira_parte import *
+import objetos_segunda_parte
 from random import randint
 import globais
 from time import time
@@ -6,7 +7,7 @@ import desenheiro
 import texturas
 import gerador_de_coordenadas1
 import colisao
-
+from arquivos import *
 def ninja_ataca():
     t = time() - globais.start
     texturas.init_tex(globais.imgload[48], globais.img[48])
@@ -26,7 +27,10 @@ def ninja_ataca():
         texturas.init_tex(globais.imgload[4], globais.img[4])
         desenheiro.desenha_quadrado(ataque)
         if colisao.collision(globais.anzol, ataque):
-            globais.qtde_vidas[0].pop(-1)
+            if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
+                hank(globais.nomeJogador, globais.pts)
+                exit()
+            objetos_segunda_parte.qtde_vidas[0].pop(-1)
     else:
         globais.TNINJAS = t
         globais.AUX = 0

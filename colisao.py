@@ -1,5 +1,6 @@
 from objetos_primeira_parte import *
 from deslocamento2 import *
+from arquivos import *
 import globais
 
 
@@ -40,6 +41,9 @@ def collision(objeto, quadrado):
             quadrado['visivel'] = False
             if quadrado['id'] == 'loli_vida':
                 globais.pts += 50
+                if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
+                    hank(globais.nomeJogador, globais.pts)
+                    exit()
                 vida['x'] = objetos_segunda_parte.lives[-1]['x'] - 6
                 objetos_segunda_parte.lives.append(vida.copy())
             elif 0 <= quadrado['id'] <= 2:
@@ -53,18 +57,18 @@ def collision(objeto, quadrado):
 
             elif quadrado['id'] == 4:
                 if len(qtde_vidas[0]) <= 2:
-                    globais.parte = 3
-                    globais.anzol['altura'] = 13
-                    return True
+                    if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
+                        hank(globais.nomeJogador, globais.pts)
+                        exit()
                 qtde_vidas[0].pop(-1)
                 qtde_vidas[0].pop(-1)
                 quadrado['x'] = 3000
                 quadrado['y'] = 3000
             elif quadrado['id'] == 5 or quadrado['id'] == 6:
                 if len(qtde_vidas[0]) <= 2:
-                    globais.parte = 3
-                    globais.anzol['altura'] = 13
-                    return True
+                    if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
+                        hank(globais.nomeJogador, globais.pts)
+                        exit()
                 qtde_vidas[0].pop(-1)
                 qtde_vidas[0].pop(-1)
         elif globais.parte == 3:

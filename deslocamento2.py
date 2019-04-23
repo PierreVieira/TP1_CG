@@ -4,6 +4,7 @@ from random import randint, uniform
 import deslocamento1
 from time import time, sleep
 import texturas
+from arquivos import *
 
 def trans2():
     if all2[0]['y'] <= globais.anzol['y'] - 30:
@@ -135,7 +136,8 @@ def atirar(c):
         t_col = time() - globais.start
         if t_col - globais.aux_t_col >= 1:
             print('AAIAI')
-            if len(qtde_vidas) == 0:
+            if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
+                hank(globais.nomeJogador, globais.pts)
                 exit()
             qtde_vidas[0].pop(-1)
             pos = randint(0, 4)

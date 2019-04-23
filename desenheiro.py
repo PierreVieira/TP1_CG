@@ -317,6 +317,9 @@ def redesenha():
                 else:
                     verificar_tempo(c)
                     desenha_quadrado(seguidor_mouse)
+            for c in lives:
+                texturas.init_tex(globais.imgload[28], globais.img[28])
+                desenha_quadrado(c)
             glutSwapBuffers()
         elif globais.esta_pausado:
             for c in ninjas:
@@ -342,4 +345,4 @@ def redesenha():
                         texturas.init_tex(globais.imgload[47], globais.img[47])
                         desenha_quadrado(menu_confi.mc)
                     desenha_quadrado(globais.seguidor_mouse)
-                    glutSwapBuffers()
+            glutSwapBuffers()

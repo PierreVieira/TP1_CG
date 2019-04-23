@@ -126,7 +126,7 @@ azul = False
 verde = False
 x = 0
 y = 0
-nome_jogador = ''
+nomeJogador = ''
 multiplicador_pts1 = 1
 multiplicador_pts2 = 1
 qtde_lolis_capturadas = 0
@@ -142,7 +142,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 3
+parte = 2
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,
