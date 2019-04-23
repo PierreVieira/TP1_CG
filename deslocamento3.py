@@ -10,19 +10,21 @@ import colisao
 from arquivos import *
 from math import *
 def ninja_ataca():
-    t = time() - globais.start
+    if globais.VT <= 1000:
+        globais.VT += 1
+    else:
+        globais.VT = 0
     texturas.init_tex(globais.imgload[48], globais.img[48])
-    if t - globais.TNINJAS <= 0.3:
+    if globais.VT <= 30:
         globais.x = globais.anzol['x']
         globais.y = globais.anzol['y']
 
-    elif t - globais.TNINJAS <= 1:
+    elif globais.VT <= 160:
         antes_ataque['x'] = globais.x
         antes_ataque['y'] = globais.y
         desenheiro.desenha_quadrado(antes_ataque)
-    elif 1 <= t - globais.TNINJAS <= 3:
-        print('k')
-        globais.TNINJAS = t
+    elif globais.VT <= 200:
+        globais.HP += 0.1
         ataque['x'] = globais.x
         ataque['y'] = globais.y
         texturas.init_tex(globais.imgload[4], globais.img[4])
@@ -33,7 +35,6 @@ def ninja_ataca():
                 exit()
             objetos_segunda_parte.qtde_vidas[0].pop(-1)
     else:
-        globais.TNINJAS = t
         globais.AUX = 0
 
 
@@ -64,7 +65,6 @@ def mov_ninjas():
         if ninjas[c]['id'] == 120:
             if randint(0, 1000) == 1 or globais.AUX:
                 globais.AUX = 1
-                t = time() - globais.start
                 ninja_ataca()
             mov_ninjas_lolis(c)
         elif ninjas[c]['id'] == 130:

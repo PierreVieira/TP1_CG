@@ -136,6 +136,7 @@ aux_tempo_alternacao1 = 0
 aux_rand_ninja = 0
 aux_t_col = 0
 aux_t_ninjas = 0
+VT = 0
 TNINJAS = 0
 n_colisoes_3 = 0
 alterna_loli = True
