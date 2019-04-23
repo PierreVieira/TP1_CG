@@ -1,7 +1,6 @@
 from objetos_segunda_parte import *
 from objetos_primeira_parte import *
-from random import randint
-from time import time
+import texturas
 import globais
 
 
@@ -20,7 +19,7 @@ def collision(objeto, quadrado):
             quadV2[0] < objV2[0] < quadV1[0] and quadV4[1] < objV2[1] < quadV1[1] or \
             quadV2[0] < objV1[0] < quadV1[0] and quadV4[1] < objV1[1] < quadV1[1] or \
             quadV2[0] < objV4[0] < quadV1[0] and quadV4[1] < objV4[1] < quadV1[1] or \
- \
+            \
             objV2[0] < quadV3[0] < objV1[0] and objV4[1] < quadV3[1] < objV1[1] or \
             objV2[0] < quadV2[0] < objV1[0] and objV4[1] < quadV2[1] < objV1[1] or \
             objV2[0] < quadV1[0] < objV1[0] and objV4[1] < quadV1[1] < objV1[1] or \
@@ -55,21 +54,6 @@ def collision(objeto, quadrado):
                 qtde_vidas[0].pop(-1)
                 quadrado['x'] = 3000
                 quadrado['y'] = 3000
-            elif quadrado['id'] == 7:
-                print('Colisao')
-                if len(qtde_vidas[0]) <= 1:
-                    globais.parte = 3
-                    globais.anzol['altura'] = 13
-                    return True
-                qtde_vidas[0].pop(-1)
-                t_col = time() - globais.start
-                if t_col - globais.aux_t_col >= 1:
-                    quadrado['visivel'] = False
-                    pos = randint(0, 4)
-                    quadrado['x'] = all2[pos]['x']
-                    quadrado['y'] = all2[pos]['y'] + 1
-                    quadrado['visivel'] = True
-                globais.aux_t_col = t_col
             elif quadrado['id'] == 5 or quadrado['id'] == 6:
                 if len(qtde_vidas[0]) <= 2:
                     globais.parte = 3
@@ -80,6 +64,8 @@ def collision(objeto, quadrado):
         elif globais.parte == 3:
             print(quadrado['n_colisoes'])
             quadrado['n_colisoes'] += 1
+            globais.n_colisoes_3 += 1
             if quadrado['n_colisoes'] > 10:
                 quadrado['visivel'] = False
+            return True
         return True

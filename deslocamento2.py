@@ -89,20 +89,26 @@ def deslocamento_4(c): #Deslocamento Policiais
 
 def deslocamento_5(c,x): #Barricadas
     if globais.cont_fora_da_tela < 300:
-        t = all2[c]['velocidade']*globais.cont_fora_da_tela/10000
+        t = all2[c]['velocidade']*globais.cont_fora_da_tela/7000
     else:
-        t = 0.0313
+        t = 0.06
     all2[c]['y'] -= t
     checkY2(c,x)
 
 def atirar(c):
-    t = shots[c]['velocidade']/500
-    if shots[c]['x'] >= 0 and shots[c]['y'] < -200:
-        shots[c]['y'] += t + globais.anzol['y'] / 12000
-        shots[c]['x'] += t + globais.anzol['x'] / 12000
+    t = shots[c]['velocidade'] / 300
+    if shots[c]['y'] <= -70:
+        shots[c]['y'] += t ** 2 + 0.01
+        if globais.anzol['x'] >= shots[c]['x'] and globais.anzol['x'] >= 0:
+            shots[c]['x'] += globais.anzol['x'] / 3000
+        elif globais.anzol['x'] < shots[c]['x'] and globais.anzol['x'] >= 0:
+            shots[c]['x'] -= globais.anzol['x'] / 3000
+        elif globais.anzol['x'] >= shots[c]['x'] and globais.anzol['x'] < 0:
+            shots[c]['x'] -= globais.anzol['x'] / 3000
+        else:
+            shots[c]['x'] += globais.anzol['x'] / 3000
     else:
-        shots[c]['y'] += t + globais.anzol['y'] / 12000
-        shots[c]['x'] -= t + globais.anzol['x'] / 12000
+        shots[c]['y'] += t
     if shots[c]['y'] >= 105:
         pos = randint(0, 4)
         if all2[pos]['x'] < 100:
@@ -111,9 +117,6 @@ def atirar(c):
             else:
                 shots[c]['x'] = all2[pos]['x'] + 20
             shots[c]['y'] = all2[pos]['y'] - 8
-    if shots[c]['y'] >= -200:
-        shots[c]['y'] += abs(shots[c]['y']/10000)
-        shots[c]['x'] += abs(shots[c]['x']/10000)
     if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 10):
         shots[c]['visivel'] = False
         print('Distancia')
@@ -126,10 +129,8 @@ def atirar(c):
             pos = randint(0, 4)
             shots[c]['x'] = all2[pos]['x']
             shots[c]['y'] = all2[pos]['y'] + 1
-            shots[c]['visivel'] = True
-        else:
-            shots[c]['visivel'] = True
-        globais.aux_t_col = t_col
+            globais.aux_t_col = t_col
+        shots[c]['visivel'] = True
 
 def move():
     for c in range(len(objetos_primeira_parte.all1)):

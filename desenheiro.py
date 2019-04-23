@@ -12,21 +12,27 @@ import texturas
 import menu_confi
 import txt
 
-def ninja_rand(c):
+def ninja_rand():
     t = time() - globais.start
-    if globais.aux_t_ninjas - t >= 5:
+    if t - globais.aux_t_ninjas >= 5:
         r = randint(0, 3)
         if r == 0:
             texturas.init_tex(globais.imgload[42], globais.img[42])
-            desenha_quadrado(c)
+            globais.aux_rand_ninja = 0
         elif r == 1:
             texturas.init_tex(globais.imgload[43], globais.img[43])
-            desenha_quadrado(c)
+            globais.aux_rand_ninja = 1
         else:
             texturas.init_tex(globais.imgload[44], globais.img[44])
-            desenha_quadrado(c)
-        t = 0
-    globais.aux_t_ninjas = t
+            globais.aux_rand_ninja = 2
+        globais.aux_t_ninjas = t
+    else:
+        if globais.aux_rand_ninja == 0:
+            texturas.init_tex(globais.imgload[42], globais.img[42])
+        elif globais.aux_rand_ninja == 1:
+            texturas.init_tex(globais.imgload[43], globais.img[43])
+        elif globais.aux_rand_ninja == 2:
+            texturas.init_tex(globais.imgload[44], globais.img[44])
 
 def alterna_lolis(arq1,arq2):
     if globais.alterna_loli:
@@ -72,19 +78,19 @@ def manter_prop(largura, altura):
     altura = k*largura
     glViewport(GLint(0), GLint(0), int(altura/2), int(altura/2))
 
-def desenha_quadrado(quadrado):
+def desenha_quadrado(quadrado, i=0):
     glBegin(GL_POLYGON)
     if (quadrado['id'] != 30 or globais.parte != 2) and globais.parte != 'tela_inicial':
         glColor3f(1, 1, 1)
     else:
         glColor3f(quadrado['cor'][0], quadrado['cor'][1], quadrado['cor'][2])
-    glTexCoord(0, 0)
+    glTexCoord(0+i, 0)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
-    glTexCoord(1, 0)
+    glTexCoord(1-i, 0)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] - quadrado['altura'] / 2)
-    glTexCoord(1, 1)
+    glTexCoord(1-i, 1)
     glVertex2f(quadrado['x'] + quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
-    glTexCoord(0, 1)
+    glTexCoord(0+i, 1)
     glVertex2f(quadrado['x'] - quadrado['largura'] / 2, quadrado['y'] + quadrado['altura'] / 2)
     glEnd()
 
@@ -277,7 +283,21 @@ def redesenha():
         desenha_quadrado(anzol)
         for c in ninjas:
             if c['visivel']:
-                ninja_rand(c)
+                # if c['id'] == 120:
+                #     glPushMatrix()
+                #     glRotatef
+                if collision(anzol, c):
+                    r = randint(0, 2)
+                    if r == 1:
+                        texturas.init_tex(globais.imgload[45], globais.img[45])
+                    else:
+                        texturas.init_tex(globais.imgload[46], globais.img[46])
+                else:
+                    ninja_rand()
+                if c['x'] >= 0:
+                    desenha_quadrado(c, 1)
+                else:
+                    desenha_quadrado(c)
                 mov_ninjas()
                 collision(seguidor_mouse, c)
             else:

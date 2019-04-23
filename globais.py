@@ -32,9 +32,9 @@ imgload.append(pygame.image.load('Os trem/pause_fundo.png'))
 img.append(text_e(imgload[9]))
 imgload.append(pygame.image.load('Os trem/menu_principal.png'))
 img.append(text_e(imgload[10]))
-imgload.append(pygame.image.load('Os trem/sound_feito.png'))
-img.append(text_e(imgload[11]))
 imgload.append(pygame.image.load('Os trem/mute_feito.png'))
+img.append(text_e(imgload[11]))
+imgload.append(pygame.image.load('Os trem/sound_feito.png'))
 img.append(text_e(imgload[12]))
 imgload.append(pygame.image.load('Os trem/quitar.png'))
 img.append(text_e(imgload[13]))
@@ -118,8 +118,10 @@ multiplicador_pts1 = 1
 multiplicador_pts2 = 1
 qtde_lolis_capturadas = 0
 aux_tempo_alternacao1 = 0
+aux_rand_ninja = 0
 aux_t_col = 0
 aux_t_ninjas = 0
+n_colisoes_3 = 0
 alterna_loli = True
 ultima_tecla = 0
 start = time.time()
