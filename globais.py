@@ -115,6 +115,8 @@ imgload.append(pygame.image.load('Os trem/botao_borda.png'))
 img.append(text_e(imgload[50]))
 imgload.append(pygame.image.load('Os trem/ninjas_special3.png'))
 img.append(text_e(imgload[51]))
+imgload.append(pygame.image.load('Os trem/ninjas_special5.png'))
+img.append(text_e(imgload[52]))
 
 glutInit()
 pts = 0
