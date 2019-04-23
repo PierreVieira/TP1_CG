@@ -332,7 +332,7 @@ def redesenha():
                         texturas.init_tex(globais.imgload[45], globais.img[45])
                     else:
                         ninja_rand()
-                    if c['x'] >= 0:
+                    if globais.anzol['x'] <= 0:
                         desenha_quadrado(c, 1)
                     else:
                         desenha_quadrado(c)

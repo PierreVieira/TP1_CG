@@ -8,19 +8,20 @@ import texturas
 import gerador_de_coordenadas1
 import colisao
 from arquivos import *
+from math import *
 def ninja_ataca():
     t = time() - globais.start
     texturas.init_tex(globais.imgload[48], globais.img[48])
     if t - globais.TNINJAS <= 0.3:
         globais.x = globais.anzol['x']
         globais.y = globais.anzol['y']
-        desenheiro.desenha_quadrado(antes_ataque)
 
     elif t - globais.TNINJAS <= 1:
         antes_ataque['x'] = globais.x
         antes_ataque['y'] = globais.y
         desenheiro.desenha_quadrado(antes_ataque)
     elif 1 <= t - globais.TNINJAS <= 3:
+        print('k')
         globais.TNINJAS = t
         ataque['x'] = globais.x
         ataque['y'] = globais.y
@@ -38,35 +39,43 @@ def ninja_ataca():
 
 def verificar_tempo(quadrado):
     quadrado['tempo_morte'] = time() - globais.start
-    print(int(quadrado['tempo_morte']))
     if int(quadrado['tempo_morte'])%quadrado['tempo_resp'] == 0:
         quadrado['visivel'] = True
         quadrado['tempo_morte'] = 0
 
 def mov_ninjas_lolis(c):
-    t = ninjas[c]['velocidade'] / 500
-    if ninjas[c]['x'] >= globais.anzol['x'] + 40 and ninjas[c]['y'] >= globais.anzol['y'] + 40:
-        ninjas[c]['x'] -= t + globais.anzol['y'] / 1000
-        ninjas[c]['y'] -= t + globais.anzol['x'] / 1000
-    elif ninjas[c]['x'] <= globais.anzol['x'] - 40 and ninjas[c]['y'] >= globais.anzol['y'] + 40:
-        ninjas[c]['x'] += t + globais.anzol['y'] / 1000
-        ninjas[c]['y'] -= t + globais.anzol['x'] / 1000
-    elif ninjas[c]['x'] >= globais.anzol['x'] + 40 and ninjas[c]['y'] <= globais.anzol['y'] - 40:
-        ninjas[c]['x'] -= t + globais.anzol['y'] / 1000
-        ninjas[c]['y'] += t + globais.anzol['x'] / 1000
-    elif ninjas[c]['x'] <= globais.anzol['x'] + 40 and ninjas[c]['y'] <= globais.anzol['y'] - 40:
-        ninjas[c]['x'] += t + globais.anzol['y'] / 1000
-        ninjas[c]['y'] += t + globais.anzol['x'] / 1000
+    t = ninjas[c]['velocidade'] / 5000
+    r = 40
+    globais.s += t
+    ninjas[c]['x'] = globais.anzol['x'] + r*cos(globais.s)
+    ninjas[c]['y'] = globais.anzol['y'] + r*sin(globais.s)
 
 
 def mov_ninjas():
     for c in range(len(ninjas)):
+        if colisao.collision(globais.anzol, ninjas[c]):
+            globais.HP += 0.1
+            if globais.HP >= 1:
+                globais.HP = 0
+                if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
+                    hank(globais.nomeJogador, globais.pts)
+                    exit()
+                objetos_segunda_parte.qtde_vidas[0].pop(-1)
         if ninjas[c]['id'] == 120:
-            if randint(0, 100) == 1 or globais.AUX:
+            if randint(0, 1000) == 1 or globais.AUX:
                 globais.AUX = 1
+                t = time() - globais.start
                 ninja_ataca()
             mov_ninjas_lolis(c)
         elif ninjas[c]['id'] == 130:
+            if colisao.collision(globais.anzol, ninjas[c]):
+                globais.HP += 0.3
+                if globais.HP >= 1:
+                    globais.HP = 0
+                    if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
+                        hank(globais.nomeJogador, globais.pts)
+                        exit()
+                    objetos_segunda_parte.qtde_vidas[0].pop(-1)
             t = ninjas[c]['velocidade'] / randint(400, 1200)
             ninjas[c]['y'] += t * 5
             if int(time() - globais.start) % 2 == 0:
@@ -105,23 +114,23 @@ def mov_ninjas():
                 ninjas[c]['direcao'] = True
 
             if ninjas[c]['direcaoY'] and ninjas[c]['direcao']:
-                ninjas[c]['x'] += t/100
-                ninjas[c]['y'] += t/100
+                ninjas[c]['x'] += t/60
+                ninjas[c]['y'] += t/60
             elif ninjas[c]['direcaoY'] and not(ninjas[c]['direcao']):
-                ninjas[c]['x'] -= t/100
-                ninjas[c]['y'] += t/100
+                ninjas[c]['x'] -= t/60
+                ninjas[c]['y'] += t/60
             elif not(ninjas[c]['direcaoY']) and ninjas[c]['direcao']:
-                ninjas[c]['x'] += t/100
-                ninjas[c]['y'] -= t/100
+                ninjas[c]['x'] += t/60
+                ninjas[c]['y'] -= t/60
             else:
-                ninjas[c]['x'] -= t/100
-                ninjas[c]['y'] -= t/100
+                ninjas[c]['x'] -= t/60
+                ninjas[c]['y'] -= t/60
 
-        if (globais.n_colisoes_3+1) % 20 == 0 and globais.n_colisoes_3 <= 40:
+        if (globais.n_colisoes_3+1) % 20 == 0 and globais.n_colisoes_3 <= 20:
             ninjas[0+(globais.n_colisoes_3//20)]['id'] = 120
             ninjas[0+(globais.n_colisoes_3//20)]['n_colisoes'] = -70
             ninjas[0 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 10
-        elif (globais.n_colisoes_3+1) % 20 == 0 and 40 <= globais.n_colisoes_3 <= 80:
+        elif (globais.n_colisoes_3+1) % 20 == 0 and 20 <= globais.n_colisoes_3 <= 60:
             ninjas[2 + (globais.n_colisoes_3 // 20)]['id'] = 130
             ninjas[2 + (globais.n_colisoes_3 // 20)]['n_colisoes'] = -70
             ninjas[2 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 6

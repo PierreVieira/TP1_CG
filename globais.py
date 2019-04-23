@@ -126,6 +126,8 @@ azul = False
 verde = False
 x = 0
 y = 0
+s = 0
+HP = 0
 nomeJogador = ''
 multiplicador_pts1 = 1
 multiplicador_pts2 = 1
@@ -142,7 +144,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 2
+parte = 3
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,

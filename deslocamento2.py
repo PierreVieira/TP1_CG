@@ -102,7 +102,7 @@ def deslocamento_4(c): #Deslocamento Policiais
 
 def deslocamento_5(c,x): #Barricadas
     if globais.cont_fora_da_tela < 300:
-        t = all2[c]['velocidade']*globais.cont_fora_da_tela/4500
+        t = all2[c]['velocidade']*globais.cont_fora_da_tela/3000
     else:
         t = 0.045
     all2[c]['y'] -= t
