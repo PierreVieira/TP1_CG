@@ -164,6 +164,7 @@ def redesenha():
                     desenha_quadrado(c)
                     collision(anzol, c)
             if globais.esta_querendo_confirmar:
+                texturas.init_tex(globais.imgload[47], globais.img[47])
                 desenha_quadrado(menu_confi.mc)
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
@@ -179,6 +180,7 @@ def redesenha():
                     desenha_quadrado(c)
                     menu_pause.menu_p()
             if globais.esta_querendo_confirmar:
+                texturas.init_tex(globais.imgload[47], globais.img[47])
                 desenha_quadrado(menu_confi.mc)
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()
@@ -244,6 +246,7 @@ def redesenha():
                 desenha_quadrado(c)
             menu_pause.menu_p()
             if globais.esta_querendo_confirmar:
+                texturas.init_tex(globais.imgload[47], globais.img[47])
                 desenha_quadrado(menu_confi.mc)
             desenha_quadrado(globais.seguidor_mouse)
             glutSwapBuffers()

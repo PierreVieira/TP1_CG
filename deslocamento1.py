@@ -85,5 +85,5 @@ def deslocar(apenas_caminhao):
 
         elif (globais.cont_fora_da_tela+1) % 20 == 0 and 60 <= globais.cont_fora_da_tela <= 120:
             globais.multiplicador_pts1 += 0.0035
-            all1[4 + (globais.cont_fora_da_tela // 20)]['id'] = 2
-            all1[4 + (globais.cont_fora_da_tela // 20)]['cor'] = (0, 0, 0)
+            all1[3 + (globais.cont_fora_da_tela // 20)]['id'] = 2
+            all1[3 + (globais.cont_fora_da_tela // 20)]['cor'] = (0, 0, 0)

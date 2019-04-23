@@ -2,6 +2,21 @@ from objetos_terceira_parte import *
 from random import randint
 import globais
 from time import time
+import desenheiro
+
+def ninja_ataca():
+    if 4500 <= globais.TNINJAS <= 5500:
+        ataque['x'] = globais.x
+        # ataque['y'] = antes_ataque['y']
+        desenheiro.desenha_quadrado(ataque)
+        if globais.TNINJAS >= 1000:
+            globais.TNINJAS = 0
+    else:
+        antes_ataque['x'] = globais.anzol['x']
+        antes_ataque['y'] = globais.anzol['y']
+        globais.x = antes_ataque['x']
+        globais.y = antes_ataque['y']
+        desenheiro.desenha_quadrado(antes_ataque)
 
 
 def verificar_tempo(quadrado):
@@ -23,6 +38,9 @@ def mov_ninjas_lolis(c):
 def mov_ninjas():
     for c in range(len(ninjas)):
         if ninjas[c]['id'] == 120:
+            globais.TNINJAS += 1
+            if randint(0,1) == 1:
+                ninja_ataca()
             mov_ninjas_lolis(c)
         else:
             t = (ninjas[c]['velocidade']/5)
