@@ -111,8 +111,10 @@ imgload.append(pygame.image.load('Os trem/Captura de tela de 2019-04-23 08-47-28
 img.append(text_e(imgload[48]))
 imgload.append(pygame.image.load('Os trem/slash.png'))
 img.append(text_e(imgload[49]))
-# imgload.append(pygame.image.load('Os trem/Edge.png'))
-# img.append(text_e(imgload[50]))
+imgload.append(pygame.image.load('Os trem/botao_borda.png'))
+img.append(text_e(imgload[50]))
+imgload.append(pygame.image.load('Os trem/ninjas_special3.png'))
+img.append(text_e(imgload[51]))
 
 glutInit()
 pts = 0
@@ -138,7 +140,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 2
+parte = 'tela_inicial'
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,

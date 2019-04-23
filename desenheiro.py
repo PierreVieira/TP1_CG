@@ -121,6 +121,7 @@ def redesenha():
         desenha_quadrado(globais.botao_sair)
         texturas.init_tex(globais.imgload[7], globais.img[7])
         desenha_quadrado(globais.botao_instrucoes)
+        texturas.init_tex(globais.imgload[50], globais.img[50])
         desenha_quadrado(globais.botao_borda)
         #texturas.init_tex('seguidor_mouse')
         desenha_quadrado(globais.seguidor_mouse)

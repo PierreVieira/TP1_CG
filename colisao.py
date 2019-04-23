@@ -45,7 +45,7 @@ def collision(objeto, quadrado):
             elif 0 <= quadrado['id'] <= 2:
                 globais.pts += 10
 
-            if globais.pts >= 50:
+            if globais.pts >= 1500:
                 globais.estou_em_transicao = True
                 globais.esta_pausado = True
                 sleep(1)
