@@ -39,6 +39,17 @@ def movimentoMouse(x, y):
     x, y = conversao(x, y)
     seguidor_mouse['x'] = x
     seguidor_mouse['y'] = y
+    if globais.parte == 'menu':
+        if collision(seguidor_mouse, botao_iniciar_jogo):
+            print('desenhar em cima do botao_iniciar_jogo')
+        elif collision(seguidor_mouse, botao_creditos):
+            print('desenhar em cima do botao_creditos')
+        elif collision(seguidor_mouse, botao_sair):
+            print('desenhar em cima do botao_sair')
+        elif collision(seguidor_mouse, botao_instrucoes):
+            print('desenhar em cima do botao_instruções')
+        elif collision(seguidor_mouse, botao_ranking):
+            print('desenhar em cima do botao_ranking')
 
 def clicks_do_mouse(button, state, x, y):
     if button == GLUT_LEFT_BUTTON:
