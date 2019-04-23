@@ -1,4 +1,3 @@
-#Manipulando arquivos em python
 from datetime import datetime
 def exibir_resultado():
     manipulador3 = open('hs.txt', 'r')
