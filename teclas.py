@@ -1,9 +1,6 @@
-import globais
 from OpenGL.GLUT import *
-from time import time
 from menu_pause import *
 from mouse import voltando_ao_inicio
-import menu_pause
 
 def tecla(key, x = 0, y = 0):
     tec = ord(key)
@@ -30,9 +27,10 @@ def tecla(key, x = 0, y = 0):
         globais.anzol['x'] -= globais.anzol['velocidade']
     elif (tec == 100 or tec == 68) and not(globais.esta_pausado): #direita (d)
         globais.anzol['x'] += globais.anzol['velocidade']
-    elif (tec == 115 or tec == 83) and globais.parte == 'game_over':
+    elif (tec == 115 or tec == 83) and globais.parte == 'game_over': #sair
         exit()
-    elif (tec == 118 or tec == 86) and globais.parte == 'game_over':
+    elif (tec == 118 or tec == 86) and globais.parte == 'game_over': #voltar
+        voltando_ao_inicio()
         globais.parte = 'menu'
     if globais.esta_querendo_confirmar:
         if globais.ultima_tecla == 27:

@@ -4,6 +4,8 @@ from arquivos import *
 from globais import *
 import objetos_primeira_parte
 from pygame import mixer
+import globais
+from objetos_segunda_parte import *
 def conversao(x, y):
     if x < 300:
         x = -(100 -x/3)
@@ -26,13 +28,20 @@ def reorganizar(lista):
     return lista
 
 def voltando_ao_inicio():
+    globais.anzol['y'] = 90
+    globais.anzol['x'] = 0
     globais.parte = 'menu'
     globais.cont_fora_da_tela = 0
     nova_lista = []
     for c in objetos_primeira_parte.all1:
+        c['id'] = 0
         nova_lista.append(c)
+    for i in range(25):
+        globais.s2 -= 6
+        vida['x'] = globais.s2
+        objetos_segunda_parte.lives.append(vida.copy())
     objetos_primeira_parte.all1 = reorganizar(nova_lista)
-    globais.esta_pausado = not (globais.esta_pausado)
+    globais.esta_pausado = False
     globais.aux_musica = True
 
 def movimentoMouse(x, y):

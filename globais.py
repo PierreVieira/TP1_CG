@@ -166,6 +166,7 @@ verde = False
 x = 0
 y = 0
 s = 0
+s2 = 100
 HP = 0
 nomeJogador = ''
 game_over = False

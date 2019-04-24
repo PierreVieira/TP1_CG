@@ -132,10 +132,8 @@ def atirar(c):
             shots[c]['y'] = all2[pos]['y'] - 8
     if analise_de_proximidade(globais.anzol['x'], globais.anzol['y'], shots, 10):
         shots[c]['visivel'] = False
-        print('Distancia')
         t_col = time() - globais.start
         if t_col - globais.aux_t_col >= 1:
-            print('AAIAI')
             if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                 hank(globais.nomeJogador, globais.pts)
                 globais.parte = 'game_over'
@@ -151,7 +149,8 @@ def move():
     for c in range(len(objetos_primeira_parte.all1)):
         if randint(1, 10000) == 1:
             objetos_primeira_parte.all1[c]['id'] = 'loli_vida'
-            objetos_primeira_parte.all1[c]['cor'] = (0.4, 0.4, 0.4)
+
+
         deslocamento_3(c)
         for c in range(len(all2)):
             if all2[c]['id'] == 4:

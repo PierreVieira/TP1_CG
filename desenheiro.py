@@ -207,6 +207,14 @@ def redesenha():
             glutSwapBuffers()
 
     elif globais.parte == 2:
+        for c in range(len(all1)):
+            if all1[c]['id'] == 'loli_vida':
+                all1[c]['altura'] = 20
+                all1[c]['largura'] = 20
+            else:
+                all1[c]['altura'] = 11
+                all1[c]['largura'] = 11
+
         globais.anzol['velocidade'] = 12
         if globais.pts > 600:
             cor_back()

@@ -25,25 +25,25 @@ def check(pts):
 
 def check2(pts):
     if pts == '0':
-        texturas.init_tex(globais.imgload[53], globais.img[53])
-    elif pts == '1':
-        texturas.init_tex(globais.imgload[54], globais.img[54])
-    elif pts == '2':
-        texturas.init_tex(globais.imgload[55], globais.img[55])
-    elif pts == '3':
-        texturas.init_tex(globais.imgload[56], globais.img[56])
-    elif pts == '4':
-        texturas.init_tex(globais.imgload[57], globais.img[57])
-    elif pts == '5':
-        texturas.init_tex(globais.imgload[58], globais.img[58])
-    elif pts == '6':
-        texturas.init_tex(globais.imgload[59], globais.img[59])
-    elif pts == '7':
-        texturas.init_tex(globais.imgload[60], globais.img[60])
-    elif pts == '8':
-        texturas.init_tex(globais.imgload[61], globais.img[61])
-    elif pts == '9':
         texturas.init_tex(globais.imgload[62], globais.img[62])
+    elif pts == '1':
+        texturas.init_tex(globais.imgload[53], globais.img[53])
+    elif pts == '2':
+        texturas.init_tex(globais.imgload[54], globais.img[54])
+    elif pts == '3':
+        texturas.init_tex(globais.imgload[55], globais.img[55])
+    elif pts == '4':
+        texturas.init_tex(globais.imgload[56], globais.img[56])
+    elif pts == '5':
+        texturas.init_tex(globais.imgload[57], globais.img[57])
+    elif pts == '6':
+        texturas.init_tex(globais.imgload[58], globais.img[58])
+    elif pts == '7':
+        texturas.init_tex(globais.imgload[59], globais.img[59])
+    elif pts == '8':
+        texturas.init_tex(globais.imgload[60], globais.img[60])
+    elif pts == '9':
+        texturas.init_tex(globais.imgload[61], globais.img[61])
 
 def Pts(id):
     if globais.pts < 1000:
