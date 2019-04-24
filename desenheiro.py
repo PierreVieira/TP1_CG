@@ -159,7 +159,7 @@ def redesenha():
                     elif c['id'] == 1:
                         texturas.init_tex(globais.imgload[40], globais.img[40])
                     elif c['id'] == 2:
-                        texturas.init_tex(globais.imgload[14], globais.img[14])
+                        texturas.init_tex(globais.imgload[64], globais.img[64])
                     elif c['id'] == 3:
                         texturas.init_tex(globais.imgload[32], globais.img[32])
                         deslocar(True)
@@ -178,7 +178,7 @@ def redesenha():
                     elif c['id'] == 1:
                         alterna_lolis(38, 39)
                     elif c['id'] == 2:
-                        alterna_lolis(4, 5)
+                        alterna_lolis(66, 67)
                     desenha_quadrado(c)
                     menu_pause.menu_p()
             if globais.esta_querendo_confirmar:
@@ -199,7 +199,7 @@ def redesenha():
                     elif c['id'] == 1:
                         alterna_lolis(38, 39)
                     elif c['id'] == 2:
-                        alterna_lolis(4, 5)
+                        alterna_lolis(66, 67)
                     desenha_quadrado(c)
                     deslocar(False)
                     collision(anzol, c)
@@ -243,7 +243,7 @@ def redesenha():
                     elif c['id'] == 1:
                         texturas.init_tex(globais.imgload[41], globais.img[41])
                     elif c['id'] == 2:
-                        texturas.init_tex(globais.imgload[3], globais.img[3])
+                        texturas.init_tex(globais.imgload[65], globais.img[65])
                     elif c['id'] == 'loli_vida':
                         texturas.init_tex(globais.imgload[36], globais.img[36])
                     desenha_quadrado(c)
@@ -278,7 +278,7 @@ def redesenha():
                     elif c['id'] == 1:
                         texturas.init_tex(globais.imgload[41], globais.img[41])
                     elif c['id'] == 2:
-                        texturas.init_tex(globais.imgload[3], globais.img[3])
+                        texturas.init_tex(globais.imgload[65], globais.img[65])
                     elif c['id'] == 'loli_vida':
                         texturas.init_tex(globais.imgload[36], globais.img[36])
                     padrao_2(c)
@@ -293,8 +293,12 @@ def redesenha():
             glutSwapBuffers()
 
     elif globais.parte == 3:
-        texturas.init_tex(globais.imgload[37], globais.img[37])
-        desenha_quadrado(backg)
+        texturas.init_tex(globais.imgload[18], globais.img[18])
+        for c in PTS:
+            txt.Pts(c['id'])
+            desenha_quadrado(c)
+        texturas.init_tex(globais.imgload[68], globais.img[68])
+        desenha_quadrado(backg2)
         texturas.init_tex(globais.imgload[16], globais.img[16])
         desenha_quadrado(anzol)
         if not(globais.esta_pausado):

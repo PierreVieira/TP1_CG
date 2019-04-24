@@ -9,6 +9,7 @@ import gerador_de_coordenadas1
 import colisao
 from arquivos import *
 from math import *
+
 def ninja_ataca():
     if globais.VT <= 1000:
         globais.VT += 1
@@ -19,11 +20,15 @@ def ninja_ataca():
         globais.x = globais.anzol['x']
         globais.y = globais.anzol['y']
 
-    elif globais.VT <= 160:
+    elif globais.VT <= 80:
         antes_ataque['x'] = globais.x
         antes_ataque['y'] = globais.y
         desenheiro.desenha_quadrado(antes_ataque)
     elif globais.VT <= 200:
+        antes_ataque['x'] = globais.x
+        antes_ataque['y'] = globais.y
+        desenheiro.desenha_quadrado(antes_ataque,1)
+    elif globais.VT <= 300:
         globais.HP += 0.1
         ataque['x'] = globais.x
         ataque['y'] = globais.y
@@ -35,8 +40,6 @@ def ninja_ataca():
                 globais.parte = 'game_over'
                 return True
             objetos_segunda_parte.qtde_vidas[0].pop(-1)
-    else:
-        globais.AUX = 0
 
 
 def verificar_tempo(quadrado):
@@ -54,9 +57,10 @@ def mov_ninjas_lolis(c):
 
 
 def mov_ninjas():
+    globais.backg2['y'] -= 0.01
     for c in range(len(ninjas)):
         if colisao.collision(globais.anzol, ninjas[c]):
-            globais.HP += 0.1
+            globais.HP += 0.05
             if globais.HP >= 1:
                 globais.HP = 0
                 if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
@@ -65,13 +69,13 @@ def mov_ninjas():
                     return True
                 objetos_segunda_parte.qtde_vidas[0].pop(-1)
         if ninjas[c]['id'] == 120:
-            if randint(0, 1000) == 1 or globais.AUX:
+            if randint(0, 2) == 1 or globais.AUX:
                 globais.AUX = 1
                 ninja_ataca()
             mov_ninjas_lolis(c)
         elif ninjas[c]['id'] == 130:
             if colisao.collision(globais.anzol, ninjas[c]):
-                globais.HP += 0.3
+                globais.HP += 0.03
                 if globais.HP >= 1:
                     globais.HP = 0
                     if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
