@@ -50,10 +50,9 @@ def collision(objeto, quadrado):
             elif 0 <= quadrado['id'] <= 2:
                 globais.pts += 10
 
-            if globais.pts >= 1500:
+            if globais.pts >= 1000:
                 globais.estou_em_transicao = True
                 globais.esta_pausado = True
-                globais.aux_musica = True
                 sleep(1)
                 return True
 
@@ -81,8 +80,8 @@ def collision(objeto, quadrado):
                         hank(globais.nomeJogador, globais.pts)
                         globais.parte = 'game_over'
                         return True
-                qtde_vidas[0].pop(-1)
-                qtde_vidas[0].pop(-1)
+                    qtde_vidas[0].pop(-1)
+                    qtde_vidas[0].pop(-1)
         elif globais.parte == 3:
             quadrado['n_colisoes'] += 1
             globais.n_colisoes_3 += 1

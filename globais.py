@@ -149,8 +149,12 @@ imgload.append(pygame.image.load('Os trem/loli_parte3_4.png'))
 img.append(text_e(imgload[67]))
 imgload.append(pygame.image.load('Os trem/ceu_lua.jpg'))
 img.append(text_e(imgload[68]))
-imgload.append(pygame.image.load('Os trem/sword.png'))
+imgload.append(pygame.image.load('Os trem/parede.jpg'))
 img.append(text_e(imgload[69]))
+imgload.append(pygame.image.load('Os trem/tiro.png'))
+img.append(text_e(imgload[70]))
+imgload.append(pygame.image.load('Os trem/SWAT.jpg'))
+img.append(text_e(imgload[71]))
 
 
 glutInit()
@@ -181,7 +185,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 3
+parte = 'tela_inicial'
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,
@@ -209,8 +213,8 @@ interavel['cor'] = (1, 0, 0)
 #Definindo um objeto para seguir o mouse
 seguidor_mouse = quadrado.copy()
 seguidor_mouse['cor'] = (0, 0, 1)
-seguidor_mouse['largura'] = 5
-seguidor_mouse['altura'] = 5
+seguidor_mouse['largura'] = 0.5
+seguidor_mouse['altura'] = 0.5
 
 
 #Definindo um quadrado para as telas

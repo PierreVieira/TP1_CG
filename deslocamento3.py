@@ -32,7 +32,7 @@ def ninja_ataca():
         globais.HP += 0.1
         ataque['x'] = globais.x
         ataque['y'] = globais.y
-        texturas.init_tex(globais.imgload[4], globais.img[4])
+        texturas.init_tex(globais.imgload[48], globais.img[48])
         desenheiro.desenha_quadrado(ataque)
         if colisao.collision(globais.anzol, ataque):
             if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:

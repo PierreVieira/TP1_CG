@@ -12,7 +12,7 @@ def trans2():
             if c['id'] == 4:
                 c['y'] += 1
     else:
-        texturas.init_tex(globais.imgload[0], globais.img[0])
+        texturas.init_tex(globais.imgload[48], globais.img[48])
         sleep(1)
         globais.esta_pausado = False
         globais.estou_em_transicao = False

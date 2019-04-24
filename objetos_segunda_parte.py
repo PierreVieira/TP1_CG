@@ -1,7 +1,6 @@
 from gerador_de_objetos import gerador_objetos
 from gerador_de_coordenadas2 import *
 import globais
-from random import randint
 
 qtde_policiais = 5
 todos2 = []
@@ -46,7 +45,7 @@ todos2[0].append(barricada_e)
 todos2[0].append(barricada_d)
 all2 = gerador_objetos2(todos2)
 
-lista_tiros.append((gerador_objetos(7, 6, 2, 4, qtde_policiais, (0, 0, 0))))
+lista_tiros.append((gerador_objetos(7, 12, 4, 4, qtde_policiais, (0, 0, 0))))
 shots = coord_tiro(lista_tiros)
 
 qtde_vidas.append((gerador_objetos(8, 5, 5, 0, 25, (1, 1, 1))))
