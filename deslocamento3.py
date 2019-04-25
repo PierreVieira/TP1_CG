@@ -76,6 +76,8 @@ def mov_ninjas():
                     globais.parte = 'game_over'
                     return True
                 objetos_segunda_parte.qtde_vidas[0].pop(-1)
+        if ninjas[c]['id'] == 100:
+            ninjas[c]['temp_resp'] = 5
         if ninjas[c]['id'] == 120:
             if randint(0, 2) == 1 or globais.AUX:
                 globais.AUX = 1
@@ -141,11 +143,11 @@ def mov_ninjas():
                 ninjas[c]['x'] -= t/60
                 ninjas[c]['y'] -= t/60
 
-        if (globais.n_colisoes_3+1) % 20 == 0 and globais.n_colisoes_3 <= 20:
-            ninjas[0+(globais.n_colisoes_3//20)]['id'] = 120
-            ninjas[0+(globais.n_colisoes_3//20)]['n_colisoes'] = -70
+        if (globais.n_colisoes_3+1) % 60 == 0 and globais.n_colisoes_3 <= 60:
+            ninjas[0+(globais.n_colisoes_3//60)]['id'] = 120
+            ninjas[0+(globais.n_colisoes_3//60)]['n_colisoes'] = -70
             ninjas[0 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 20
-        elif (globais.n_colisoes_3+1) % 20 == 0 and 20 <= globais.n_colisoes_3 <= 60:
-            ninjas[2 + (globais.n_colisoes_3 // 20)]['id'] = 130
-            ninjas[2 + (globais.n_colisoes_3 // 20)]['n_colisoes'] = -70
-            ninjas[2 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 6
+        elif (globais.n_colisoes_3+1) % 60 == 0 and 60 <= globais.n_colisoes_3 <= 180:
+            ninjas[2 + (globais.n_colisoes_3 // 60)]['id'] = 130
+            ninjas[2 + (globais.n_colisoes_3 // 60)]['n_colisoes'] = -70
+            ninjas[2 + (globais.n_colisoes_3 // 60)]['tempo_resp'] = 6

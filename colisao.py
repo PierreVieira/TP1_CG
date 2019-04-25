@@ -50,7 +50,7 @@ def collision(objeto, quadrado):
             elif 0 <= quadrado['id'] <= 2:
                 globais.pts += 10
 
-            if globais.pts >= 1500:
+            if globais.pts >= 100:
                 globais.aux_musica = True
                 sleep(1)
                 globais.parte = 3
