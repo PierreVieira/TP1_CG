@@ -57,7 +57,15 @@ def mov_ninjas_lolis(c):
 
 
 def mov_ninjas():
-    globais.backg2['y'] -= 0.01
+    if globais.backg2['y'] >= 100:
+        globais.aux_back = True
+    elif globais.backg2['y'] <= -100:
+        globais.aux_back = False
+    if globais.aux_back:
+        globais.backg2['y'] -= 0.1
+    else:
+        globais.backg2['y'] += 0.1
+
     for c in range(len(ninjas)):
         if colisao.collision(globais.anzol, ninjas[c]):
             globais.HP += 0.005
@@ -136,7 +144,7 @@ def mov_ninjas():
         if (globais.n_colisoes_3+1) % 20 == 0 and globais.n_colisoes_3 <= 20:
             ninjas[0+(globais.n_colisoes_3//20)]['id'] = 120
             ninjas[0+(globais.n_colisoes_3//20)]['n_colisoes'] = -70
-            ninjas[0 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 10
+            ninjas[0 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 20
         elif (globais.n_colisoes_3+1) % 20 == 0 and 20 <= globais.n_colisoes_3 <= 60:
             ninjas[2 + (globais.n_colisoes_3 // 20)]['id'] = 130
             ninjas[2 + (globais.n_colisoes_3 // 20)]['n_colisoes'] = -70

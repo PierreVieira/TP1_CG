@@ -50,10 +50,10 @@ def collision(objeto, quadrado):
             elif 0 <= quadrado['id'] <= 2:
                 globais.pts += 10
 
-            if globais.pts >= 300:
-                globais.estou_em_transicao = True
-                globais.esta_pausado = True
+            if globais.pts >= 1500:
+                globais.aux_musica = True
                 sleep(1)
+                globais.parte = 3
                 return True
 
             elif quadrado['id'] == 4:
@@ -63,10 +63,6 @@ def collision(objeto, quadrado):
                         globais.parte = 'game_over'
                         return True
                 qtde_vidas[0].pop(-1)
-                if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
-                    hank(globais.nomeJogador, globais.pts)
-                    globais.parte = 'game_over'
-                    return True
                 qtde_vidas[0].pop(-1)
                 if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
                     hank(globais.nomeJogador, globais.pts)
@@ -76,25 +72,24 @@ def collision(objeto, quadrado):
                 quadrado['y'] = 3000
             elif quadrado['id'] == 5 or quadrado['id'] == 6:
                 if len(qtde_vidas[0]) <= 2:
-                    if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
-                        hank(globais.nomeJogador, globais.pts)
-                        globais.parte = 'game_over'
-                        return True
-                qtde_vidas[0].pop(-1)
-                qtde_vidas[0].pop(-1)
+                    hank(globais.nomeJogador, globais.pts)
+                    globais.parte = 'game_over'
+                else:
+                    qtde_vidas[0].pop(-1)
+                    qtde_vidas[0].pop(-1)
         elif globais.parte == 3:
             quadrado['n_colisoes'] += 1
             globais.n_colisoes_3 += 1
-            if quadrado['n_colisoes'] > 10 and quadrado['id'] == 100:
+            if quadrado['n_colisoes'] > 40 and quadrado['id'] == 100:
                 quadrado['visivel'] = False
                 quadrado['n_colisoes'] = 0
                 globais.pts += 20
-            elif quadrado['n_colisoes'] > 30 and quadrado['id'] == 120:
+            elif quadrado['n_colisoes'] > 10 and quadrado['id'] == 120:
                 quadrado['visivel'] = False
                 quadrado['n_colisoes'] = -70
                 globais.pts += 40
-            elif quadrado['n_colisoes'] > 15 and quadrado['id'] == 130:
+            elif quadrado['n_colisoes'] > 10 and quadrado['id'] == 130:
                 quadrado['visivel'] = False
-                quadrado['n_colisoes'] = -20
+                quadrado['n_colisoes'] = -70
                 globais.pts += 60
         return True

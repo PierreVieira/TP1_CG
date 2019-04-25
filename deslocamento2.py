@@ -3,20 +3,18 @@ from objetos_segunda_parte import *
 from random import randint, uniform
 import deslocamento1
 from time import time, sleep
-import texturas
 from arquivos import *
 
-def trans2():
-    if all2[0]['y'] <= globais.anzol['y'] - 30:
-        for c in all2:
-            if c['id'] == 4:
-                c['y'] += 1
-    else:
-        texturas.init_tex(globais.imgload[48], globais.img[48])
-        sleep(1)
-        globais.esta_pausado = False
-        globais.estou_em_transicao = False
-        globais.parte = 3
+# def trans2():
+#     if all2[0]['y'] <= globais.anzol['y'] - 30:
+#         for c in all2:
+#             if c['id'] == 4:
+#                 c['y'] += 1
+#     else:
+#         sleep(1)
+#         globais.esta_pausado = False
+#         globais.estou_em_transicao = False
+#         globais.parte = 3
 
 def cor_back():
     t = 0.05

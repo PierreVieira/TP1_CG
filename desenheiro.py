@@ -227,15 +227,15 @@ def redesenha():
             txt.Pts(c['id'])
             desenha_quadrado(c)
 
-        if globais.esta_pausado and globais.estou_em_transicao:
-            for c in all2:
-                texturas.init_tex(globais.imgload[0], globais.img[0])
-                if c['id'] == 4:
-                    desenha_quadrado(c)
-
-            trans2()
-            glutSwapBuffers()
-        elif globais.esta_pausado:
+        # if globais.esta_pausado and globais.estou_em_transicao:
+        #     for c in all2:
+        #         texturas.init_tex(globais.imgload[0], globais.img[0])
+        #         if c['id'] == 4:
+        #             desenha_quadrado(c)
+        #     texturas.init_tex(globais.imgload[48], globais.img[48])
+        #     trans2()
+        #     glutSwapBuffers()
+        if globais.esta_pausado:
             for c in shots:
                 if c['visivel']:
                     glPushMatrix()

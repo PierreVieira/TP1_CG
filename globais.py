@@ -147,7 +147,7 @@ imgload.append(pygame.image.load('Os trem/loli_parte3_3.png'))
 img.append(text_e(imgload[66]))
 imgload.append(pygame.image.load('Os trem/loli_parte3_4.png'))
 img.append(text_e(imgload[67]))
-imgload.append(pygame.image.load('Os trem/ceu_lua.jpg'))
+imgload.append(pygame.image.load('Os trem/ceu_lua.png'))
 img.append(text_e(imgload[68]))
 imgload.append(pygame.image.load('Os trem/parede.jpg'))
 img.append(text_e(imgload[69]))
@@ -174,6 +174,7 @@ multiplicador_pts1 = 1
 multiplicador_pts2 = 1
 qtde_lolis_capturadas = 0
 aux_tempo_alternacao1 = 0
+aux_back = False
 aux_rand_ninja = 0
 aux_t_col = 0
 aux_t_ninjas = 0

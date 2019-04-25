@@ -17,4 +17,4 @@ def tocarMusica():
     elif globais.parte == 'menu' and globais.aux_musica:
        padraozinhoPlayzim('Os trem/Dark Souls III Soundtrack OST - Main Menu Theme.mp3')
     elif globais.parte == 3 and globais.aux_musica:
-       padraozinhoPlayzim('Os trem/Dark Souls III Soundtrack OST - Main Menu Theme.mp3')
+       padraozinhoPlayzim('Os trem/DBS.mp3')
