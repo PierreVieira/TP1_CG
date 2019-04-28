@@ -11,10 +11,11 @@ from arquivos import *
 from math import *
 
 def ninja_ataca():
-    if globais.VT <= 1000:
+    if globais.VT <= 300:
         globais.VT += 1
     else:
         globais.VT = 0
+        globais.AUX = 0
     texturas.init_tex(globais.imgload[48], globais.img[48])
     if globais.VT <= 30:
         globais.x = globais.anzol['x']
@@ -24,27 +25,22 @@ def ninja_ataca():
         antes_ataque['x'] = globais.x
         antes_ataque['y'] = globais.y
         desenheiro.desenha_quadrado(antes_ataque)
-    elif globais.VT <= 200:
+    elif globais.VT <= 150:
         antes_ataque['x'] = globais.x
         antes_ataque['y'] = globais.y
-        desenheiro.desenha_quadrado(antes_ataque,1)
-    elif globais.VT <= 300:
-        globais.HP += 0.01
+        desenheiro.desenha_quadrado(antes_ataque, 1)
+    elif 230 <= globais.VT <= 300:
         ataque['x'] = globais.x
         ataque['y'] = globais.y
         texturas.init_tex(globais.imgload[48], globais.img[48])
         desenheiro.desenha_quadrado(ataque)
-        if colisao.collision(globais.anzol, ataque):
-            if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
-                hank(globais.nomeJogador, globais.pts)
-                globais.parte = 'game_over'
-                return True
-            objetos_segunda_parte.qtde_vidas[0].pop(-1)
+        # if globais.VT <= 260:
+
 
 
 def verificar_tempo(quadrado):
     quadrado['tempo_morte'] = time() - globais.start
-    if int(quadrado['tempo_morte'])%quadrado['tempo_resp'] == 0:
+    if int(quadrado['tempo_morte']) % quadrado['tempo_resp'] == 0:
         quadrado['visivel'] = True
         quadrado['tempo_morte'] = 0
 
@@ -68,7 +64,7 @@ def mov_ninjas():
 
     for c in range(len(ninjas)):
         if colisao.collision(globais.anzol, ninjas[c]):
-            globais.HP += 0.005
+            globais.HP += 0.01
             if globais.HP >= 1:
                 globais.HP = 0
                 if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
@@ -78,14 +74,14 @@ def mov_ninjas():
                 objetos_segunda_parte.qtde_vidas[0].pop(-1)
         if ninjas[c]['id'] == 100:
             ninjas[c]['temp_resp'] = 5
-        if ninjas[c]['id'] == 120:
-            if randint(0, 2) == 1 or globais.AUX:
+        if ninjas[c]['id'] == 120 and ninjas[c]['visivel']:
+            if randint(0, 150) == 1 or globais.AUX:
                 globais.AUX = 1
                 ninja_ataca()
             mov_ninjas_lolis(c)
         elif ninjas[c]['id'] == 130:
             if colisao.collision(globais.anzol, ninjas[c]):
-                globais.HP += 0.003
+                globais.HP += 0.006
                 if globais.HP >= 1:
                     globais.HP = 0
                     if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
@@ -93,7 +89,7 @@ def mov_ninjas():
                         globais.parte = 'game_over'
                         return True
                     objetos_segunda_parte.qtde_vidas[0].pop(-1)
-            t = ninjas[c]['velocidade'] / randint(400, 1200)
+            t = ninjas[c]['velocidade'] / 350
             ninjas[c]['y'] += t * 5
             if int(time() - globais.start) % 2 == 0:
                 ninjas[c]['direcao'] = True
@@ -120,7 +116,7 @@ def mov_ninjas():
                     ninjas[c]['cor'] = (1, 1, 0)
 
         else:
-            t = (ninjas[c]['velocidade']/5)
+            t = (ninjas[c]['velocidade']/3.5)
             if ninjas[c]['y'] >= 95: #Topo
                 ninjas[c]['direcaoY'] = False
             elif ninjas[c]['y'] <= -95: #Fundo
@@ -146,8 +142,8 @@ def mov_ninjas():
         if (globais.n_colisoes_3+1) % 60 == 0 and globais.n_colisoes_3 <= 60:
             ninjas[0+(globais.n_colisoes_3//60)]['id'] = 120
             ninjas[0+(globais.n_colisoes_3//60)]['n_colisoes'] = -70
-            ninjas[0 + (globais.n_colisoes_3 // 20)]['tempo_resp'] = 20
-        elif (globais.n_colisoes_3+1) % 60 == 0 and 60 <= globais.n_colisoes_3 <= 180:
+            ninjas[0 + (globais.n_colisoes_3 // 60)]['tempo_resp'] = 20
+        elif (globais.n_colisoes_3+1) % 60 == 0 and 60 < globais.n_colisoes_3 <= 180:
             ninjas[2 + (globais.n_colisoes_3 // 60)]['id'] = 130
             ninjas[2 + (globais.n_colisoes_3 // 60)]['n_colisoes'] = -70
             ninjas[2 + (globais.n_colisoes_3 // 60)]['tempo_resp'] = 6

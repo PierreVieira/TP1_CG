@@ -155,6 +155,8 @@ imgload.append(pygame.image.load('Os trem/tiro.png'))
 img.append(text_e(imgload[70]))
 imgload.append(pygame.image.load('Os trem/policial_game.png'))
 img.append(text_e(imgload[71]))
+imgload.append(pygame.image.load('Os trem/Edge.png'))
+img.append(text_e(imgload[72]))
 
 
 glutInit()

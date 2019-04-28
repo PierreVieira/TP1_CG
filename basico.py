@@ -6,7 +6,7 @@ def main_basico():
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB)
     glutInitWindowSize(600, 700)
     glutInitWindowPosition(500, 100)
-    glutCreateWindow(b'Pescaria')
+    glutCreateWindow(b'Loli Fishing')
     glutDisplayFunc(redesenha)
     #glutReshapeFunc(manter_prop)
     glOrtho(-100, 100, -100, 100, -1, 1)

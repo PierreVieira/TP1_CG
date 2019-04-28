@@ -154,6 +154,9 @@ def redesenha():
         if all1[-1]['id'] == 3 and globais.esta_pausado:
             for c in all1:
                 if c['visivel']:
+                    if c['id'] != 3:
+                        c['altura'] = 15
+                        c['largura'] = 15
                     if c['id'] == 0:
                         texturas.init_tex(globais.imgload[14], globais.img[14])
                     elif c['id'] == 1:
