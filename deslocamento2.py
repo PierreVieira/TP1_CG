@@ -7,6 +7,7 @@ from arquivos import *
 
 # def trans2():
 #     if all2[0]['y'] <= globais.anzol['y'] - 30:
+#         globais.aux_musica = False
 #         for c in all2:
 #             if c['id'] == 4:
 #                 c['y'] += 1
@@ -15,43 +16,44 @@ from arquivos import *
 #         globais.esta_pausado = False
 #         globais.estou_em_transicao = False
 #         globais.parte = 3
+#         globais.aux_musica = True
 
 def cor_back():
     t = 0.05
     if globais.vermelho:
-        globais.backg['cor'][0] -= t
-        globais.backg['cor'][1] += t
-        globais.backg['cor'][2] -= t
-        if globais.backg['cor'][0] <= 0.2 and globais.backg['cor'][2] <= 0.2:
+        globais.backg2['cor'][0] -= t
+        globais.backg2['cor'][1] += t
+        globais.backg2['cor'][2] -= t
+        if globais.backg2['cor'][0] <= 0.2 and globais.backg2['cor'][2] <= 0.2:
             globais.verde = True
             globais.vermelho = False
-            globais.backg['cor'][0] = 1
-            globais.backg['cor'][1] = 1
+            globais.backg2['cor'][0] = 1
+            globais.backg2['cor'][1] = 1
     elif globais.verde:
-        globais.backg['cor'][0] -= t
-        globais.backg['cor'][2] += t
-        globais.backg['cor'][1] -= t
-        if globais.backg['cor'][0] <= 0.2 and globais.backg['cor'][1] <= 0.2:
+        globais.backg2['cor'][0] -= t
+        globais.backg2['cor'][2] += t
+        globais.backg2['cor'][1] -= t
+        if globais.backg2['cor'][0] <= 0.2 and globais.backg2['cor'][1] <= 0.2:
             globais.azul = True
             globais.verde = False
-            globais.backg['cor'][0] = 1
-            globais.backg['cor'][2] = 1
+            globais.backg2['cor'][0] = 1
+            globais.backg2['cor'][2] = 1
     elif globais.azul:
-        globais.backg['cor'][1] += t
-        globais.backg['cor'][0] -= t
-        globais.backg['cor'][2] -= t
-        if globais.backg['cor'][0] <= 0.2 and globais.backg['cor'][2] <= 0.2:
+        globais.backg2['cor'][1] += t
+        globais.backg2['cor'][0] -= t
+        globais.backg2['cor'][2] -= t
+        if globais.backg2['cor'][0] <= 0.2 and globais.backg2['cor'][2] <= 0.2:
             globais.vermelho = True
             globais.azul = False
-            globais.backg['cor'][1] = 1
-            globais.backg['cor'][2] = 1
+            globais.backg2['cor'][1] = 1
+            globais.backg2['cor'][2] = 1
     else:
-        globais.backg['cor'][1] -= t
-        globais.backg['cor'][2] -= t
-        if globais.backg['cor'][1] <= 0.2:
+        globais.backg2['cor'][1] -= t
+        globais.backg2['cor'][2] -= t
+        if globais.backg2['cor'][1] <= 0.2:
             globais.vermelho = True
-            globais.backg['cor'][0] = 1
-            globais.backg['cor'][2] = 1
+            globais.backg2['cor'][0] = 1
+            globais.backg2['cor'][2] = 1
 
 def checkY2(c,x):
     if all2[c]['y'] <= -110:
@@ -144,6 +146,14 @@ def atirar(c):
         shots[c]['visivel'] = True
 
 def move():
+    if globais.backg2['y'] >= 100:
+        globais.aux_back = True
+    elif globais.backg2['y'] <= -100:
+        globais.aux_back = False
+    if globais.aux_back:
+        globais.backg2['y'] -= 0.01
+    else:
+        globais.backg2['y'] += 0.01
     for c in range(len(objetos_primeira_parte.all1)):
         if randint(1, 10000) == 1:
             objetos_primeira_parte.all1[c]['id'] = 'loli_vida'

@@ -32,14 +32,20 @@ def ninja_ataca():
     elif 230 <= globais.VT <= 300:
         ataque['x'] = globais.x
         ataque['y'] = globais.y
-        texturas.init_tex(globais.imgload[73], globais.img[73])
+        texturas.init_tex(globais.imgload[48], globais.img[48])
         desenheiro.desenha_quadrado(ataque)
-        if globais.VT <= 260:
-            texturas.init_tex(globais.imgload[73], globais.img[73])
-        elif globais.VT <= 280:
+        if colisao.collision(globais.anzol, ataque):
+            globais.HP += 0.01
+        if 230 < globais.VT <= 260:
             texturas.init_tex(globais.imgload[74], globais.img[74])
-        else:
-            texturas.init_tex(globais.imgload[75], globais.img[75])
+            desenheiro.desenha_quadrado(ataque)
+            if colisao.collision(globais.anzol, ataque):
+                globais.HP += 0.01
+        elif 260 < globais.VT <= 280:
+            texturas.init_tex(globais.imgload[73], globais.img[73])
+            desenheiro.desenha_quadrado(ataque)
+            if colisao.collision(globais.anzol, ataque):
+                globais.HP += 0.01
 
 
 def verificar_tempo(quadrado):
@@ -68,7 +74,7 @@ def mov_ninjas():
 
     for c in range(len(ninjas)):
         if colisao.collision(globais.anzol, ninjas[c]):
-            globais.HP += 0.01
+            globais.HP += 0.005
             if globais.HP >= 1:
                 globais.HP = 0
                 if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:
@@ -85,7 +91,7 @@ def mov_ninjas():
             mov_ninjas_lolis(c)
         elif ninjas[c]['id'] == 130:
             if colisao.collision(globais.anzol, ninjas[c]):
-                globais.HP += 0.006
+                globais.HP += 0.003
                 if globais.HP >= 1:
                     globais.HP = 0
                     if len(objetos_segunda_parte.qtde_vidas[0]) <= 0:

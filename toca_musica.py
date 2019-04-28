@@ -10,7 +10,7 @@ def tocarMusica():
     mixer.init()
     if globais.parte == 1 and globais.aux_musica:
         padraozinhoPlayzim('Os trem/Senbonzakura.mp3')
-    elif globais.estou_em_transicao:
+    elif globais.parte == 2 and globais.aux_musica:
         padraozinhoPlayzim('Os trem/Adestrador De Madeon.mp3')
     elif globais.parte == 'creditos' and globais.aux_musica:
         padraozinhoPlayzim('Os trem/dbs_YokaYoka Dance.mp3')

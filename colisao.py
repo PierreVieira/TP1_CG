@@ -2,6 +2,7 @@ from objetos_primeira_parte import *
 from deslocamento2 import *
 from arquivos import *
 import globais
+import toca_musica
 
 
 def collision(objeto, quadrado):
@@ -51,8 +52,8 @@ def collision(objeto, quadrado):
                 globais.pts += 10
 
             if globais.pts >= 1000:
-                globais.aux_musica = True
                 sleep(1)
+                globais.aux_musica = True
                 globais.parte = 3
                 return True
 

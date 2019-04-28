@@ -224,7 +224,7 @@ def redesenha():
         if globais.pts > 600:
             cor_back()
         texturas.init_tex(globais.imgload[37], globais.img[37])
-        desenha_quadrado(backg)
+        desenha_quadrado(backg2)
         texturas.init_tex(globais.imgload[16], globais.img[16])
         desenha_quadrado(anzol)
         texturas.init_tex(globais.imgload[18], globais.img[18])
@@ -233,12 +233,17 @@ def redesenha():
             desenha_quadrado(c)
 
         # if globais.esta_pausado and globais.estou_em_transicao:
+        #     glColor4f(0, 0, 0, 0 + globais.C)
+        #     texturas.init_tex(globais.imgload[16], globais.img[16])
+        #     desenha_quadrado(anzol)
+        #     texturas.init_tex(globais.imgload[37], globais.img[37])
+        #     desenha_quadrado(backg)
         #     for c in all2:
-        #         texturas.init_tex(globais.imgload[0], globais.img[0])
+        #         texturas.init_tex(globais.imgload[71], globais.img[71])
         #         if c['id'] == 4:
         #             desenha_quadrado(c)
-        #     texturas.init_tex(globais.imgload[48], globais.img[48])
         #     trans2()
+        #     globais.C += 0.01
         #     glutSwapBuffers()
         if globais.esta_pausado:
             for c in shots:

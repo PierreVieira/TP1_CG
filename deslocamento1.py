@@ -6,6 +6,7 @@ from time import time, sleep
 
 def deslocar_camburao(camburao):
     if camburao['y'] < -80:
+        globais.aux_musica = True
         camburao['y'] += camburao['velocidade']/2
     else:
         all1.pop(-1)
@@ -13,8 +14,8 @@ def deslocar_camburao(camburao):
         globais.parte = 2
         globais.estou_em_transicao = False
         globais.esta_pausado = False
+        globais.aux_musica = True
     globais.esta_querendo_confirmar = False
-    print(globais.pts)
 
 def checkY(c):
     if all1[c]['y'] >= 110:

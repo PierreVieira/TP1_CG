@@ -174,6 +174,7 @@ verde = False
 x = 0
 y = 0
 s = 0
+C = 0
 s2 = 100
 HP = 0
 nomeJogador = ''
@@ -194,7 +195,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 3
+parte = 'tela_inicial'
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,
