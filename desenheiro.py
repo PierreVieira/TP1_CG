@@ -178,6 +178,9 @@ def redesenha():
         elif globais.esta_pausado:
             for c in all1:
                 if c['visivel']:
+                    if c['id'] != 3:
+                        c['altura'] = 15
+                        c['largura'] = 15
                     if c['id'] == 0:
                         alterna_lolis(0, 1)
                     elif c['id'] == 1:
@@ -199,6 +202,9 @@ def redesenha():
             globais.aux_tempo_alternacao1 = tempo
             for c in all1:
                 if c['visivel']:
+                    if c['id'] != 3:
+                        c['altura'] = 15
+                        c['largura'] = 15
                     if c['id'] == 0:
                         alterna_lolis(0, 1)
                     elif c['id'] == 1:
