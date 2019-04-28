@@ -153,7 +153,7 @@ imgload.append(pygame.image.load('Os trem/parede.jpg'))
 img.append(text_e(imgload[69]))
 imgload.append(pygame.image.load('Os trem/tiro.png'))
 img.append(text_e(imgload[70]))
-imgload.append(pygame.image.load('Os trem/SWAT.jpg'))
+imgload.append(pygame.image.load('Os trem/policial_game.png'))
 img.append(text_e(imgload[71]))
 
 
@@ -179,7 +179,6 @@ aux_rand_ninja = 0
 aux_t_col = 0
 aux_t_ninjas = 0
 VT = 0
-TNINJAS = 0
 n_colisoes_3 = 0
 alterna_loli = True
 ultima_tecla = 0
