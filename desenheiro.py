@@ -143,6 +143,8 @@ def redesenha():
         glutSwapBuffers()
 
     elif globais.parte == 1:
+        globais.anzol['altura'] = 8
+        globais.anzol['largura'] = 8
         texturas.init_tex(globais.imgload[2], globais.img[2])
         desenha_quadrado(backg)
         texturas.init_tex(globais.imgload[16], globais.img[16])
@@ -310,9 +312,11 @@ def redesenha():
             glutSwapBuffers()
 
     elif globais.parte == 3:
+        globais.anzol['altura'] = 28
+        globais.anzol['largura'] = 20
         texturas.init_tex(globais.imgload[68], globais.img[68])
         desenha_quadrado(backg2)
-        texturas.init_tex(globais.imgload[16], globais.img[16])
+        texturas.init_tex(globais.imgload[72], globais.img[72])
         desenha_quadrado(anzol)
         texturas.init_tex(globais.imgload[18], globais.img[18])
         for c in PTS:

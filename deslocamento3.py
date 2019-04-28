@@ -32,10 +32,14 @@ def ninja_ataca():
     elif 230 <= globais.VT <= 300:
         ataque['x'] = globais.x
         ataque['y'] = globais.y
-        texturas.init_tex(globais.imgload[48], globais.img[48])
+        texturas.init_tex(globais.imgload[73], globais.img[73])
         desenheiro.desenha_quadrado(ataque)
-        # if globais.VT <= 260:
-
+        if globais.VT <= 260:
+            texturas.init_tex(globais.imgload[73], globais.img[73])
+        elif globais.VT <= 280:
+            texturas.init_tex(globais.imgload[74], globais.img[74])
+        else:
+            texturas.init_tex(globais.imgload[75], globais.img[75])
 
 
 def verificar_tempo(quadrado):

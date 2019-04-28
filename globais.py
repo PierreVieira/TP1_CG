@@ -157,6 +157,12 @@ imgload.append(pygame.image.load('Os trem/policial_game.png'))
 img.append(text_e(imgload[71]))
 imgload.append(pygame.image.load('Os trem/Edge.png'))
 img.append(text_e(imgload[72]))
+imgload.append(pygame.image.load('Os trem/ataque1.png'))
+img.append(text_e(imgload[73]))
+imgload.append(pygame.image.load('Os trem/ataque2.png'))
+img.append(text_e(imgload[74]))
+imgload.append(pygame.image.load('Os trem/ataque3.png'))
+img.append(text_e(imgload[75]))
 
 
 glutInit()
@@ -188,7 +194,7 @@ start = time.time()
 esta_pausado = False
 esta_querendo_confirmar = False
 estou_em_transicao = False
-parte = 'tela_inicial'
+parte = 3
 cont_fora_da_tela = 0
 quadrado = {
     'id_text': 0,
