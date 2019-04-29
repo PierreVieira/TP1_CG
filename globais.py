@@ -163,6 +163,8 @@ imgload.append(pygame.image.load('Os trem/ataque2.png'))
 img.append(text_e(imgload[74]))
 imgload.append(pygame.image.load('Os trem/ataque3.png'))
 img.append(text_e(imgload[75]))
+imgload.append(pygame.image.load('Os trem/sword.png'))
+img.append(text_e(imgload[76]))
 
 
 glutInit()
@@ -223,8 +225,8 @@ interavel['cor'] = (1, 0, 0)
 #Definindo um objeto para seguir o mouse
 seguidor_mouse = quadrado.copy()
 seguidor_mouse['cor'] = (0, 0, 1)
-seguidor_mouse['largura'] = 0.5
-seguidor_mouse['altura'] = 0.5
+seguidor_mouse['largura'] = 7
+seguidor_mouse['altura'] = 7
 
 
 #Definindo um quadrado para as telas

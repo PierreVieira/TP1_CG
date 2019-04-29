@@ -4,19 +4,20 @@ from random import randint, uniform
 import deslocamento1
 from time import time, sleep
 from arquivos import *
+from pygame import mixer
 
-# def trans2():
-#     if all2[0]['y'] <= globais.anzol['y'] - 30:
-#         globais.aux_musica = False
-#         for c in all2:
-#             if c['id'] == 4:
-#                 c['y'] += 1
-#     else:
-#         sleep(1)
-#         globais.esta_pausado = False
-#         globais.estou_em_transicao = False
-#         globais.parte = 3
-#         globais.aux_musica = True
+def trans2():
+    if all2[0]['y'] <= globais.anzol['y'] - 30:
+        mixer.music.stop()
+        for c in all2:
+            if c['id'] == 4:
+                c['y'] += 1
+    else:
+        sleep(1)
+        globais.esta_pausado = False
+        globais.estou_em_transicao = False
+        globais.parte = 3
+        globais.aux_musica = True
 
 def cor_back():
     t = 0.05

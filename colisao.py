@@ -53,8 +53,8 @@ def collision(objeto, quadrado):
 
             if globais.pts >= 1000:
                 sleep(1)
-                globais.aux_musica = True
-                globais.parte = 3
+                globais.esta_pausado = True
+                globais.estou_em_transicao = True
                 return True
 
             elif quadrado['id'] == 4:
