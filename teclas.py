@@ -23,10 +23,14 @@ def tecla(key, x = 0, y = 0):
             globais.esta_pausado = not(globais.esta_pausado)
             globais.esta_querendo_confirmar = False
             print('Pausando o programa')
-    elif (tec == 97 or tec == 65) and not(globais.esta_pausado): #esquerda (a)
+    elif (tec == 97 or tec == 65) and not(globais.esta_pausado) and globais.anzol['x'] >= -90: #esquerda (a)
         globais.anzol['x'] -= globais.anzol['velocidade']
-    elif (tec == 100 or tec == 68) and not(globais.esta_pausado): #direita (d)
+    elif (tec == 100 or tec == 68) and not(globais.esta_pausado) and globais.anzol['x'] <= 90: #direita (d)
         globais.anzol['x'] += globais.anzol['velocidade']
+    elif (tec == 83 or tec == 115) and not(globais.esta_pausado) and globais.anzol['y'] >= -90: #baixo (s)
+        globais.anzol['y'] -= globais.anzol['velocidade']
+    elif (tec == 87 or tec == 119) and not(globais.esta_pausado) and globais.anzol['y'] <= 90: #cima (w)
+        globais.anzol['y'] += globais.anzol['velocidade']
     elif (tec == 115 or tec == 83) and globais.parte == 'game_over': #sair
         exit()
     elif (tec == 118 or tec == 86) and globais.parte == 'game_over': #voltar
@@ -49,9 +53,9 @@ def tecla(key, x = 0, y = 0):
 
 def movimenta_anzol(self, key, x = 0, y = 0):
     if not(globais.esta_pausado):
-        if self == GLUT_KEY_UP and globais.anzol['y'] <= 90:
+        if self == GLUT_KEY_UP and globais.anzol['y'] <= 90: #movimenta pra cima
             globais.anzol['y'] += globais.anzol['velocidade']
-        elif self == GLUT_KEY_DOWN and globais.anzol['y'] >= -90:
+        elif self == GLUT_KEY_DOWN and globais.anzol['y'] >= -90: #movimenta pra baixo
             globais.anzol['y'] -= globais.anzol['velocidade']
         elif self == GLUT_KEY_LEFT and globais.anzol['x'] >= -90: #seta esquerda
             globais.anzol['x'] -= globais.anzol['velocidade']
