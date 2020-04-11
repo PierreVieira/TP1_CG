@@ -1,5 +1,5 @@
 from OpenGL.GLUT import *
-from toca_musica import tocarMusica
+from src.toca_musica import tocarMusica
 def atual(time):
     glutPostRedisplay()
     tocarMusica()

@@ -1,7 +1,6 @@
-from objetos_primeira_parte import *
+from src.objetos_primeira_parte import *
 from random import randint
-import gerador_de_coordenadas1
-import globais
+from src import globais, gerador_de_coordenadas1
 from time import time, sleep
 
 def deslocar_camburao(camburao):
@@ -69,7 +68,7 @@ def deslocamento_2(c):
     checkY(c)
 
 def deslocar(apenas_caminhao):
-    globais.pts = globais.multiplicador_pts1*globais.cont_fora_da_tela
+    globais.pts = globais.multiplicador_pts1 * globais.cont_fora_da_tela
     for c in range(len(all1)):
         if all1[c]['id'] == 0 and not(apenas_caminhao):
             deslocamento_0(c)
@@ -79,12 +78,12 @@ def deslocar(apenas_caminhao):
             deslocamento_2(c)
         elif all1[c]['id'] == 3:
             deslocar_camburao(all1[c])
-        if (globais.cont_fora_da_tela+1) % 20 == 0 and globais.cont_fora_da_tela <= 60:
+        if (globais.cont_fora_da_tela + 1) % 20 == 0 and globais.cont_fora_da_tela <= 60:
             globais.multiplicador_pts1 += 0.001
-            all1[0+(globais.cont_fora_da_tela//20)]['id'] = 1
-            all1[0+(globais.cont_fora_da_tela//20)]['cor'] = (1, 0, 1)
+            all1[0 + (globais.cont_fora_da_tela // 20)]['id'] = 1
+            all1[0 + (globais.cont_fora_da_tela // 20)]['cor'] = (1, 0, 1)
 
-        elif (globais.cont_fora_da_tela+1) % 20 == 0 and 60 <= globais.cont_fora_da_tela <= 120:
+        elif (globais.cont_fora_da_tela + 1) % 20 == 0 and 60 <= globais.cont_fora_da_tela <= 120:
             globais.multiplicador_pts1 += 0.0035
             all1[3 + (globais.cont_fora_da_tela // 20)]['id'] = 2
             all1[3 + (globais.cont_fora_da_tela // 20)]['cor'] = (0, 0, 0)

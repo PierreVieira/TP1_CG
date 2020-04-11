@@ -1,16 +1,14 @@
-from basico import *
-from globais import *
-from deslocamento1 import *
-from deslocamento2 import *
-from deslocamento3 import *
-from objetos_terceira_parte import*
-from colisao import collision
+from src.basico import *
+from src.globais import *
+from src.deslocamento1 import *
+from src.deslocamento2 import *
+from src.deslocamento3 import *
+from src.objetos_terceira_parte import*
+from src.colisao import collision
 from OpenGL.GLUT import *
 from OpenGL.GL import *
-import menu_pause
-import texturas
-import menu_confi
-import txt
+from src import menu_confi, menu_pause, texturas, txt
+
 
 def ninja_rand():
     t = time() - globais.start
@@ -102,9 +100,9 @@ def redesenha():
     if globais.parte == 'tela_inicial':
         texturas.init_tex(globais.imgload[35], globais.img[35])
         if globais.tela_i['cor'][0] < 1 and globais.tela_i['cor'][1] < 1 and globais.tela_i['cor'][2] < 1:
-            globais.tela_i['cor'][0] = t/5
-            globais.tela_i['cor'][1] = t/5
-            globais.tela_i['cor'][2] = t/5
+            globais.tela_i['cor'][0] = t / 5
+            globais.tela_i['cor'][1] = t / 5
+            globais.tela_i['cor'][2] = t / 5
         if t > 3.5:
             globais.parte = 'menu'
         desenha_quadrado(globais.tela_i)

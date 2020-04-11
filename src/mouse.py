@@ -1,11 +1,10 @@
-from colisao import *
-from menu_pause import *
-from arquivos import *
-from globais import *
-import objetos_primeira_parte
+from src.colisao import *
+from src.menu_pause import *
+from src.arquivos import *
+from src.globais import *
+from src import objetos_primeira_parte, globais
 from pygame import mixer
-import globais
-from objetos_segunda_parte import *
+from src.objetos_segunda_parte import *
 def conversao(x, y):
     if x < 300:
         x = -(100 -x/3)

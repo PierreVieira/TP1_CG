@@ -1,9 +1,8 @@
-import objetos_primeira_parte
-from objetos_segunda_parte import *
+from src import objetos_primeira_parte, deslocamento1
+from src.objetos_segunda_parte import *
 from random import randint, uniform
-import deslocamento1
 from time import time, sleep
-from arquivos import *
+from src.arquivos import *
 from pygame import mixer
 
 def trans2():
@@ -63,7 +62,7 @@ def checkY2(c,x):
         all2[c]['x'] = x
 
 def deslocamento_3(c): #Deslocamento caótico das lolis
-    t = (uniform(0.01, 0.1) * randint(1, 10))*objetos_primeira_parte.all1[c]['velocidade']/100
+    t = (uniform(0.01, 0.1) * randint(1, 10)) * objetos_primeira_parte.all1[c]['velocidade'] / 100
     objetos_primeira_parte.all1[c]['y'] += t
     if objetos_primeira_parte.all1[c]['x'] >= 95:
         objetos_primeira_parte.all1[c]['direcao'] = False
@@ -103,7 +102,7 @@ def deslocamento_4(c): #Deslocamento Policiais
 
 def deslocamento_5(c,x): #Barricadas
     if globais.cont_fora_da_tela < 300:
-        t = all2[c]['velocidade']*globais.cont_fora_da_tela/3000
+        t = all2[c]['velocidade'] * globais.cont_fora_da_tela / 3000
     else:
         t = 0.045
     all2[c]['y'] -= t

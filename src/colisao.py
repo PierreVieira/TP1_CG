@@ -1,8 +1,7 @@
-from objetos_primeira_parte import *
-from deslocamento2 import *
-from arquivos import *
-import globais
-import toca_musica
+from src.objetos_primeira_parte import *
+from src.deslocamento2 import *
+from src.arquivos import *
+from src import globais, toca_musica
 
 
 def collision(objeto, quadrado):

@@ -1,6 +1,4 @@
-import desenheiro
-import globais
-import texturas
+from src import desenheiro, globais, texturas
 
 #Definindo um quadrado para o submenu
 mp = globais.quadrado.copy()

@@ -1,5 +1,6 @@
 from pygame import mixer
-import globais
+from src import globais
+
 
 def padraozinhoPlayzim(nome_arq):
     mixer.music.load(nome_arq)
@@ -9,12 +10,12 @@ def padraozinhoPlayzim(nome_arq):
 def tocarMusica():
     mixer.init()
     if globais.parte == 1 and globais.aux_musica:
-        padraozinhoPlayzim('Os trem/Senbonzakura.mp3')
+        padraozinhoPlayzim('images/Senbonzakura.mp3')
     elif globais.parte == 2 and globais.aux_musica:
-        padraozinhoPlayzim('Os trem/Adestrador De Madeon.mp3')
+        padraozinhoPlayzim('images/Adestrador De Madeon.mp3')
     elif globais.parte == 'creditos' and globais.aux_musica:
-        padraozinhoPlayzim('Os trem/dbs_YokaYoka Dance.mp3')
+        padraozinhoPlayzim('images/dbs_YokaYoka Dance.mp3')
     elif globais.parte == 'menu' and globais.aux_musica:
-       padraozinhoPlayzim('Os trem/Dark Souls III Soundtrack OST - Main Menu Theme.mp3')
+       padraozinhoPlayzim('images/Dark Souls III Soundtrack OST - Main Menu Theme.mp3')
     elif globais.parte == 3 and globais.aux_musica:
-       padraozinhoPlayzim('Os trem/DBS.mp3')
+       padraozinhoPlayzim('images/DBS.mp3')

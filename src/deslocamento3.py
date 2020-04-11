@@ -1,13 +1,8 @@
-from objetos_terceira_parte import *
-import objetos_segunda_parte
+from src.objetos_terceira_parte import *
 from random import randint
-import globais
 from time import time
-import desenheiro
-import texturas
-import gerador_de_coordenadas1
-import colisao
-from arquivos import *
+from src import colisao, desenheiro, globais, gerador_de_coordenadas1, objetos_segunda_parte, texturas
+from src.arquivos import *
 from math import *
 
 def ninja_ataca():
@@ -58,8 +53,8 @@ def mov_ninjas_lolis(c):
     t = ninjas[c]['velocidade'] / 5000
     r = 40
     globais.s += t
-    ninjas[c]['x'] = globais.anzol['x'] + r*cos(globais.s)
-    ninjas[c]['y'] = globais.anzol['y'] + r*sin(globais.s)
+    ninjas[c]['x'] = globais.anzol['x'] + r * cos(globais.s)
+    ninjas[c]['y'] = globais.anzol['y'] + r * sin(globais.s)
 
 
 def mov_ninjas():
@@ -149,11 +144,11 @@ def mov_ninjas():
                 ninjas[c]['x'] -= t/60
                 ninjas[c]['y'] -= t/60
 
-        if (globais.n_colisoes_3+1) % 60 == 0 and globais.n_colisoes_3 <= 60:
-            ninjas[0+(globais.n_colisoes_3//60)]['id'] = 120
-            ninjas[0+(globais.n_colisoes_3//60)]['n_colisoes'] = -70
+        if (globais.n_colisoes_3 + 1) % 60 == 0 and globais.n_colisoes_3 <= 60:
+            ninjas[0 + (globais.n_colisoes_3 // 60)]['id'] = 120
+            ninjas[0 + (globais.n_colisoes_3 // 60)]['n_colisoes'] = -70
             ninjas[0 + (globais.n_colisoes_3 // 60)]['tempo_resp'] = 20
-        elif (globais.n_colisoes_3+1) % 60 == 0 and 60 < globais.n_colisoes_3 <= 180:
+        elif (globais.n_colisoes_3 + 1) % 60 == 0 and 60 < globais.n_colisoes_3 <= 180:
             ninjas[2 + (globais.n_colisoes_3 // 60)]['id'] = 130
             ninjas[2 + (globais.n_colisoes_3 // 60)]['n_colisoes'] = -70
             ninjas[2 + (globais.n_colisoes_3 // 60)]['tempo_resp'] = 6

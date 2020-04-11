@@ -1,5 +1,5 @@
 from random import randint
-from globais import *
+from src.globais import *
 def analise_de_proximidade(x_object, y_object, lista_objetos, distancia_permitida):
     for c in lista_objetos:
         distancia = ((x_object - c['x'])**2 + (y_object - c['y'])**2)**0.5

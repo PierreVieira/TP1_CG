@@ -1,5 +1,6 @@
 from random import randint
-import objetos_segunda_parte
+from src import objetos_segunda_parte
+
 
 def analise_de_proximidade(x_object, y_object, lista_objetos, distancia_permitida):
     for c in lista_objetos:

@@ -1,12 +1,12 @@
 from datetime import datetime
 def exibir_resultado():
-    manipulador3 = open('Os trem/hs.txt', 'r')
+    manipulador3 = open('../files/text_files/hs.txt', 'r')
     lista = manipulador3.readlines()
     print('\033[1;31;0m====== ESTES SÃO OS MELHORES JOGADORES ======\n\033[m')
     for c in lista:
         print(f'\033[0;34;0m{c}\n\033[m', end='')
     print('\033[1;31;0m======= DATAS E HORÁRIOS DOS RECORDES =======\n\033[m')
-    manipulador4 = open('Os trem/datas_hs.txt', 'r')
+    manipulador4 = open('../files/text_files/datas_hs.txt', 'r')
     lista2 = manipulador4.readlines()
     for c in lista2:
         print(f'\033[0;35;0m{c}\n\033[m', end='')
@@ -34,18 +34,18 @@ def alteracao_data(colocacao):
         if c != 2:
             s += ':'
     s += '\n'
-    manipulador2 = open('Os trem/datas_hs.txt', 'r')
+    manipulador2 = open('../files/text_files/datas_hs.txt', 'r')
     lista_dates = manipulador2.readlines()
     manipulador2.close()  # fecha o arquivo
     lista_dates[colocacao-1] = s
-    manipulador3 = open('Os trem/datas_hs.txt', 'w')
+    manipulador3 = open('../files/text_files/datas_hs.txt', 'w')
     for c in lista_dates:
         manipulador3.write(c)
     manipulador3.close()
 
 
 def alterar(lista_pontuacao2, nome, pontuacao, colocacao):
-    manipulador2 = open('Os trem/hs.txt', 'w')
+    manipulador2 = open('../files/text_files/hs.txt', 'w')
     lista_pontuacao2[colocacao - 1][1] = nome
     lista_pontuacao2[colocacao - 1][3] = pontuacao
     for c in lista_pontuacao2:
@@ -57,7 +57,7 @@ def alterar(lista_pontuacao2, nome, pontuacao, colocacao):
     alteracao_data(colocacao)
 
 def hank(nomeJogador, pontuacaoJogador):
-    manipulador = open('Os trem/hs.txt', 'r')
+    manipulador = open('../files/text_files/hs.txt', 'r')
     lista_pontuacao = manipulador.readlines()
     manipulador.close() #fecha o arquivo
     lista_pontuacao2 = []

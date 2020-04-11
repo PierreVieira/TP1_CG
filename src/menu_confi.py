@@ -1,6 +1,5 @@
 #Este arquivo cria um menu pequeno de confirmação
-import desenheiro
-import globais
+from src import desenheiro, globais
 
 #Definindo um quadrado para o submenu
 mc = globais.quadrado.copy()

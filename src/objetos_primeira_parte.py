@@ -1,5 +1,5 @@
-from gerador_de_objetos import gerador_objetos
-from gerador_de_coordenadas1 import gerador_objetos1
+from src.gerador_de_objetos import gerador_objetos
+from src.gerador_de_coordenadas1 import gerador_objetos1
 qtde_peixes = 9
 todos1 = []
 todos1.append(gerador_objetos(0, 14, 14, 80, qtde_peixes, (1, 1, 0)))

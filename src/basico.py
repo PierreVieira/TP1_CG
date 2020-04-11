@@ -1,7 +1,7 @@
-from desenheiro import *
-from atualiza import *
-from teclas import *
-from mouse import *
+from src.desenheiro import *
+from src.atualiza import *
+from src.teclas import *
+from src.mouse import *
 def main_basico():
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB)
     glutInitWindowSize(600, 700)

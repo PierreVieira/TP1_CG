@@ -1,6 +1,6 @@
-from gerador_de_objetos import gerador_objetos
-from gerador_de_coordenadas1 import gerador_objetos1
-import globais
+from src.gerador_de_objetos import gerador_objetos
+from src.gerador_de_coordenadas1 import gerador_objetos1
+from src import globais
 
 qtde_ninjas = 6
 todos_ninjas = []

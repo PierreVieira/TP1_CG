@@ -1,4 +1,4 @@
-from globais import *
+from src.globais import *
 from random import randint
 def gerador_objetos(id, altura, largura, velocidade, quantidade, cor):
     lista_objetos = []

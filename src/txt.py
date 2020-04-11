@@ -1,5 +1,5 @@
-import texturas
-import globais
+from src import globais, texturas
+
 
 def check(pts):
     if pts == '0':

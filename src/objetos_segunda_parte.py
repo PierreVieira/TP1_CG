@@ -1,6 +1,6 @@
-from gerador_de_objetos import gerador_objetos
-from gerador_de_coordenadas2 import *
-import globais
+from src.gerador_de_objetos import gerador_objetos
+from src.gerador_de_coordenadas2 import *
+from src import globais
 
 qtde_policiais = 5
 todos2 = []

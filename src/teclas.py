@@ -1,6 +1,6 @@
 from OpenGL.GLUT import *
-from menu_pause import *
-from mouse import voltando_ao_inicio
+from src.menu_pause import *
+from src.mouse import voltando_ao_inicio
 
 def tecla(key, x = 0, y = 0):
     tec = ord(key)
